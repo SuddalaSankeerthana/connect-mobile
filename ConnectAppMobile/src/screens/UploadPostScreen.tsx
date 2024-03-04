@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from "../styles/UploadPostScreen.styles";
 
 
@@ -13,10 +13,12 @@ export const UploadPostScreen = () => {
             source={require('../assets/cross-icon.png')}
           />
           <View style={styles.blueBox}>
-            <Image
-              style={styles.uploadIcon}
-              source={require('../assets/upload-icon.png')}
-            />
+            <TouchableOpacity>
+              <Image
+                style={styles.uploadIcon}
+                source={require('../assets/upload-icon.png')}
+              />
+            </TouchableOpacity>
             <Text style={styles.uploadImageText}>Upload the images</Text>
             <Text style={styles.supportedFormatsText}>
               Supported formats: JPEG, PNG, JPG
