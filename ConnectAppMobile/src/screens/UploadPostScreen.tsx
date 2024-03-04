@@ -15,6 +15,10 @@ export const UploadPostScreen = () => {
         style={styles.uploadIcon}
         source={require('../assets/upload-icon.png')}
       />
+      <Text style={styles.uploadImageText}>Upload the images</Text>
+      <Text style={styles.supportedFormatsText}>
+        Supported formats: JPEG, PNG, JPG
+      </Text>
     </View>
   );
 };
