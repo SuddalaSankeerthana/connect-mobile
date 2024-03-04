@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     height: 20,
     position: 'absolute',
     left: 150,
-    bottom:1,
+    bottom: 1,
   },
   uploadIcon: {
     alignItems: 'center',
@@ -36,8 +36,19 @@ export const styles = StyleSheet.create({
     width: 300,
     height: 200,
     padding: 20,
-    },
-    SafeAreaView: {
-     flex:1
-  }
+  },
+  SafeAreaView: {
+    flex: 1,
+  },
+  imageContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  selectedImage: {
+    width: 100,
+    height: 100,
+    margin: 5,
+    resizeMode: 'cover',
+  },
 });
