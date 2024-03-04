@@ -27,5 +27,13 @@ export const styles = StyleSheet.create({
   },
   uploadImageText: {
     marginVertical: 5,
-  }
+  },
+  blueBox: {
+    backgroundColor: 'rgba(238, 246, 255, 1)',
+    alignItems: 'center',
+    borderColor: 'blue',
+    width: 300,
+    height: 200,
+    padding: 20,
+  },
 });
