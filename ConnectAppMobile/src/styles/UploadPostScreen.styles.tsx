@@ -9,5 +9,17 @@ export const styles = StyleSheet.create({
   },
   uploadText: {
     fontWeight: 'bold',
-  }
+  },
+  crossIcon: {
+    alignItems: 'flex-end',
+    width: 20,
+    height: 20,
+    position: 'absolute',
+    right: 20,
+  },
+  uploadIcon: {
+    alignItems: 'center',
+    marginTop: 300,
+    marginVertical: 5,
+  },
 });
