@@ -1,13 +1,20 @@
-import React from "react";
-import { Text, View } from "react-native";
-import { styles } from "../styles/UploadPostScreen.styles";
-
-
+import React from 'react';
+import {Image, Text, View} from 'react-native';
+import {styles} from '../styles/UploadPostScreen.styles';
 
 export const UploadPostScreen = () => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.uploadText}>Upload</Text>
-        </View>
-    );
-}
+  return (
+    <View style={styles.container}>
+      <Text style={styles.uploadText}>Upload</Text>
+
+      <Image
+        style={styles.crossIcon}
+        source={require('../assets/cross-icon.png')}
+      />
+      <Image
+        style={styles.uploadIcon}
+        source={require('../assets/upload-icon.png')}
+      />
+    </View>
+  );
+};
