@@ -22,4 +22,10 @@ export const styles = StyleSheet.create({
     marginTop: 300,
     marginVertical: 5,
   },
+  supportedFormatsText: {
+    color: 'rgba(103, 103, 103, 1)',
+  },
+  uploadImageText: {
+    marginVertical: 5,
+  }
 });
