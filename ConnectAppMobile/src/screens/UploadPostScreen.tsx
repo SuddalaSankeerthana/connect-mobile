@@ -8,10 +8,12 @@ export const UploadPostScreen = () => {
       <>
         <View style={styles.container}>
           <Text style={styles.uploadText}>Upload</Text>
-          <Image
-            style={styles.crossIcon}
-            source={require('../assets/cross-icon.png')}
-          />
+          <TouchableOpacity>
+            <Image
+              style={styles.crossIcon}
+              source={require('../assets/cross-icon.png')}
+            />
+          </TouchableOpacity>
           <View style={styles.blueBox}>
             <TouchableOpacity>
               <Image
