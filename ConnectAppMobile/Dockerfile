@@ -7,7 +7,7 @@ FROM node:16-alpine
 WORKDIR /app
 
 # Copy the package.json and yarn.lock files to the working directory
-COPY gstpackage.json ./
+COPY package.json ./
 
 # Install app dependencies
 RUN npm install
