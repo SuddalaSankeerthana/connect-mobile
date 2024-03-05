@@ -8,6 +8,7 @@ import SigIn from '../components/registrationScreen/SignIn';
 import RegisterButton from '../components/registrationScreen/RegisterButton';
 import WelcomeAndTagline from '../components/registrationScreen/WelcomAndTagline';
 import BackGroundImage from '../components/registrationScreen/BackgroundImage';
+import styles from '../styles/registration.style';
 
 const RegistrationScreen = ({navigation}: any) => {
   const [fullName, setFullName] = useState('');
@@ -16,22 +17,9 @@ const RegistrationScreen = ({navigation}: any) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   return (
     <SafeAreaView>
-      <View
-        style={{
-          display: 'flex',
-          backgroundColor: '#F0F4F3',
-        }}>
+      <View style={styles.registrationContainer}>
         <BackGroundImage></BackGroundImage>
-        <View
-          style={{
-            alignContent: 'center',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginBottom: 'auto',
-            paddingLeft: 20,
-            paddingRight: 20,
-            top: '-2%',
-          }}>
+        <View style={styles.registrationInputContainer}>
           <LogoAndTitle></LogoAndTitle>
           <WelcomeAndTagline></WelcomeAndTagline>
           <RegistraionProfile></RegistraionProfile>

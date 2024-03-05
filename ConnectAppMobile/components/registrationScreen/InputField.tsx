@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
+import styles from '../../styles/registration.style';
 
 const TextInputBox = ({
   onChangeText,
@@ -26,21 +27,5 @@ const TextInputBox = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  inputContainer: {
-    flexDirection: 'row',
-    paddingBottom: 10,
-    paddingTop: 10,
-  },
-  inputStyle: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-    height: 50,
-    width: 380,
-    borderRadius: 25,
-    paddingLeft: '10%',
-  },
-});
 
 export default TextInputBox;

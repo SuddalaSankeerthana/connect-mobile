@@ -14,7 +14,6 @@ const LoginScreen = ({navigation}: any) => {
       <Button
         title="Login"
         onPress={() => {
-          console.log('login clicked');
           navigation.navigate('Home');
         }}></Button>
       <Button

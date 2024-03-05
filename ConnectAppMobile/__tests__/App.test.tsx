@@ -15,7 +15,6 @@ import {
 import AppStack from '../App';
 
 describe('Testing react navigation', () => {
-  // modify the below tests with existing components in the screen if failed
   test('test for page is at login screen', async () => {
     const component = <AppStack />;
     render(component);
