@@ -7,13 +7,12 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copy the package.json and yarn.lock files to the working directory
-COPY package.json ./
+COPY . .
 
 # Install app dependencies
 RUN npm install
 
 # Copy the entire app directory to the working directory
-COPY . .
 
 # Build the app for development
 RUN npx react-native bundle --platform ios --dev true --entry-file index.js --bundle-output ios/main.jsbundle --assets-dest ios/assets
