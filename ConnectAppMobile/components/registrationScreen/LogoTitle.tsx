@@ -8,7 +8,6 @@ const LogoAndTitle = (): React.JSX.Element => {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        // top: -20,
       }}>
       <Image
         source={require('../../images/png/logo2.png')}

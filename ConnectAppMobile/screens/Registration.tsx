@@ -1,15 +1,13 @@
 import React, {useState} from 'react';
-import {
-  Button,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-  SafeAreaView,
-} from 'react-native';
+import {Text, View, SafeAreaView} from 'react-native';
+
 import TextInputBox from '../components/registrationScreen/InputField';
 import LogoAndTitle from '../components/registrationScreen/LogoTitle';
 import RegistraionProfile from '../components/registrationScreen/RegistrationProfile';
+import SigIn from '../components/registrationScreen/SignIn';
+import RegisterButton from '../components/registrationScreen/RegisterButton';
+import WelcomeAndTagline from '../components/registrationScreen/WelcomAndTagline';
+import BackGroundImage from '../components/registrationScreen/BackgroundImage';
 
 const RegistrationScreen = ({navigation}: any) => {
   const [fullName, setFullName] = useState('');
@@ -23,14 +21,7 @@ const RegistrationScreen = ({navigation}: any) => {
           display: 'flex',
           backgroundColor: '#F0F4F3',
         }}>
-        <Image
-          style={{
-            marginBottom: 'auto',
-            marginEnd: 'auto',
-            left: '-2%',
-            top: '-2%',
-          }}
-          source={require('../images/png/shape.png')}></Image>
+        <BackGroundImage></BackGroundImage>
         <View
           style={{
             alignContent: 'center',
@@ -42,25 +33,7 @@ const RegistrationScreen = ({navigation}: any) => {
             top: '-2%',
           }}>
           <LogoAndTitle></LogoAndTitle>
-          <Text
-            style={{
-              fontSize: 18,
-              color: 'black',
-              fontFamily: 'bold',
-              fontWeight: '700',
-              marginTop: '5%',
-            }}>
-            Welcome to Onboard
-          </Text>
-          <Text
-            style={{
-              textAlign: 'center',
-              width: 203,
-              height: 40,
-              color: '#000000CC',
-            }}>
-            Let's help to meet up your connections.
-          </Text>
+          <WelcomeAndTagline></WelcomeAndTagline>
           <RegistraionProfile></RegistraionProfile>
           <TextInputBox
             placeholder="Enter your full name"
@@ -84,35 +57,15 @@ const RegistrationScreen = ({navigation}: any) => {
               setConfirmPassword(confirmPassword)
             }
             secureTextEntry={true}></TextInputBox>
-          <TouchableOpacity
-            style={{paddingTop: 30, paddingBottom: 10}}
-            onPress={() => navigation.navigate('Home')}>
-            <View
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: '#43A5EB',
-                width: 350,
-                height: 60,
-                borderRadius: 8,
-                paddingLeft: '5%',
-                paddingRight: 10,
-              }}>
-              <Text style={{color: 'white', fontWeight: '600', fontSize: 18}}>
-                Register
-              </Text>
-            </View>
-          </TouchableOpacity>
+          <RegisterButton navigation={navigation}></RegisterButton>
           <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
               paddingBottom: '20%',
             }}>
-            <Text> Already have an account? </Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-              <Text style={{color: '#43A5EB'}}>Sign in</Text>
-            </TouchableOpacity>
+            <Text style={{color: '#000000'}}> Already have an account? </Text>
+            <SigIn navigation={navigation}></SigIn>
           </View>
         </View>
       </View>
