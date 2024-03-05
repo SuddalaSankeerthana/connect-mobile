@@ -1,23 +1,26 @@
 import React from 'react';
-import {Button, Text, View} from 'react-native';
+import {
+  SafeAreaView,
+} from 'react-native';
 
-const LoginScreen = ({navigation}: any) => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        alignContent: 'center',
-        justifyContent: 'center',
-      }}>
-      <Text> Login screen</Text>
-      <Button
-        title="Login"
-        onPress={() => navigation.navigate('Home')}></Button>
-      <Button
-        title="Register"
-        onPress={() => navigation.navigate('Registration')}></Button>
-    </View>
-  );
-};
-export default LoginScreen;
+import LoginLogo from '../src/components/Logo';
+import InputField from '../src/components/InputFields';
+import LoginButton from '../src/components/Button';
+import Caption from '../src/components/Caption';
+import { styles } from '../src/styles/Login.styles';
+  
+function LoginScreen(navigation:any): React.JSX.Element {
+    const [text, onChangeText] = React.useState('');
+
+    return (
+      <SafeAreaView style={styles.loginMainContainer}>
+        <LoginLogo/>
+        <InputField onChangeText={onChangeText} value={text} label="Email"/>
+        <InputField onChangeText={onChangeText} value={text}  label="Password"/>
+        <LoginButton/>
+        <Caption text="Don't have an account?" />
+        <Caption text="Sign Up" />
+      </SafeAreaView>
+    );
+  }
+  export default LoginScreen;
