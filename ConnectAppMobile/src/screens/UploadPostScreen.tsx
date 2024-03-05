@@ -29,10 +29,10 @@ export const UploadPostScreen = () => {
         <Text style={styles.uploadText}>Upload</Text>
 
         <TouchableOpacity>
-          <Image
+        {!imagesSelected && (<Image
             style={styles.crossIcon}
-            source={require('../assets/cross-icon.png')}
-          />
+            source={require('../assets/back-icon.png')}
+        />)}
         </TouchableOpacity>
         {!imagesSelected && (
           <View style={styles.blueBox}>

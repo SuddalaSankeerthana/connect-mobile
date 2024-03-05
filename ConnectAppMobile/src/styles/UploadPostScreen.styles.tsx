@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     width: 20,
     height: 20,
     position: 'absolute',
-    left: 150,
+    right: 150,
     bottom: 1,
   },
   uploadIcon: {
