@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   uploadText: {
     fontWeight: 'bold',
   },
-  crossIcon: {
+  backIcon: {
     alignItems: 'flex-end',
     width: 20,
     height: 20,

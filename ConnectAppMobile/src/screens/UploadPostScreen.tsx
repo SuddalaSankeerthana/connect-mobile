@@ -30,7 +30,7 @@ export const UploadPostScreen = () => {
 
         <TouchableOpacity>
         {!imagesSelected && (<Image
-            style={styles.crossIcon}
+            style={styles.backIcon}
             source={require('../assets/back-icon.png')}
         />)}
         </TouchableOpacity>
