@@ -5,6 +5,7 @@ import {PostImage} from './PostImage';
 import {styles} from '../styles/HomeScreenBodyStyles';
 import { Profile } from './Profile';
 import { useState, useRef } from 'react';
+import React from 'react';
 
 const renderImages = ({item}: {item: images}) => {
   return (

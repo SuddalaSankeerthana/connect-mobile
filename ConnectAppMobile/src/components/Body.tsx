@@ -1,7 +1,8 @@
 import {View, FlatList} from 'react-native';
 import {PostDetails, PostsData} from '../seeder/PostDetails';
 import {styles} from '../styles/HomeScreenBodyStyles';
-import {PostItem} from './PostItem';
+import { PostItem } from '../components/PostItem';
+import React from 'react';
 
 const renderPostDetails = ({item}: {item: PostDetails}) => {
   return (

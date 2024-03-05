@@ -1,4 +1,5 @@
 import {Image, View, Text} from 'react-native';
+import React from 'react';
 import {styles} from '../styles/HomeScreenBodyStyles';
 
 export function Profile({
