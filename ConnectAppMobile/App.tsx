@@ -6,31 +6,15 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-
-
-
-
+import {HomeScreen} from './src/screens/HomeScreen';
+import {SafeAreaView} from 'react-native';
 
 function App(): React.JSX.Element {
-  
-
   return (
     <SafeAreaView>
-      
+      <HomeScreen />
     </SafeAreaView>
   );
 }
-
 
 export default App;
