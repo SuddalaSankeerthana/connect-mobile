@@ -108,4 +108,10 @@ export const styles = StyleSheet.create({
   cancelButtonText: {
     color: 'rgba(102, 112, 145, 1);',
   },
+  warningMessageText: {
+    right: -27,
+    bottom: 160,
+    color:'red'
+
+  }
 });

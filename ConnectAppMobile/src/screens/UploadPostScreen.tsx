@@ -4,7 +4,6 @@ import {
     Text,
   TextInput,
   TouchableOpacity,
-  Button,
   View,
 } from 'react-native';
 import {styles} from '../styles/UploadPostScreen.styles';
@@ -12,14 +11,25 @@ import ImagePicker, {ImageOrVideo} from 'react-native-image-crop-picker';
 export const UploadPostScreen = () => {
   const [selectedImages, setSelectedImages] = useState<ImageOrVideo[]>([]);
   const [imagesSelected, setImagesSelected] = useState(false);
+  const [warningMessage, setWarningMessage] = useState<string>("");
 
   const handleUploadIconPress = async () => {
     const images = await ImagePicker.openPicker({
       multiple: true,
       mediaType: 'photo',
     });
-    setSelectedImages(images);
-    setImagesSelected(true);
+    if (images.length <= 4) {
+      setWarningMessage('');
+      setSelectedImages(images);
+      setImagesSelected(true);
+   }
+   else {
+     setSelectedImages([]);
+     setImagesSelected(false);
+     setWarningMessage('You can select only upto four images')
+     
+
+    }
   };
     const handleCancel = () => {}
     const handleUpload = () => {};
@@ -29,25 +39,35 @@ export const UploadPostScreen = () => {
         <Text style={styles.uploadText}>Upload</Text>
 
         <TouchableOpacity>
-        {!imagesSelected && (<Image
-            style={styles.backIcon}
-            source={require('../assets/back-icon.png')}
-        />)}
+          {!imagesSelected && (
+            <Image
+              style={styles.backIcon}
+              source={require('../assets/back-icon.png')}
+            />
+          )}
         </TouchableOpacity>
+
         {!imagesSelected && (
-          <View style={styles.blueBox}>
-            <TouchableOpacity onPress={handleUploadIconPress}>
-              <Image
-                style={styles.uploadIcon}
-                source={require('../assets/upload-icon.png')}
-              />
-            </TouchableOpacity>
+          <View>
+            <View style={styles.blueBox}>
+              <TouchableOpacity onPress={handleUploadIconPress}>
+                <Image
+                  style={styles.uploadIcon}
+                  source={require('../assets/upload-icon.png')}
+                />
+              </TouchableOpacity>
 
-            <Text style={styles.uploadImageText}>Upload the images</Text>
+              <Text style={styles.uploadImageText}>Upload the images</Text>
 
-            <Text style={styles.supportedFormatsText}>
-              Supported formats: JPEG, PNG, JPG
-            </Text>
+              <Text style={styles.supportedFormatsText}>
+                Supported formats: JPEG, PNG, JPG
+              </Text>
+            </View>
+
+            {warningMessage && (
+              <Text style={styles.warningMessageText}>{warningMessage} </Text>
+            )}
+            {/* </View> */}
           </View>
         )}
       </View>
@@ -68,7 +88,7 @@ export const UploadPostScreen = () => {
               placeholderTextColor="#A0A0A0"
             />
           </View>
-          <View style= {styles.buttonContainer}>
+          <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={handleCancel}>
               <View style={styles.cancelButton}>
                 <Text style={styles.cancelButtonText}>Cancel</Text>
