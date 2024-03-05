@@ -6,7 +6,7 @@ const RegistraionProfile = () => {
   return (
     <View style={{display: 'flex'}}>
       <Image
-        style={{width: 80, height: 80, resizeMode: 'cover'}}
+        style={{width: 80, height: 80, resizeMode: 'cover', marginTop: '3%'}}
         source={require('../../images/png/user.png')}></Image>
       <TouchableOpacity>
         <Image

@@ -31,10 +31,11 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     paddingBottom: 10,
+    paddingTop: 10,
   },
   inputStyle: {
     flex: 1,
-    backgroundColor: '#43A5EB',
+    backgroundColor: '#FFFFFF',
     height: 50,
     width: 380,
     borderRadius: 20,
