@@ -5,7 +5,10 @@ const RegisterButton = ({navigation}: any) => {
   return (
     <TouchableOpacity
       style={{paddingTop: '12%', paddingBottom: '5%'}}
-      onPress={() => navigation.navigate('Home')}>
+      onPress={() => {
+        console.log('Register button clicked');
+        navigation.navigate('Home');
+      }}>
       <View
         style={{
           justifyContent: 'center',

@@ -10,6 +10,7 @@ const LogoAndTitle = (): React.JSX.Element => {
         justifyContent: 'center',
       }}>
       <Image
+        testID="logo"
         source={require('../../images/png/logo2.png')}
         style={{width: 38, height: 38}}></Image>
       <Text

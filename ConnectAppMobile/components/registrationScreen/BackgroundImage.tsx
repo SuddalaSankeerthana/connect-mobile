@@ -9,6 +9,7 @@ const BackGroundImage = () => {
         left: '-2%',
         top: '-2%',
       }}
+      testID="backgground-image"
       source={require('../../images/png/shape.png')}></Image>
   );
 };
