@@ -71,12 +71,12 @@ export const UploadPostScreen = () => {
           <View style= {styles.buttonContainer}>
             <TouchableOpacity onPress={handleCancel}>
               <View style={styles.cancelButton}>
-                <Text>Cancel</Text>
+                <Text style={styles.cancelButtonText}>Cancel</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={handleUpload}>
-              <View style={styles.cancelButton}>
-                <Text>Upload</Text>
+              <View style={styles.uploadButton}>
+                <Text style={styles.uploadButtonText}>Upload</Text>
               </View>
             </TouchableOpacity>
           </View>

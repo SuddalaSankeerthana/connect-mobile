@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    marginBottom: 350,
+    marginBottom: 250,
   },
   selectedImage: {
     width: 150,
@@ -75,16 +75,37 @@ export const styles = StyleSheet.create({
   },
   cancelButton: {
     marginBottom: 30,
-    width: 100,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginRight: -90,
     backgroundColor: 'white',
+    borderColor: 'rgba(236, 237, 242, 1)',
+    borderWidth: 0.5,
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+  },
+  uploadButton: {
+    marginBottom: 30,
+    marginLeft: -25,
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    backgroundColor: 'rgba(67, 165, 235, 1)',
   },
   buttonContainer: {
-    alignItems: 'center',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      top:-70,
+    top: -70,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  selectImagesText: {
+    left: 120,
+    bottom: 450,
+    color: 'red',
+  },
+  uploadButtonText: {
+    color: 'white',
+  },
+
+  cancelButtonText: {
+    color: 'rgba(102, 112, 145, 1);',
   },
 });
