@@ -36,10 +36,9 @@ export const styles = StyleSheet.create({
     borderStyle: 'dashed',
     borderColor: '#B2CFF1',
     backgroundColor: '#EEF6FF',
-    marginTop:290,
+    marginTop: 290,
     justifyContent: 'center',
-    alignItems:'center'
-
+    alignItems: 'center',
   },
   SafeAreaView: {
     flex: 1,
@@ -73,5 +72,19 @@ export const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.3,
     shadowRadius: 2,
+  },
+  cancelButton: {
+    marginBottom: 30,
+    width: 100,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  buttonContainer: {
+    alignItems: 'center',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      top:-70,
   },
 });
