@@ -13,13 +13,14 @@ const TextInputBox = ({
   value: string;
 }) => {
   return (
-    <View style={styles.passwordContainer}>
+    <View style={styles.inputContainer}>
       <TextInput
         style={styles.inputStyle}
         autoCorrect={false}
         value={value}
         secureTextEntry={secureTextEntry}
         placeholder={placeholder}
+        placeholderTextColor={'#000000CC'}
         onChangeText={onChangeText}
       />
     </View>
@@ -27,14 +28,17 @@ const TextInputBox = ({
 };
 
 const styles = StyleSheet.create({
-  passwordContainer: {
+  inputContainer: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderColor: '#000',
     paddingBottom: 10,
   },
   inputStyle: {
     flex: 1,
+    backgroundColor: '#43A5EB',
+    height: 50,
+    width: 380,
+    borderRadius: 20,
+    paddingLeft: '10%',
   },
 });
 

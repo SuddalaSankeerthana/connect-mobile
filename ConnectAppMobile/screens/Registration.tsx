@@ -2,22 +2,20 @@ import React, {useState} from 'react';
 import {
   Button,
   Text,
-  TextInput,
-  TextInputComponent,
-  Touchable,
   TouchableOpacity,
   View,
+  ImageBackground,
 } from 'react-native';
 import TextInputBox from '../components/registrationScreen/InputField';
 import LogoAndTitle from '../components/registrationScreen/LogoTitle';
 import RegistraionProfile from '../components/registrationScreen/RegistrationProfile';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const RegistrationScreen = ({navigation}: any) => {
-  const [userName, setUserName] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('ß');
+  const [confirmPassword, setConfirmPassword] = useState('');
   return (
     <View
       style={{
@@ -26,6 +24,16 @@ const RegistrationScreen = ({navigation}: any) => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
+      <ImageBackground
+        style={{
+          width: 150,
+          height: 150,
+          marginBottom: 'auto',
+          marginEnd: 'auto',
+          left: '-2%',
+          top: '-2%',
+        }}
+        source={require('../images/png/shape.png')}></ImageBackground>
       <Text>Registration screen</Text>
       <LogoAndTitle></LogoAndTitle>
       <Text>Welcome to Onboard</Text>
@@ -41,7 +49,7 @@ const RegistrationScreen = ({navigation}: any) => {
       <TextInputBox
         value={email}
         placeholder="Enter your Email"
-        onChangeText={email => setUserName(email)}
+        onChangeText={email => setEmail(email)}
         secureTextEntry={false}></TextInputBox>
       <TextInputBox
         placeholder="Enter password"

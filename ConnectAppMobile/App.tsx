@@ -5,6 +5,7 @@ import HomeScreen from './screens/Home';
 import LoginScreen from './screens/Login';
 import RegistrationScreen from './screens/Registration';
 import UploadScreen from './screens/Upload';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 type AppStackParamList = {
   Home: undefined;
