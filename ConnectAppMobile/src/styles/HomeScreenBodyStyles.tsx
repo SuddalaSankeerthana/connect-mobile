@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#43A5EB21',
-    borderBlockEndColor:'black',
+    borderBlockEndColor: 'black',
     borderRadius: 30,
     paddingTop: 10,
     margin: 25,
@@ -13,17 +13,15 @@ export const styles = StyleSheet.create({
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 3,
-
   },
 
-captionContainer:
-{
- display:'flex',
- justifyContent:'center',
- paddingTop:0,
- paddingBottom:20,
- paddingLeft:20,
-},
+  captionContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    paddingTop: 0,
+    paddingBottom: 20,
+    paddingLeft: 20,
+  },
   commentIcon: {
     height: 24,
     width: 28,
@@ -46,7 +44,7 @@ captionContainer:
     display: 'flex',
     flexDirection: 'row',
     borderRadius: 50,
-    marginBottom:-10,
+    marginBottom: -10,
     alignItems: 'center',
   },
   profileImage: {
@@ -60,13 +58,13 @@ captionContainer:
     height: 300,
     width: 280,
     marginRight: 30,
-    borderBlockEndColor:'black',
-    borderRadius:20
+    borderBlockEndColor: 'black',
+    borderRadius: 20,
   },
   imageContainer: {
     height: 350,
     width: 300,
-    marginRight:10,
+    marginRight: 10,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -79,5 +77,26 @@ captionContainer:
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+  },
+  modalContainer: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeIcon: {
+    color: 'white',
+  },
+  closeIconContainer: {
+    position: 'absolute',
+    top: 60,
+    right: 20,
+    backgroundColor: 'black',
+    borderRadius: 20,
+    padding: 5,
   },
 });
