@@ -7,7 +7,7 @@ import {Profile} from './Profile';
 import {useState, useRef} from 'react';
 import React from 'react';
 import {LikesAndComments} from './LikesandComments';
-import { Caption } from './Caption';
+import {Caption} from './Caption';
 
 const renderImages = ({item}: {item: images}) => {
   return (
@@ -22,13 +22,18 @@ export function PostItem({
   name,
   images,
   likes_count,
-  description
+  description,
 }: PostDetails) {
   const [page, setPage] = useState(0);
   const isCarousel = useRef(null);
   return (
     <View style={styles.postConitainer}>
-      <Profile profile_pic={profile_pic} name={name} />
+      <Profile
+        profile_pic={profile_pic}
+        name={name}
+        containerStyle={styles.profileContainer}
+        imageStyle={styles.profileImage}
+      />
       <Carousel
         ref={isCarousel}
         onSnapToItem={page => setPage(page)}
