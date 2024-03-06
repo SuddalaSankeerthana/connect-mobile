@@ -13,10 +13,15 @@ const LoginScreen = ({navigation}: any) => {
       <Text> Login screen</Text>
       <Button
         title="Login"
-        onPress={() => navigation.navigate('Home')}></Button>
+        onPress={() => {
+          navigation.navigate('Home');
+        }}></Button>
       <Button
         title="Register"
-        onPress={() => navigation.navigate('Registration')}></Button>
+        onPress={() => {
+          console.log('Register button clicked');
+          navigation.navigate('Registration');
+        }}></Button>
     </View>
   );
 };

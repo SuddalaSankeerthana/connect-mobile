@@ -1,0 +1,85 @@
+import {StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+  inputContainer: {
+    flexDirection: 'row',
+    paddingBottom: 10,
+    paddingTop: 10,
+  },
+  logo: {width: 38, height: 38},
+  inputStyle: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    height: 50,
+    width: 380,
+    borderRadius: 25,
+    paddingLeft: '10%',
+  },
+  registrationContainer: {
+    display: 'flex',
+    backgroundColor: '#F0F4F3',
+  },
+  registrationInputContainer: {
+    alignContent: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 'auto',
+    paddingLeft: 20,
+    paddingRight: 20,
+    top: '-2%',
+  },
+  profile: {width: 80, height: 80, resizeMode: 'cover', marginTop: '3%'},
+  editIcon: {width: 20, height: 20, top: -15, marginStart: 'auto'},
+  signInText: {color: '#43A5EB'},
+  alredyHaveAccount: {color: '#000000'},
+  tagLine: {
+    textAlign: 'center',
+    width: 203,
+    height: 40,
+    color: '#000000CC',
+  },
+  welcome: {
+    fontSize: 18,
+    color: 'black',
+    fontFamily: 'bold',
+    fontWeight: '700',
+    marginTop: '5%',
+  },
+  registerButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#43A5EB',
+    width: 350,
+    height: 60,
+    borderRadius: 8,
+    paddingLeft: '5%',
+    paddingRight: 10,
+  },
+  logoAndTitleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  registrationButtonContainer: {paddingTop: '12%', paddingBottom: '5%'},
+  registerButtonText: {color: 'white', fontWeight: '600', fontSize: 18},
+  title: {
+    color: '#43A5EB',
+    width: 118,
+    height: 26,
+    fontSize: 20,
+    fontWeight: '700',
+    paddingLeft: '2%',
+  },
+  backGroundImage: {
+    marginBottom: 'auto',
+    marginEnd: 'auto',
+    left: '-2%',
+    top: '-2%',
+  },
+  signIncontent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: '20%',
+  },
+});
+export default styles;

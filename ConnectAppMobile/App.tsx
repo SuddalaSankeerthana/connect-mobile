@@ -1,11 +1,11 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from './screens/Home';
-import LoginScreen from './screens/Login';
-import RegistrationScreen from './screens/Registration';
-import UploadScreen from './screens/Upload';
+
+import LoginScreen from './src/screens/Login';
+import RegistrationScreen from './src/screens/Registration';
+import UploadScreen from './src/screens/Upload';
+import HomeScreen from './src/screens/Home';
 
 type AppStackParamList = {
   Home: undefined;
