@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import {styles} from '../styles/UploadPostScreen.styles';
 import ImagePicker, { ImageOrVideo } from 'react-native-image-crop-picker';
+
+
 const UploadScreen = () => {
   const [selectedImages, setSelectedImages] = useState<ImageOrVideo[]>([]);
   const [imagesSelected, setImagesSelected] = useState(false);
@@ -52,6 +54,7 @@ const UploadScreen = () => {
             <View style={styles.blueBox}>
               <TouchableOpacity onPress={handleUploadIconPress}>
                 <Image
+                  testID="upload-icon"
                   style={styles.uploadIcon}
                   source={require('../assets/upload-icon.png')}
                 />
@@ -67,7 +70,6 @@ const UploadScreen = () => {
             {warningMessage && (
               <Text style={styles.warningMessageText}>{warningMessage} </Text>
             )}
-            {/* </View> */}
           </View>
         )}
       </View>
@@ -77,6 +79,7 @@ const UploadScreen = () => {
             key={index}
             style={styles.selectedImage}
             source={{uri: image.path}}
+            testID={`selected-image-${index}`}
           />
         ))}
       </View>
@@ -91,12 +94,14 @@ const UploadScreen = () => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={handleCancel}>
               <View style={styles.cancelButton}>
-                <Text style={styles.cancelButtonText}>Cancel</Text>
+                <Text testID="cancel-button" style={styles.cancelButtonText}>
+                  Cancel
+                </Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={handleUpload}>
               <View style={styles.uploadButton}>
-                <Text style={styles.uploadButtonText}>Upload</Text>
+                <Text testID="upload-button" style={styles.uploadButtonText}>Upload</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -107,3 +112,25 @@ const UploadScreen = () => {
 };
 
 export default UploadScreen;
+
+
+// import React from 'react';
+// import {Button, Text, View} from 'react-native';
+
+// const UploadScreen = ({navigation}: any) => {
+//   return (
+//     <View
+//       style={{
+//         flex: 1,
+//         alignItems: 'center',
+//         alignContent: 'center',
+//         justifyContent: 'center',
+//       }}>
+//       <Text>Upload screen</Text>
+//       <Button
+//         title="Upload"
+//         onPress={() => navigation.navigate('Home')}></Button>
+//     </View>
+//   );
+// };
+// export default UploadScreen;
