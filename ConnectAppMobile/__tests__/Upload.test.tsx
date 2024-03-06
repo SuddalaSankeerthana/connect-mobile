@@ -54,7 +54,22 @@ describe('UploadPostScreen component', () => {
       expect(getByTestId('selected-image-1')).toBeTruthy();
     });
 
-   
+   test('renders cancel and upload buttons when images are selected', async () => {
+     const {getByTestId} = render(<UploadScreen />);
+     const uploadIcon = getByTestId('upload-icon');
+
+
+     jest.mock('react-native-image-crop-picker', () => ({
+       openPicker: jest.fn().mockResolvedValue([{path: 'image1.jpg'}]),
+     }));
+
+     await act(async () => {
+       fireEvent.press(uploadIcon);
+     });
+
+     expect(getByTestId('cancel-button')).toBeTruthy();
+     expect(getByTestId('upload-button')).toBeTruthy();
+   });
 
 });  
 
