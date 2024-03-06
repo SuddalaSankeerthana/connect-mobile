@@ -1,14 +1,15 @@
 import React from 'react';
 import {TouchableOpacity, View, Text} from 'react-native';
-
+import { handleRegister } from '../../handlers/handleRegister';
 import styles from '../../styles/registration.style';
+import { RegisterRouteProps } from '../../types/RegisterRouteProps';
 
-const RegisterButton = ({navigation}: any) => {
+const RegisterButton = (props:any) => {
   return (
     <TouchableOpacity
       style={styles.registrationButtonContainer}
       onPress={() => {
-        navigation.navigate('Home');
+        handleRegister(props.userData)
       }}>
       <View style={styles.registerButton}>
         <Text style={styles.registerButtonText}>Register</Text>

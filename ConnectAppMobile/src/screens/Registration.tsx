@@ -15,6 +15,12 @@ const RegistrationScreen = ({navigation}: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const userData={
+    username: fullName,
+    email: email,
+    password: password,
+    profileImageAddress: "profileImageAddress"
+   }
   return (
     <SafeAreaView>
       <View style={styles.registrationContainer}>
@@ -45,7 +51,7 @@ const RegistrationScreen = ({navigation}: any) => {
               setConfirmPassword(confirmPassword)
             }
             secureTextEntry={true}></TextInputBox>
-          <RegisterButton navigation={navigation}></RegisterButton>
+          <RegisterButton navigation={navigation} userData={userData}></RegisterButton>
           <SigInContent></SigInContent>
         </View>
       </View>
