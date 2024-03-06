@@ -8,13 +8,13 @@ import {
   waitFor,
 } from '@testing-library/react-native';
 
-import BackGroundImage from '../components/registrationScreen/BackgroundImage';
-import LogoAndTitle from '../components/registrationScreen/LogoTitle';
-import RegisterButton from '../components/registrationScreen/RegisterButton';
-import RegistraionProfile from '../components/registrationScreen/RegistrationProfile';
-import SigIn from '../components/registrationScreen/SignIn';
-import SigInContent from '../components/registrationScreen/SiginContent';
-import RegistrationScreen from '../screens/Registration';
+import BackGroundImage from '../src/components/registrationScreen/BackgroundImage';
+import LogoAndTitle from '../src/components/registrationScreen/LogoTitle';
+import RegisterButton from '../src/components/registrationScreen/RegisterButton';
+import RegistraionProfile from '../src/components/registrationScreen/RegistrationProfile';
+import SigIn from '../src/components/registrationScreen/SignIn';
+import SigInContent from '../src/components/registrationScreen/SiginContent';
+import RegistrationScreen from '../src/screens/Registration';
 
 describe('Test for registration screen individual components', () => {
   test('test for background image component', () => {
