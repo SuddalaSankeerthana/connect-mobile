@@ -1,23 +1,31 @@
 import {Image, Text, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
-import { styles } from '../styles/HomeScreenBodyStyles';
+import {styles} from '../styles/HomeScreenBodyStyles';
+import LikeButton from './LikeButton';
 
-
-export function LikesAndComments({likes_count}: {likes_count: number}) {
+export function LikesAndComments({
+  likes_count,
+  like_status,
+}: {
+  likes_count: number;
+  like_status: boolean;
+}) {
+  const [likesCount, setLikesCount] = useState(likes_count);
   return (
-   
-      <View style={styles.likesAndComment}>
-        <View style={styles.heartIcon}>
-      <FontAwesomeIcon icon={farHeart} size={27}/>
+    <View style={styles.likesAndComment}>
+      <LikeButton
+        setLikesCount={setLikesCount}
+        likesCount={likesCount}
+        like_status={like_status}></LikeButton>
+      <View>
+        <Text>{likesCount}</Text>
       </View>
       <View>
-      <Text>{likes_count}</Text>
+        <Image
+          source={require('../assets/commentIcon.png')}
+          style={styles.commentIcon}></Image>
       </View>
-      <View>
-      <Image source={require('../assets/commentIcon.png')} style={styles.commentIcon}></Image>
-      </View>
-      </View>
+    </View>
   );
 }
