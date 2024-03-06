@@ -12,6 +12,13 @@ import {it} from '@jest/globals';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
+
+jest.mock('react-native-image-crop-picker', () => {
+  return {
+    openPicker: jest.fn().mockImplementation(() => Promise.resolve()),
+  };
+});
+
 it('renders correctly', () => {
   renderer.create(<App />);
 });
