@@ -12,13 +12,13 @@ profileName
   profile_pic: string;
   name: string;
   containerStyle?:any,
-  imageStyle:any
+  imageStyle?:any
   profileName?:any
 }) {
   return (
     <>
       <View style={containerStyle}>
-        <Image source={{uri: profile_pic}} style={imageStyle} />
+        <Image source={{uri: profile_pic}} style={imageStyle} testID="profile"/>
         <Text style={profileName}>{name}</Text>
       </View>
     </>
