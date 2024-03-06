@@ -7,7 +7,6 @@ import {Profile} from './Profile';
 import {useState, useRef} from 'react';
 import React from 'react';
 import {LikesAndComments} from './LikesandComments';
-import { Text } from 'react-native-svg';
 import { Caption } from './Caption';
 
 const renderImages = ({item}: {item: images}) => {
