@@ -7,18 +7,22 @@ export function Profile({
   name,
   containerStyle,
   imageStyle,
-profileName
+  profileName,
 }: {
   profile_pic: string;
   name: string;
-  containerStyle?:any,
-  imageStyle?:any
-  profileName?:any
+  containerStyle?: any;
+  imageStyle?: any;
+  profileName?: any;
 }) {
   return (
     <>
       <View style={containerStyle}>
-        <Image source={{uri: profile_pic}} style={imageStyle} testID="profile"/>
+        <Image
+          source={{uri: profile_pic}}
+          style={imageStyle}
+          testID="profile"
+        />
         <Text style={profileName}>{name}</Text>
       </View>
     </>
