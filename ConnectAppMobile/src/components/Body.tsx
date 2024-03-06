@@ -1,6 +1,5 @@
 import {View, FlatList} from 'react-native';
 import {PostDetails, PostsData} from '../seeder/PostDetails';
-import {styles} from '../styles/HomeScreenBodyStyles';
 import { PostItem } from '../components/PostItem';
 import React from 'react';
 
@@ -19,9 +18,9 @@ const renderPostDetails = ({item}: {item: PostDetails}) => {
 export function Body() {
   return (
     <>
-      <View style={styles.homeContainer}>
+      {/* <View style={styles.homeContainer}> */}
         <FlatList data={PostsData} renderItem={renderPostDetails} />
-      </View>
+      {/* </View> */}
     </>
   );
 }
