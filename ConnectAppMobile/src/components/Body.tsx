@@ -1,4 +1,4 @@
-import {View, FlatList} from 'react-native';
+import { FlatList} from 'react-native';
 import {PostDetails, PostsData} from '../seeder/PostDetails';
 import { PostItem } from '../components/PostItem';
 import React from 'react';
