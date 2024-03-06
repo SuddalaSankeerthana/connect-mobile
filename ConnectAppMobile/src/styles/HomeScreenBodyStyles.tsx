@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#43A5EB21',
-    borderBlockEndColor:'black',
+    borderBlockEndColor: 'black',
     borderRadius: 30,
     paddingTop: 10,
     margin: 25,
@@ -13,17 +13,74 @@ export const styles = StyleSheet.create({
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 3,
-
   },
-
-captionContainer:
+  profileName:
+  {
+color:'white',
+fontSize:13,
+fontWeight:'700',
+fontFamily:'Nunito'
+  },
+  headerProfileContainer: {
+    display: 'flex',
+    flexDirection: 'row-reverse',
+    alignItems:'center',
+  },
+  headerProfile: {
+    height: 30,
+    width: 30,
+    borderRadius: 20,
+    margin:5
+  },
+  addIcon: {
+    color: 'white',
+  },
+menuBar:
 {
- display:'flex',
- justifyContent:'center',
- paddingTop:0,
- paddingBottom:20,
- paddingLeft:20,
+  color: 'white',
+  margin:2
 },
+  iconsContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 100,
+  },
+  logo: {
+    height: 25,
+    width: 25,
+  },
+  title: {
+    fontWeight: '800',
+    fontSize: 15,
+    color: 'white',
+    marginLeft: 2,
+  },
+  logoAndTitleContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 5,
+  },
+  header: {
+    height: 60,
+    backgroundColor: '#43A5EB',
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  homeContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  captionContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    paddingTop: 0,
+    paddingBottom: 20,
+    paddingLeft: 20,
+  },
   commentIcon: {
     height: 24,
     width: 28,
@@ -46,7 +103,7 @@ captionContainer:
     display: 'flex',
     flexDirection: 'row',
     borderRadius: 50,
-    marginBottom:-10,
+    marginBottom: -10,
     alignItems: 'center',
   },
   profileImage: {
@@ -60,13 +117,13 @@ captionContainer:
     height: 300,
     width: 280,
     marginRight: 30,
-    borderBlockEndColor:'black',
-    borderRadius:20
+    borderBlockEndColor: 'black',
+    borderRadius: 20,
   },
   imageContainer: {
     height: 350,
     width: 300,
-    marginRight:10,
+    marginRight: 10,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -75,7 +132,7 @@ captionContainer:
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
-  homeContainer: {
+  bodyContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
