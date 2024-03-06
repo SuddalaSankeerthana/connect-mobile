@@ -5,14 +5,14 @@
 import 'react-native';
 import React from 'react';
 import LoginScreen from '../screens/Login';
-import { render, screen, fireEvent } from '@testing-library/react-native';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react-native';
 // Note: import explicitly to use the types shipped with jest.
 import {it} from '@jest/globals';
 import { NavigationContainer } from '@react-navigation/native';
-
-
-// Note: test renderer must be required after react-native.
+import { Alert } from 'react-native';
 import renderer from 'react-test-renderer';
+import InputField from '../src/components/InputFields';
+import LoginButton from '../src/components/Button';
 
 it('renders correctly', () => {
   renderer.create(<LoginScreen />);
@@ -109,5 +109,61 @@ describe("test for the login screens",()=>{
     const password=screen.getByText("Password")
     expect(password).toBeDefined();
   })
+
+  test("Alert on not filling all the details in input field",()=>{
+    render(<NavigationContainer>
+      <LoginButton email="" password=""/>
+      </NavigationContainer>)
+    jest.spyOn(Alert, 'alert');
+    const login= screen.getByText('Login')
+    expect(login).toBeDefined();
+    fireEvent.press(login)
+    expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
+  })
+
+
+  test("Alert on not filling all the details in input field",()=>{
+    render(<NavigationContainer>
+      <LoginButton email="hjdghgdgd" password=""/>
+      </NavigationContainer>)
+    jest.spyOn(Alert, 'alert');
+    const login= screen.getByText('Login')
+    expect(login).toBeDefined();
+    fireEvent.press(login)
+    expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
+  })
+
+  test("Alert on not filling all the details in input field",()=>{
+    render(<NavigationContainer>
+      <LoginButton email="hjdghgdgd@gmailcom" password=""/>
+      </NavigationContainer>)
+    jest.spyOn(Alert, 'alert');
+    const login= screen.getByText('Login')
+    expect(login).toBeDefined();
+    fireEvent.press(login)
+    expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
+  })
+
+  // test("Alert on not filling all the details in input field",()=>{
+  //   render(<NavigationContainer>
+  //     <LoginButton email="ytfhtf" password="fhj"/>
+  //     </NavigationContainer>)
+  //   jest.spyOn(Alert, 'alert');
+  //   const login= screen.getByText('Login')
+  //   expect(login).toBeDefined();
+  //   fireEvent.press(login)
+  //   expect(Alert.alert).toHaveBeenCalledWith("Please enter valid email address");
+  // })
+
+  // test("Alert on not filling all the details in input field",()=>{
+  //   render(<NavigationContainer>
+  //     <LoginButton email="hjdghgdgd@gmail.com" password="gfhfghf"/>
+  //     </NavigationContainer>)
+  //   jest.spyOn(Alert, 'alert');
+  //   const login= screen.getByText('Login')
+  //   expect(login).toBeDefined();
+  //   fireEvent.press(login)
+  //   expect(Alert.alert).toHaveBeenCalledWith("success you can login");
+  // })
 
 })
