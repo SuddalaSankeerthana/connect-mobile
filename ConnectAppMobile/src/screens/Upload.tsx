@@ -7,8 +7,8 @@ import {
   View,
 } from 'react-native';
 import {styles} from '../styles/UploadPostScreen.styles';
-import ImagePicker, {ImageOrVideo} from 'react-native-image-crop-picker';
-export const UploadPostScreen = () => {
+import ImagePicker, { ImageOrVideo } from 'react-native-image-crop-picker';
+const UploadScreen = () => {
   const [selectedImages, setSelectedImages] = useState<ImageOrVideo[]>([]);
   const [imagesSelected, setImagesSelected] = useState(false);
   const [warningMessage, setWarningMessage] = useState<string>("");
@@ -105,3 +105,5 @@ export const UploadPostScreen = () => {
     </>
   );
 };
+
+export default UploadScreen;
