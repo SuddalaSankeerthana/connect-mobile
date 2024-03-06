@@ -8,12 +8,14 @@ import {
 } from 'react-native';
 import {styles} from '../styles/UploadPostScreen.styles';
 import ImagePicker, { ImageOrVideo } from 'react-native-image-crop-picker';
+import { CancelButton } from '../components/CancelButton';
+import UploadIcon from '../components/UploadIcon';
 
 
-const UploadScreen = () => {
+const UploadScreen = ({navigation}: any) => {
   const [selectedImages, setSelectedImages] = useState<ImageOrVideo[]>([]);
   const [imagesSelected, setImagesSelected] = useState(false);
-  const [warningMessage, setWarningMessage] = useState<string>("");
+  const [warningMessage, setWarningMessage] = useState<string>('');
 
   const handleUploadIconPress = async () => {
     const images = await ImagePicker.openPicker({
@@ -24,17 +26,14 @@ const UploadScreen = () => {
       setWarningMessage('');
       setSelectedImages(images);
       setImagesSelected(true);
-   }
-   else {
-     setSelectedImages([]);
-     setImagesSelected(false);
-     setWarningMessage('You can select only upto four images')
-     
-
+    } else {
+      setSelectedImages([]);
+      setImagesSelected(false);
+      setWarningMessage('You can select only upto four images');
     }
   };
-    const handleCancel = () => {}
-    const handleUpload = () => {};
+  const handleCancel = () => {};
+  const handleUpload = () => {};
   return (
     <>
       <View style={styles.container}>
@@ -53,7 +52,7 @@ const UploadScreen = () => {
           <View>
             <View style={styles.blueBox}>
               <TouchableOpacity onPress={handleUploadIconPress}>
-                <Image
+                <UploadIcon
                   testID="upload-icon"
                   style={styles.uploadIcon}
                   source={require('../assets/upload-icon.png')}
@@ -93,15 +92,13 @@ const UploadScreen = () => {
           </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={handleCancel}>
-              <View style={styles.cancelButton}>
-                <Text testID="cancel-button" style={styles.cancelButtonText}>
-                  Cancel
-                </Text>
-              </View>
+              <CancelButton testID="cancel-button" text="Cancel" />
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleUpload}>
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
               <View style={styles.uploadButton}>
-                <Text testID="upload-button" style={styles.uploadButtonText}>Upload</Text>
+                <Text testID="upload-button" style={styles.uploadButtonText}>
+                  Upload
+                </Text>
               </View>
             </TouchableOpacity>
           </View>
