@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-import {Text, View, SafeAreaView} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
 
 import TextInputBox from '../components/registrationScreen/InputField';
 import LogoAndTitle from '../components/registrationScreen/LogoTitle';
 import RegistraionProfile from '../components/registrationScreen/RegistrationProfile';
-import SigIn from '../components/registrationScreen/SignIn';
 import RegisterButton from '../components/registrationScreen/RegisterButton';
 import WelcomeAndTagline from '../components/registrationScreen/WelcomAndTagline';
 import BackGroundImage from '../components/registrationScreen/BackgroundImage';
 import styles from '../styles/registration.style';
+import SigInContent from '../components/registrationScreen/SiginContent';
 
 const RegistrationScreen = ({navigation}: any) => {
   const [fullName, setFullName] = useState('');
@@ -46,15 +46,7 @@ const RegistrationScreen = ({navigation}: any) => {
             }
             secureTextEntry={true}></TextInputBox>
           <RegisterButton navigation={navigation}></RegisterButton>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              paddingBottom: '20%',
-            }}>
-            <Text style={{color: '#000000'}}> Already have an account? </Text>
-            <SigIn navigation={navigation}></SigIn>
-          </View>
+          <SigInContent></SigInContent>
         </View>
       </View>
     </SafeAreaView>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, View, Text} from 'react-native';
+
 import styles from '../../styles/registration.style';
 
 const RegisterButton = ({navigation}: any) => {

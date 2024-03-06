@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {Text, View, Image} from 'react-native';
+
 import styles from '../../styles/registration.style';
 
 const LogoAndTitle = (): React.JSX.Element => {

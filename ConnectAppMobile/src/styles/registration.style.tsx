@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+
 const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
@@ -74,6 +75,11 @@ const styles = StyleSheet.create({
     marginEnd: 'auto',
     left: '-2%',
     top: '-2%',
+  },
+  signIncontent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: '20%',
   },
 });
 export default styles;
