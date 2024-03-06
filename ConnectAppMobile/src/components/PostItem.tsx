@@ -43,6 +43,7 @@ export function PostItem({
         sliderHeight={100}
         sliderWidth={400}
         itemWidth={350}
+        testID="images"
       />
       <Pagination
         activeDotIndex={page}
