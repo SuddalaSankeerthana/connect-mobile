@@ -14,32 +14,35 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
-  profileName:
-  {
-color:'white',
-fontSize:13,
-fontWeight:'700',
-fontFamily:'Nunito'
+  logOutContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent:'center'
+  },
+  profileName: {
+    color: 'white',
+    fontSize: 13,
+    fontWeight: '700',
+    fontFamily: 'Nunito',
   },
   headerProfileContainer: {
     display: 'flex',
     flexDirection: 'row-reverse',
-    alignItems:'center',
+    alignItems: 'center',
   },
   headerProfile: {
     height: 30,
     width: 30,
     borderRadius: 20,
-    margin:5
+    margin: 5,
   },
   addIcon: {
     color: 'white',
   },
-menuBar:
-{
-  color: 'white',
-  margin:2
-},
+  menuBar: {
+    color: 'white',
+    margin: 2,
+  },
   iconsContainer: {
     display: 'flex',
     flexDirection: 'row',
