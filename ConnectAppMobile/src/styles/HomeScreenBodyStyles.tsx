@@ -44,11 +44,11 @@ export const styles = StyleSheet.create({
     margin: 2,
   },
   iconsContainer: {
-    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: 100,
+    marginStart:'auto',
+    padding:5
   },
   logo: {
     height: 25,
@@ -66,6 +66,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 5,
+    marginEnd:'auto'
   },
   header: {
     height: 60,
