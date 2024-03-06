@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import UploadScreen from '../screens/Upload';
+import UploadScreen from '../src/screens/Upload';
 import { act } from 'react-test-renderer';
 
 jest.mock('react-native-image-crop-picker', () => {
