@@ -10,6 +10,8 @@ import {styles} from '../styles/UploadPostScreen.styles';
 import ImagePicker, { ImageOrVideo } from 'react-native-image-crop-picker';
 import { CancelButton } from '../components/CancelButton';
 import UploadIcon from '../components/UploadIcon';
+import { UploadButton } from '../components/UploadButton';
+import { TextInputContainer } from '../components/TextInputContainer';
 
 
 const UploadScreen = ({navigation}: any) => {
@@ -84,22 +86,13 @@ const UploadScreen = ({navigation}: any) => {
       </View>
       {imagesSelected && (
         <>
-          <View style={styles.textInputContainer}>
-            <TextInput
-              placeholder="Add a caption"
-              placeholderTextColor="#A0A0A0"
-            />
-          </View>
+          <TextInputContainer placeholder="Add a caption" placeholderTextColor="#A0A0A0"/>
           <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={handleCancel}>
               <CancelButton testID="cancel-button" text="Cancel" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-              <View style={styles.uploadButton}>
-                <Text testID="upload-button" style={styles.uploadButtonText}>
-                  Upload
-                </Text>
-              </View>
+              <UploadButton testID="upload-button" text="Upload" />
             </TouchableOpacity>
           </View>
         </>
@@ -109,25 +102,3 @@ const UploadScreen = ({navigation}: any) => {
 };
 
 export default UploadScreen;
-
-
-// import React from 'react';
-// import {Button, Text, View} from 'react-native';
-
-// const UploadScreen = ({navigation}: any) => {
-//   return (
-//     <View
-//       style={{
-//         flex: 1,
-//         alignItems: 'center',
-//         alignContent: 'center',
-//         justifyContent: 'center',
-//       }}>
-//       <Text>Upload screen</Text>
-//       <Button
-//         title="Upload"
-//         onPress={() => navigation.navigate('Home')}></Button>
-//     </View>
-//   );
-// };
-// export default UploadScreen;
