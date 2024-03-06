@@ -121,8 +121,21 @@ export const styles = StyleSheet.create({
     height: 300,
     width: 280,
     marginRight: 30,
-    borderBlockEndColor: 'black',
     borderRadius: 20,
+  },
+  containerStyle:
+  {
+    paddingTop: -20,
+  },
+  inDotStyle:
+  {
+    backgroundColor:'grey'
+  },
+  dotStyle:
+  {
+    width: 10,
+    borderRadius: 18,
+    backgroundColor: '#0074FF',
   },
   imageContainer: {
     height: 350,

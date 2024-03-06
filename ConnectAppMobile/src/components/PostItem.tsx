@@ -52,17 +52,9 @@ export function PostItem({
         inactiveDotOpacity={0.4}
         inactiveDotScale={0.6}
         dotsLength={images.length}
-        dotStyle={{
-          width: 10,
-          borderRadius: 18,
-          backgroundColor: '#0074FF',
-        }}
-        containerStyle={{
-          paddingTop: -20,
-        }}
-        inactiveDotStyle={{
-          backgroundColor: 'grey',
-        }}
+        dotStyle={styles.dotStyle}
+        containerStyle={styles.containerStyle}
+        inactiveDotStyle={styles.inDotStyle}
       />
 
       <LikesAndComments likes_count={likes_count} />
