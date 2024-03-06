@@ -16,7 +16,7 @@ export function Header({navigation}: any) {
   return (
     <View style={styles.header}>
       <View style={styles.logoAndTitleContainer}>
-        <Image source={require('../assets/logo.png')} style={styles.logo} />
+        <Image source={require('../assets/logo.png')} style={styles.logo} testID="logo"/>
         <Text style={styles.title}>CONNECT</Text>
       </View>
       <View style={styles.iconsContainer}>
@@ -29,7 +29,7 @@ export function Header({navigation}: any) {
             profileName={styles.profileName}
           />
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate('Upload')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Upload')} testID="addIcon">
           <FontAwesomeIcon
             icon={faPlusSquare}
             size={27}
@@ -40,12 +40,12 @@ export function Header({navigation}: any) {
           visible={visible}
           anchor={
             <TouchableOpacity onPress={showMenu}>
-              <FontAwesomeIcon icon={faBars} size={27} style={styles.menuBar} />
+              <FontAwesomeIcon icon={faBars} size={27} style={styles.menuBar} testID="menuBar"/>
             </TouchableOpacity>
           }
           onRequestClose={hideMenu}>
           <MenuItem onPress={hideMenu} style={styles.logOutContainer}>
-            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')} >
               <Text>Log out</Text>
             </TouchableOpacity>
           </MenuItem>
