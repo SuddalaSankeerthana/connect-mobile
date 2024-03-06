@@ -1,13 +1,28 @@
 import React from 'react';
 import {SafeAreaView, Text, View, Image, Button, Pressable, TouchableOpacity} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import { styles } from '../styles/Login.styles';
+import { Alert } from 'react-native';
 
-function LoginButton(): React.JSX.Element {
+function LoginButton(props:any): React.JSX.Element {
+let emailRegex = /[_A-Za-z'\\.\\!'0-9-\\+]+@gmail+\.com/
+let emailRegex2 = /[_A-Za-z'\\.\\!'0-9-\\+]+@everest+\.engineering/
+const handleValidations=()=>{
+  if((!props.password) &&  (!props.email))
+  {
+  Alert.alert('please fill out all the fields')
+  return;
+  }
+  if(!emailRegex.test(props.email) || !emailRegex2.test(props.email) )
+  {
+    Alert.alert('Please enter valid email');
+     return;
+  }
+  else{
+    Alert.alert('Success you can login');
+  }
+}
   return (
-    <TouchableOpacity onPress={()=>{}} >
-        <Text style={styles.loginButton}>Login</Text>
-      </TouchableOpacity>
+        <Text style={styles.loginButton} onPress={handleValidations}>Login</Text>
   );
 }
 
