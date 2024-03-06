@@ -18,9 +18,7 @@ const renderPostDetails = ({item}: {item: PostDetails}) => {
 export function Body() {
   return (
     <>
-      {/* <View style={styles.homeContainer}> */}
         <FlatList data={PostsData} renderItem={renderPostDetails} />
-      {/* </View> */}
     </>
   );
 }
