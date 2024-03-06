@@ -46,7 +46,7 @@ const RegistrationScreen = ({navigation}: any) => {
             }
             secureTextEntry={true}></TextInputBox>
           <RegisterButton navigation={navigation}></RegisterButton>
-          <SigInContent></SigInContent>
+          <SigInContent navigation={navigation}></SigInContent>
         </View>
       </View>
     </SafeAreaView>
