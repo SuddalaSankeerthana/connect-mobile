@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     borderStyle: 'dashed',
     borderColor: '#B2CFF1',
     backgroundColor: '#EEF6FF',
-    marginTop: 290,
+    marginTop: 300,
     justifyContent: 'center',
     alignItems: 'center',
   },
