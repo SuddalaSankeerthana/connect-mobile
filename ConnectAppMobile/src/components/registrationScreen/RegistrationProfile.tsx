@@ -6,6 +6,7 @@ import styles from '../../styles/registration.style';
 const RegistrationProfile = (url: {url: ImageSourcePropType}) => {
   const [changedImage, setChangedImage] = useState('');
   const [uploadedStatus, setUploadedStatus] = useState(false);
+  
   const handleImageCropPicker = () => {
     ImagePicker.openPicker({
       width: 100,
@@ -18,9 +19,6 @@ const RegistrationProfile = (url: {url: ImageSourcePropType}) => {
           setUploadedStatus(true);
         }
       })
-      .catch(error => {
-        console.error('Error selecting image from picker:', error);
-      });
   };
 
   return (
