@@ -2,13 +2,14 @@ import {FlatList} from 'react-native';
 import {PostItem} from '../components/PostItem';
 import React, {useEffect} from 'react';
 import {useState} from 'react';
+import { fetchData } from '../utils/fetchData';
 
 export type PostType = {
   PostId: string;
   UserId?: string;
   Username: string;
   ProfileImageAddress: string;
-  Images: [];
+  Images: any;
   Caption: string;
   LikesCount: number;
 };
@@ -24,21 +25,17 @@ const renderPostDetails = ({item}: {item: PostType}) => {
     />
   );
 };
-export function Body() {
+
+export const useFecthData = () => {
   const [data, setData] = useState<PostType[]>([]);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        'http://localhost:8080/homepage/get-posts',
-      ).then(res => {
-        return res.json();
-      });
-      const posts: PostType[] = Object.values(response.posts);
-      setData(posts);
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
-  return <FlatList data={data} renderItem={renderPostDetails} />;
+  useEffect(() => {(async()=>{
+   const posts= await fetchData()
+    setData(posts)})()}
+    , []);
+  return {data, loading};
+};
+export function Body() {
+  const {data, loading} = useFecthData();
+  return <FlatList data={data} renderItem={renderPostDetails} testID="data"/>;
 }
