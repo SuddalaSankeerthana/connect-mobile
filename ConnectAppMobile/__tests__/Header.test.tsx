@@ -1,8 +1,11 @@
 import 'react-native';
 import React from 'react';
-import {fireEvent, render, screen} from '@testing-library/react-native';
+import {
+  render,
+  screen,
+} from '@testing-library/react-native';
 import {Header} from '../src/components/Header';
-import exp from 'constants';
+
 
 jest.mock('@fortawesome/react-native-fontawesome', () => ({
   FontAwesomeIcon: '',
@@ -18,10 +21,7 @@ test('renders correctly', () => {
 });
 
 test('renders correctly', () => {
-    const {getByTestId}=render(<Header />);
-  const menubar = getByTestId("menuBar")
-  fireEvent.press(menubar)
-  expect("Log out").toBeDefined()
-  });
-
-  
+  const {getByTestId} = render(<Header />);
+  const menubar = getByTestId('menuBar');
+  expect(menubar).toBeDefined();
+});
