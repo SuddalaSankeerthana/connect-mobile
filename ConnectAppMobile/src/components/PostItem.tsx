@@ -7,7 +7,8 @@ import {useState, useRef} from 'react';
 import React from 'react';
 import {LikesAndComments} from './LikesandComments';
 import {Caption} from './Caption';
-import {PostType} from './Body';
+import {fetchData, PostType} from './Body';
+import PropTypes from 'prop-types';
 
 const renderImages = ({item}: any) => {
   return (
@@ -16,7 +17,10 @@ const renderImages = ({item}: any) => {
     </View>
   );
 };
-
+PostItem.propTypes = {
+  dotStyle: PropTypes.any.isRequired,
+  containerStyle:PropTypes.any.isRequired,
+};
 export function PostItem(props: PostType) {
   const images: ArrayLike<string[]> & readonly string[][] = props.Images;
   const length = props.Images.length;
