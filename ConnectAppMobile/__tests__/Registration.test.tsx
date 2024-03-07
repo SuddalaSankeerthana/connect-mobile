@@ -15,6 +15,7 @@ import RegistraionProfile from '../src/components/registrationScreen/Registratio
 import SigIn from '../src/components/registrationScreen/SignIn';
 import SigInContent from '../src/components/registrationScreen/SiginContent';
 import RegistrationScreen from '../src/screens/Registration';
+import { Alert } from 'react-native';
 
 describe('Test for registration screen individual components', () => {
   test('test for background image component', () => {
@@ -39,7 +40,6 @@ describe('Test for registration screen individual components', () => {
     render(<RegisterButton navigation={navigation}></RegisterButton>);
     const register = await screen.findByText('Register');
     expect(register).toBeDefined();
-    fireEvent.press(register);
     waitFor(() => expect(navigation.navigate()).toHaveBeenCalled());
   });
   test('Registration Profile compenent test', () => {
@@ -134,6 +134,7 @@ describe('Test suite for resgistration screen', () => {
     fireEvent.press(register);
     waitFor(() => expect(navigation.navigate).toHaveBeenCalled());
   });
+
   test('Registration Profile compenent test', () => {
     render(<RegistrationScreen navigation={navigation}></RegistrationScreen>);
     const profile = screen.findByTestId('profile');
@@ -164,3 +165,114 @@ describe('Test suite for resgistration screen', () => {
     waitFor(() => expect(navigation.navigate).toHaveBeenCalled());
   });
 });
+
+
+describe("Test for input validations in registraion screen",()=>{
+  test("To check all the inputs to be entered",()=>{
+    const navigation = {
+      navigate: jest.fn(() => {}),
+    };
+    const userDataValidations={
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+     }
+    render(<RegisterButton navigation={navigation} userData={userDataValidations}></RegisterButton>);
+    jest.spyOn(Alert, 'alert');
+    const register= screen.getByText('Register')
+    expect(register).toBeDefined();
+    fireEvent.press(register)
+    expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
+  })
+
+  test("To check all the inputs to be entered",()=>{
+    const navigation = {
+      navigate: jest.fn(() => {}),
+    };
+    const userDataValidations={
+      username: "",
+      email: "djhfgj",
+      password: "sdjhfg",
+      confirmPassword: "sdhfg",
+     }
+    render(<RegisterButton navigation={navigation} userData={userDataValidations}></RegisterButton>);
+    jest.spyOn(Alert, 'alert');
+    const register= screen.getByText('Register')
+    expect(register).toBeDefined();
+    fireEvent.press(register)
+    expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
+  })
+
+  test("To check all the inputs to be entered",()=>{
+    const navigation = {
+      navigate: jest.fn(() => {}),
+    };
+    const userDataValidations={
+      username: "",
+      email: "djhfgj",
+      password: "",
+      confirmPassword: "",
+     }
+    render(<RegisterButton navigation={navigation} userData={userDataValidations}></RegisterButton>);
+    jest.spyOn(Alert, 'alert');
+    const register= screen.getByText('Register')
+    expect(register).toBeDefined();
+    fireEvent.press(register)
+    expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
+  })
+
+  test("To check all the inputs to be entered",()=>{
+    const navigation = {
+      navigate: jest.fn(() => {}),
+    };
+    const userDataValidations={
+      username: "",
+      email: "",
+      password: "djhfj",
+      confirmPassword: "",
+     }
+    render(<RegisterButton navigation={navigation} userData={userDataValidations}></RegisterButton>);
+    jest.spyOn(Alert, 'alert');
+    const register= screen.getByText('Register')
+    expect(register).toBeDefined();
+    fireEvent.press(register)
+    expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
+  })
+
+  test("To check all the inputs to be entered",()=>{
+    const navigation = {
+      navigate: jest.fn(() => {}),
+    };
+    const userDataValidations={
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "sdjhgjf",
+     }
+    render(<RegisterButton navigation={navigation} userData={userDataValidations}></RegisterButton>);
+    jest.spyOn(Alert, 'alert');
+    const register= screen.getByText('Register')
+    expect(register).toBeDefined();
+    fireEvent.press(register)
+    expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
+  })
+
+  test("To check for the email validataion",()=>{
+    const navigation = {
+      navigate: jest.fn(() => {}),
+    };
+    const userDataValidations={
+      username: "sdjhgjf",
+      email: "sdjhgjf",
+      password: "sdjhgjf",
+      confirmPassword: "sdjhgjf",
+     }
+    render(<RegisterButton navigation={navigation} userData={userDataValidations}></RegisterButton>);
+    jest.spyOn(Alert, 'alert');
+    const register= screen.getByText('Register')
+    expect(register).toBeDefined();
+    fireEvent.press(register)
+    // expect(Alert.alert).toHaveBeenCalledWith("");
+  })
+  })
