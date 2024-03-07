@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install dependencies
+      - name: Install dependencies in app
         run: cd ConnectAppMobile && npm install
 
       - name: Run tests
