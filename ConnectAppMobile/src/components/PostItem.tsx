@@ -1,6 +1,5 @@
-import {images, PostDetails} from '../seeder/PostDetails';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
-import {View, ScrollView} from 'react-native';
+import {View} from 'react-native';
 import {PostImage} from './PostImage';
 import {styles} from '../styles/HomeScreenBodyStyles';
 import {Profile} from './Profile';
@@ -8,29 +7,27 @@ import {useState, useRef} from 'react';
 import React from 'react';
 import {LikesAndComments} from './LikesandComments';
 import {Caption} from './Caption';
+import {PostType} from './Body';
 
-const renderImages = ({item}: {item: images}) => {
+const renderImages = ({item}: any) => {
   return (
     <View style={styles.imageContainer}>
-      <PostImage image={item.image} />
+      <PostImage image={item} />
     </View>
   );
 };
 
-export function PostItem({
-  profile_pic,
-  name,
-  images,
-  likes_count,
-  description,
-}: PostDetails) {
+export function PostItem(props: PostType) {
+  const images: ArrayLike<string[]> & readonly string[][] = props.Images;
+  const length = props.Images.length;
   const [page, setPage] = useState(0);
   const isCarousel = useRef(null);
+
   return (
     <View style={styles.postConitainer}>
       <Profile
-        profile_pic={profile_pic}
-        name={name}
+        profile_pic={props.ProfileImageAddress}
+        name={props.Username}
         containerStyle={styles.profileContainer}
         imageStyle={styles.profileImage}
       />
@@ -51,15 +48,15 @@ export function PostItem({
         tappableDots={true}
         inactiveDotOpacity={0.4}
         inactiveDotScale={0.6}
-        dotsLength={images.length}
+        dotsLength={length}
         dotStyle={styles.dotStyle}
         containerStyle={styles.containerStyle}
         inactiveDotStyle={styles.inDotStyle}
       />
 
-      <LikesAndComments likes_count={likes_count} />
+      <LikesAndComments likes_count={props.LikesCount} />
 
-      <Caption description={description} />
+      <Caption description={props.Caption} />
     </View>
   );
 }
