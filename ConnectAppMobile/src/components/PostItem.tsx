@@ -1,4 +1,4 @@
-import {images, PostDetails} from '../seeder/PostDetails';
+import {images, PostDetails, PostsData} from '../seeder/PostDetails';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {View, ScrollView} from 'react-native';
 import {PostImage} from './PostImage';
@@ -7,7 +7,7 @@ import {Profile} from './Profile';
 import {useState, useRef} from 'react';
 import React from 'react';
 import {LikesAndComments} from './LikesandComments';
-import { Caption } from './Caption';
+import {Caption} from './Caption';
 
 const renderImages = ({item}: {item: images}) => {
   return (
@@ -18,11 +18,12 @@ const renderImages = ({item}: {item: images}) => {
 };
 
 export function PostItem({
+  id,
   profile_pic,
   name,
   images,
   likes_count,
-  description
+  description,
 }: PostDetails) {
   const [page, setPage] = useState(0);
   const isCarousel = useRef(null);
@@ -59,7 +60,17 @@ export function PostItem({
         }}
       />
 
-      <LikesAndComments likes_count={likes_count} />
+      <LikesAndComments
+        likes_count={likes_count}
+        postDetails={{
+          id: id,
+          profile_pic: profile_pic,
+          name: name,
+          images: images,
+          likes_count: likes_count,
+          description: description,
+        }}
+      />
 
       <Caption description={description} />
     </View>
