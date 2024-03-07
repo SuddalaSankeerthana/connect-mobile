@@ -1,5 +1,5 @@
 import { RegisterRouteProps } from "../types/RegisterRouteProps"
-export const handleRegister=async (userData:RegisterRouteProps)=>{
+export const handleRegister=async (userData:RegisterRouteProps, navigation: any)=>{
   console.log(userData);
   try{
     const response= await fetch("http://10.0.2.2:8080/auth/register",{
@@ -11,14 +11,20 @@ export const handleRegister=async (userData:RegisterRouteProps)=>{
   }).then((res)=>{
     return res
   })
-  if(!response.ok){
-    alert('Incorrect details')
-  }else{
-    alert('User registered successfully')
+  if (response.status === 201) {
+    navigation.navigate('Home')
+    alert("User registered successfully!");
   }
+  else if (response.status === 401) {
+    alert("User already existed!");
   }
-  catch(error){
-    alert('Failed to register')
+  else {
+    alert("Something went wrong");
   }
-  return true
+}
+catch (error) {
+  console.error("Error registering user:", error);
+  alert("Failed to register user. Please try again later.");
+}
+return true
 }

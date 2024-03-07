@@ -27,7 +27,7 @@ const RegisterButton = ( props: any) => {
      return;
     }
     else {
-      (Alert.alert('succsess'));
+      handleRegister(props.userData, props.navigation)
       return;
     }
   };
