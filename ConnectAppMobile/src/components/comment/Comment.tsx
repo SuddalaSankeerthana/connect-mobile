@@ -3,18 +3,26 @@ import {
   Image,
   Pressable,
   ScrollView,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import React, {useState} from 'react';
 import {styles} from '../../styles/HomeScreenBodyStyles';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faComment} from '@fortawesome/free-regular-svg-icons';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-native-modal';
+import CommentForm from './CommentForm';
+import {
+  CommentType,
+  currentUserData,
+  PostDetails,
+} from '../../seeder/PostDetails';
 
-export function Comment() {
+interface CommentProps {
+  postDetails: PostDetails;
+}
+
+export const Comment: React.FC<CommentProps> = ({postDetails}) => {
   const windowHeight = Dimensions.get('window').height;
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -25,6 +33,11 @@ export function Comment() {
   const closeModal = () => {
     setModalVisible(false);
   };
+
+  const handleCommentSubmit = (commentText: string) => {
+    console.log('Comment submitted:', commentText);
+  };
+
 
   return (
     <>
@@ -41,18 +54,17 @@ export function Comment() {
           animationIn="fadeIn"
           animationOut="fadeOut">
           <View style={[styles.modalContainer, {height: windowHeight * 0.8}]}>
-            <Pressable
-              onPress={closeModal}
-              style={styles.closeIconContainer}
-              // style={styles.closeIconContainer}
-            >
+            <Pressable onPress={closeModal} style={styles.closeIconContainer}>
               <View>
                 <FontAwesomeIcon icon={faTimes} style={styles.closeIcon} />
               </View>
             </Pressable>
           </View>
+          <CommentForm userProfile={currentUserData.profilePic} 
+          userName={postDetails.name} 
+          />
         </Modal>
       </ScrollView>
     </>
   );
-}
+};
