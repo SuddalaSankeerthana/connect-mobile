@@ -11,7 +11,7 @@ import {
 import BackGroundImage from '../src/components/registrationScreen/BackgroundImage';
 import LogoAndTitle from '../src/components/registrationScreen/LogoTitle';
 import RegisterButton from '../src/components/registrationScreen/RegisterButton';
-import RegistraionProfile from '../src/components/registrationScreen/RegistrationProfile';
+import RegistrationProfile from '../src/components/registrationScreen/RegistrationProfile';
 import SigIn from '../src/components/registrationScreen/SignIn';
 import SigInContent from '../src/components/registrationScreen/SiginContent';
 import RegistrationScreen from '../src/screens/Registration';
@@ -49,7 +49,7 @@ describe('Test for registration screen individual components', () => {
     waitFor(() => expect(navigation.navigate()).toHaveBeenCalled());
   });
   test('Registration Profile compenent test', () => {
-    render(<RegistraionProfile></RegistraionProfile>);
+    render(<RegistrationProfile url={0}></RegistrationProfile>);
     const profile = screen.findByTestId('profile');
     expect(profile).toBeDefined();
     const editButton = screen.findByTestId('edit-icon');
@@ -131,7 +131,6 @@ describe('Test suite for resgistration screen', () => {
   test('test for register button', async () => {
     const navigation = {
       navigate: jest.fn(() => {
-        console.log('mock called');
       }),
     };
     render(<RegistrationScreen navigation={navigation}></RegistrationScreen>);

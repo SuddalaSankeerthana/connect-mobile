@@ -19,7 +19,6 @@ const LoginScreen = ({navigation}: any) => {
       <Button
         title="Register"
         onPress={() => {
-          console.log('Register button clicked');
           navigation.navigate('Registration');
         }}></Button>
     </View>

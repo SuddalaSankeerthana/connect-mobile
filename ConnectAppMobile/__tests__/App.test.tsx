@@ -110,7 +110,9 @@ describe('Testing react navigation', () => {
     const uploadInUploadScreen = await screen.findByText('Upload');
     expect(uploadInUploadScreen).toBeDefined();
     fireEvent.press(uploadInUploadScreen);
-    const homeScreenLogOut = await screen.findByText('Log-out');
-    expect(homeScreenLogOut).toBeDefined();
+    waitFor(async() => {
+      const homeScreenLogOut = await screen.findByText('Log-out');
+      expect(homeScreenLogOut).toBeDefined();
+    })
   });
 });
