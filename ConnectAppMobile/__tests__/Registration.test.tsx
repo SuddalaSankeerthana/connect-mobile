@@ -16,6 +16,12 @@ import SigIn from '../src/components/registrationScreen/SignIn';
 import SigInContent from '../src/components/registrationScreen/SiginContent';
 import RegistrationScreen from '../src/screens/Registration';
 
+jest.mock('react-native-image-crop-picker', () => {
+  return {
+    openPicker: jest.fn().mockImplementation(() => Promise.resolve()),
+  };
+});
+
 describe('Test for registration screen individual components', () => {
   test('test for background image component', () => {
     render(<BackGroundImage></BackGroundImage>);
