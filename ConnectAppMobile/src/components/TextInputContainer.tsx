@@ -1,5 +1,6 @@
 import { TextInput, View } from 'react-native';
 import {styles} from '../styles/UploadPostScreen.styles';
+import React from 'react';
 
 type TextInputProps = {
   placeholder: string;

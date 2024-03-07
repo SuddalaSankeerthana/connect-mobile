@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {
   Image,
+    SafeAreaView,
     Text,
   TextInput,
   TouchableOpacity,
@@ -37,7 +38,7 @@ const UploadScreen = ({navigation}: any) => {
   const handleCancel = () => {};
   const handleUpload = () => {};
   return (
-    <>
+    <SafeAreaView style={styles.SafeAreaView}>
       <View style={styles.container}>
         <Text style={styles.uploadText}>Upload</Text>
 
@@ -97,7 +98,7 @@ const UploadScreen = ({navigation}: any) => {
           </View>
         </>
       )}
-    </>
+      </SafeAreaView>
   );
 };
 
