@@ -15,6 +15,8 @@ const RegistrationScreen = ({navigation}: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+    const imageUrl = {uri: 'https://example.com/image.jpg'};
+
   return (
     <SafeAreaView>
       <View style={styles.registrationContainer}>
@@ -22,7 +24,7 @@ const RegistrationScreen = ({navigation}: any) => {
         <View style={styles.registrationInputContainer}>
           <LogoAndTitle></LogoAndTitle>
           <WelcomeAndTagline></WelcomeAndTagline>
-          <RegistraionProfile></RegistraionProfile>
+          <RegistraionProfile url={imageUrl} />
           <TextInputBox
             placeholder="Enter your full name"
             value={fullName}
