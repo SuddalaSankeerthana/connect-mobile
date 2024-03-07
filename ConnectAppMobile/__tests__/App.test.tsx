@@ -1,12 +1,34 @@
+
+
+// jest.mock('@fortawesome/react-native-fontawesome', () => ({
+//   FontAwesomeIcon: ''
+// }))
+/**
+ * @format
+ */
+
 import 'react-native';
 import React from 'react';
-import App from '../App';
-import {render} from '@testing-library/react-native';
+
+import {
+  render,
+  screen,
+} from '@testing-library/react-native';
+
+import AppStack from '../App';
 
 jest.mock('@fortawesome/react-native-fontawesome', () => ({
   FontAwesomeIcon: ''
 }))
 
-test('renders correctly', () => {
-  const {getByText} = render(<App />);
+describe('Testing react navigation', () => {
+  test('test for page is at login screen', async () => {
+    const component = <AppStack />;
+    render(component);
+    const registration = await screen.findByText('Register');
+    const login = await screen.findByText('Login');
+    expect(login).toBeDefined();
+    expect(registration).toBeDefined();
+  });
 });
+
