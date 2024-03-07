@@ -57,7 +57,7 @@ export function Header({navigation}: any) {
           onRequestClose={hideMenu}>
           <MenuItem onPress={hideMenu} style={styles.logOutContainer}>
             <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-              <Text>Log out</Text>
+              <Text testID='logout'>Log out</Text>
             </TouchableOpacity>
           </MenuItem>
         </Menu>
