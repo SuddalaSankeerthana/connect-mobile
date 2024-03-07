@@ -99,4 +99,32 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 5,
   },
+  currentUserProfile: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 10,
+  },
+  postButton: {
+    marginRight: 10,
+  },
+  commentInputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 20,
+    paddingHorizontal: 10,
+  },
+  commentFormContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#f2f2f2',
+  },
+  replyInput: {
+    flex: 1,
+    padding: 10,
+  },
 });
