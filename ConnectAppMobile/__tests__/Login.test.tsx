@@ -143,27 +143,4 @@ describe("test for the login screens",()=>{
     fireEvent.press(login)
     expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
   })
-
-  // test("Alert on not filling all the details in input field",()=>{
-  //   render(<NavigationContainer>
-  //     <LoginButton email="ytfhtf" password="fhj"/>
-  //     </NavigationContainer>)
-  //   jest.spyOn(Alert, 'alert');
-  //   const login= screen.getByText('Login')
-  //   expect(login).toBeDefined();
-  //   fireEvent.press(login)
-  //   expect(Alert.alert).toHaveBeenCalledWith("Please enter valid email address");
-  // })
-
-  // test("Alert on not filling all the details in input field",()=>{
-  //   render(<NavigationContainer>
-  //     <LoginButton email="hjdghgdgd@gmail.com" password="gfhfghf"/>
-  //     </NavigationContainer>)
-  //   jest.spyOn(Alert, 'alert');
-  //   const login= screen.getByText('Login')
-  //   expect(login).toBeDefined();
-  //   fireEvent.press(login)
-  //   expect(Alert.alert).toHaveBeenCalledWith("success you can login");
-  // })
-
 })
