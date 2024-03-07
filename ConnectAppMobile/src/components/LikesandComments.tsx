@@ -4,27 +4,33 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
 import {styles} from '../styles/HomeScreenBodyStyles';
 import {Comment} from './comment/Comment';
+import { PostDetails } from '../seeder/PostDetails';
 
-export function LikesAndComments({likes_count}: {likes_count: number}) {
+export function LikesAndComments({
+  likes_count,
+  postDetails,
+}: {
+  likes_count: number;
+  postDetails: PostDetails;
+}) {
+  const [handleComment, setHandleComment] = useState(false);
+  const [commentWindow, setCommentWindow] = useState(false);
+
+  const handleCommentPress = () => {
+    setCommentWindow(!commentWindow);
+  };
 
   return (
     <View style={styles.likesAndComment}>
-      <View style={styles.heartIcon}>
-        <FontAwesomeIcon icon={farHeart} size={27} />
-      </View>
+      <TouchableOpacity>
+        <View style={styles.heartIcon}>
+          <FontAwesomeIcon icon={farHeart} size={27} />
+        </View>
+      </TouchableOpacity>
       <View>
         <Text>{likes_count}</Text>
       </View>
-      {/* <TouchableOpacity onPress={handleCommentPress}>
-        <View>
-          <Image
-            source={require('../assets/commentIcon.png')}
-            style={styles.commentIcon}
-          />
-        </View>
-      </TouchableOpacity>
-      {commentWindow && <Comment handleCommentWindow={handleComment}/>} */}
-      <Comment />
+      <Comment postDetails={postDetails} />
     </View>
   );
 }
