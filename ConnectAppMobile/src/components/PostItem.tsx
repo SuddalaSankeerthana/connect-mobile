@@ -1,6 +1,6 @@
 import {images, PostDetails} from '../seeder/PostDetails';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
-import {View, ScrollView} from 'react-native';
+import {View} from 'react-native';
 import {PostImage} from './PostImage';
 import {styles} from '../styles/HomeScreenBodyStyles';
 import {Profile} from './Profile';
@@ -68,9 +68,7 @@ export function PostItem({
             backgroundColor: 'grey',
           }}
         />
-
         <LikesAndComments />
-
         <Caption description={description} />
       </View>
     </LikesContext.Provider>
