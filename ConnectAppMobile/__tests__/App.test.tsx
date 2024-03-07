@@ -14,6 +14,12 @@ import {
 
 import AppStack from '../App';
 
+jest.mock('react-native-image-crop-picker', () => {
+  return {
+    openPicker: jest.fn().mockImplementation(() => Promise.resolve()),
+  };
+});
+
 describe('Testing react navigation', () => {
   test('test for page is at login screen', async () => {
     const component = <AppStack />;
