@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from './src/screens/Home';
+import {HomeScreen} from './src/screens/Home';
 import LoginScreen from './src/screens/Login';
 import RegistrationScreen from './src/screens/Registration';
 import UploadScreen from './src/screens/Upload';
