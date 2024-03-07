@@ -1,25 +1,32 @@
 import {Image, Text, View} from 'react-native';
-import React, {useState} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import React, {Dispatch, SetStateAction, useContext, useState} from 'react';
 import {styles} from '../styles/HomeScreenBodyStyles';
 import LikeButton from './LikeButton';
+import {LikesContext} from './LikeContext';
 
-export function LikesAndComments({
-  likes_count,
-  like_status,
-}: {
-  likes_count: number;
-  like_status: boolean;
-}) {
-  const [likesCount, setLikesCount] = useState(likes_count);
+export function LikesAndComments() {
+  //   {
+  //   // likesCount,
+  //   // likeStatus,
+  //   // setLikesCount,
+  //   // setLikeStatus,
+  // }: {
+  //   // likesCount: number;
+  //   // setLikesCount: Dispatch<SetStateAction<number>>;
+  //   // setLikeStatus: Dispatch<SetStateAction<boolean>>;
+  //   // likeStatus: boolean;
+  // }
+  const likeContext = useContext(LikesContext);
   return (
     <View style={styles.likesAndComment}>
       <LikeButton
-        setLikesCount={setLikesCount}
-        likesCount={likesCount}
-        like_status={like_status}></LikeButton>
+      // setLikeStatus={likeContext?.setLikeStatus}
+      // setLikesCount={likeContext.setLikesCount}
+      // likesCount={likeContext.likesCount}
+      // likeStatus={likeContext.likeStatus}
+      ></LikeButton>
       <View>
-        <Text>{likesCount}</Text>
+        <Text>{likeContext.likesCount}</Text>
       </View>
       <View>
         <Image

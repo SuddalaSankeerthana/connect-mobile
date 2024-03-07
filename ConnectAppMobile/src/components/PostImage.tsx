@@ -1,13 +1,34 @@
 import {Image, ImageBackground, View} from 'react-native';
 import {styles} from '../styles/HomeScreenBodyStyles';
-import React, {useRef} from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useRef,
+  useState,
+} from 'react';
 import {
   GestureHandlerRootView,
   TapGestureHandler,
 } from 'react-native-gesture-handler';
+import LikeButton from './LikeButton';
+import {LikesContext} from './LikeContext';
 
 export function PostImage({image}: {image: string}) {
+  const likeContext = useContext(LikesContext);
+  const onDoubleTap = () => {
+    setIsShow(true);
+    if (!likeContext.likeStatus) {
+      likeContext.setLikesCount(likeContext.likesCount + 1);
+      likeContext.setLikeStatus(!likeContext.likeStatus);
+    }
+    setTimeout(() => {
+      setIsShow(false);
+    }, 1500);
+    console.log('Double tap');
+  };
   const doubleTapRef = useRef();
+  const [isShow, setIsShow] = useState(false);
   return (
     <>
       <View>
@@ -16,16 +37,23 @@ export function PostImage({image}: {image: string}) {
             <TapGestureHandler
               ref={doubleTapRef}
               numberOfTaps={2}
-              onActivated={() => console.log('Double tap')}
+              onActivated={onDoubleTap}
               waitFor={doubleTapRef}>
               <View>
-                <ImageBackground source={{uri: image}} style={styles.image}>
-                  <Image
-                    source={require('../assets/heart.png')}
-                    style={{
-                      width: 50,
-                      height: 50,
-                    }}></Image>
+                <ImageBackground
+                  testID="post-image"
+                  source={{uri: image}}
+                  style={styles.image}>
+                  {isShow ? (
+                    <Image
+                      source={require('../assets/heart.png')}
+                      style={{
+                        width: 100,
+                        height: 100,
+                      }}></Image>
+                  ) : (
+                    <View></View>
+                  )}
                 </ImageBackground>
               </View>
             </TapGestureHandler>
