@@ -1,29 +1,23 @@
 import {Image, View, Text} from 'react-native';
 import React from 'react';
-import {styles} from '../styles/HomeScreenBodyStyles';
 
-export function Profile({
-  profile_pic,
-  name,
-  containerStyle,
-  imageStyle,
-  profileName,
-}: {
+type PropTyes = {
   profile_pic: string;
   name: string;
   containerStyle?: any;
   imageStyle?: any;
   profileName?: any;
-}) {
+};
+export function Profile(props: PropTyes) {
   return (
     <>
-      <View style={containerStyle}>
+      <View style={props.containerStyle}>
         <Image
-          source={{uri: profile_pic}}
-          style={imageStyle}
+          source={{uri: props.profile_pic}}
+          style={props.imageStyle}
           testID="profile"
         />
-        <Text style={profileName}>{name}</Text>
+        <Text style={props.profileName}>{props.name}</Text>
       </View>
     </>
   );

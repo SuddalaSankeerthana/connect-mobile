@@ -130,6 +130,7 @@ export const styles = StyleSheet.create({
   inDotStyle:
   {
     backgroundColor:'grey'
+
   },
   dotStyle:
   {
