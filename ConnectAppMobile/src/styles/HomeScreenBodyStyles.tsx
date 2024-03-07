@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   logOutContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent:'center'
+    justifyContent: 'center',
   },
   profileName: {
     color: 'white',
@@ -47,8 +47,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginStart:'auto',
-    padding:5
+    marginStart: 'auto',
+    padding: 5,
   },
   logo: {
     height: 25,
@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 5,
-    marginEnd:'auto'
+    marginEnd: 'auto',
   },
   header: {
     height: 60,
@@ -123,6 +123,8 @@ export const styles = StyleSheet.create({
     marginRight: 30,
     borderBlockEndColor: 'black',
     borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   imageContainer: {
     height: 350,
