@@ -11,10 +11,14 @@ export const handleRegister=async (userData:RegisterRouteProps)=>{
   }).then((res)=>{
     return res
   })
-    console.log(response.status);
+  if(!response.ok){
+    alert('Incorrect details')
+  }else{
+    alert('User registered successfully')
+  }
   }
   catch(error){
-    console.log(error)
+    alert('Failed to register')
   }
   return true
 }
