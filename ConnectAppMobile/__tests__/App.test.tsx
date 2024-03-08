@@ -4,7 +4,6 @@
 
 import 'react-native';
 import React from 'react';
-
 import {
   render,
   screen,
@@ -12,7 +11,19 @@ import {
   waitFor,
 } from '@testing-library/react-native';
 
+import LoginScreen from '../screens/Login';
+import { render, screen, fireEvent } from '@testing-library/react-native';
+// Note: import explicitly to use the types shipped with jest.
+import {it} from '@jest/globals';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+
 import AppStack from '../App';
+it('renders correctly', () => {
+  renderer.create(<LoginScreen />);
+});
+
 
 describe('Testing react navigation', () => {
   test('test for page is at login screen', async () => {
@@ -107,4 +118,17 @@ describe('Testing react navigation', () => {
     const homeScreenLogOut = await screen.findByText('Log-out');
     expect(homeScreenLogOut).toBeDefined();
   });
-});
+
+
+
+describe("test for the login screens",()=>{
+  test("To check logo",()=>{
+    render(
+      <NavigationContainer>
+      <LoginScreen/>
+      </NavigationContainer>
+    )
+    const logo=screen.getByTestId("logo")
+    expect(logo).toBeDefined();
+  })
+})})
