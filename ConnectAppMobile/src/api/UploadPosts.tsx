@@ -1,5 +1,6 @@
 import { PostDataBody } from "../types/PostBodyType"
-export const uploadPostFunction = async (newPost : PostDataBody) : Promise<Response> => {
+
+export const UploadPostDetails = async (newPost : PostDataBody) : Promise<Response> => {
     const response = await fetch(
         'http://localhost:8080/upload/upload-post',
         {

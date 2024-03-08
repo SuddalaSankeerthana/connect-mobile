@@ -1,18 +1,16 @@
 import React, {useState} from 'react';
-import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
-import ImagePicker, { ImageOrVideo } from 'react-native-image-crop-picker';
+import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import ImagePicker, {ImageOrVideo} from 'react-native-image-crop-picker';
 import RNFS from 'react-native-fs';
 import {styles} from '../styles/UploadPostScreen.styles';
-import { CancelButton } from '../components/CancelButton';
+import {CancelButton} from '../components/CancelButton';
 import UploadIcon from '../components/UploadIcon';
-import { UploadButton } from '../components/UploadButton';
-import { TextInputContainer } from '../components/TextInputContainer';
-import { UploadPostDetails } from '../api/uploadPosts';
-import { PostData } from '../types/PostData';
+import {UploadButton} from '../components/UploadButton';
+import {TextInputContainer} from '../components/TextInputContainer';
+import {UploadPostDetails} from '../api/uploadPosts';
+import {PostData} from '../types/PostData';
 
-
-
-const UploadScreen = ({ navigation }: any) => {
+const UploadScreen = ({navigation}: any) => {
   const [selectedImages, setSelectedImages] = useState<ImageOrVideo[]>([]);
   const [imagesSelected, setImagesSelected] = useState(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
@@ -35,40 +33,39 @@ const UploadScreen = ({ navigation }: any) => {
     }
   };
 
-
   const handleCancel = () => {};
-const handleUpload = async () => {
-  try {
-    let newPost: PostData = {
-      UserId: '1',
-      PostCaption: caption,
-      Images: [],
-    };
+  const handleUpload = async () => {
+    try {
+      let newPost: PostData = {
+        UserId: '1',
+        PostCaption: caption,
+        Images: [],
+      };
 
-    const base64Promises = selectedImages.map(async image => {
-      const base64 = await RNFS.readFile(image.path, 'base64');
+      const base64Promises = selectedImages.map(async image => {
+        const base64 = await RNFS.readFile(image.path, 'base64');
 
-      return {file: base64};
-    });
+        return {file: base64};
+      });
 
-    const base64Images = await Promise.all(base64Promises);
+      const base64Images = await Promise.all(base64Promises);
 
-    for (let i = 0; i < base64Images.length; i++) {
-      newPost.Images.push(base64Images[i].file);
+      for (let i = 0; i < base64Images.length; i++) {
+        newPost.Images.push(base64Images[i].file);
+      }
+
+      const response = await UploadPostDetails(newPost);
+
+      console.log('Responded', (await response).status);
+      if (response.status == 200) {
+        console.log('Images and caption uploaded successfully');
+        navigation.navigate('Home');
+      } else {
+        console.error('Failed to upload images and caption');
+      }
+    } catch (error) {
+      console.error('Error uploading images and caption:', error);
     }
-
-    const response = await UploadPostDetails(newPost);
-
-    console.log('Responded', (await response).status);
-    if (response.status == 200) {
-      console.log('Images and caption uploaded successfully');
-      navigation.navigate('Home');
-    } else {
-      console.error('Failed to upload images and caption');
-    }
-  } catch (error) {
-    console.error('Error uploading images and caption:', error);
-  }
   };
 
   return (
@@ -131,7 +128,12 @@ const handleUpload = async () => {
             <TouchableOpacity onPress={handleCancel}>
               <CancelButton testID="cancel-button" text="Cancel" />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => { navigation.navigate('Home') }}>
+            <TouchableOpacity onPress={handleUpload}>
+              <TouchableOpacity
+                onPress={() => {
+                  handleUpload;
+                }}
+              />
               <UploadButton testID="upload-button" text="Upload" />
             </TouchableOpacity>
           </View>
