@@ -14,6 +14,7 @@ jest.mock('@fortawesome/react-native-fontawesome', () => ({
   }))
 
 describe('Test for home screen navigations', () => {
+  afterAll(() => console.log('1 - afterAll'));
     test('test for register button', async () => {
         const navigation = {
           navigate: jest.fn(() => {

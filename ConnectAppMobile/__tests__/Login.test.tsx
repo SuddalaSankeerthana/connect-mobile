@@ -14,6 +14,7 @@ jest.mock('@fortawesome/react-native-fontawesome', () => ({
 
 
 describe("test for the login screens",()=>{
+  afterAll(() => console.log('1 - afterAll'));
   test("To check logo",()=>{
     render(
       

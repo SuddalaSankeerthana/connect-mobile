@@ -8,6 +8,7 @@ jest.mock('@fortawesome/react-native-fontawesome', () => ({
 }));
 
 describe('Testing react navigation', () => {
+  afterAll(() => console.log('1 - afterAll'));
   test('page navigates to registration screen on click to register button ', async () => {
     const component = <AppStack />;
     render(component);
