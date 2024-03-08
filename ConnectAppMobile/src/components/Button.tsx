@@ -19,7 +19,7 @@ const handleValidations=()=>{
      return;
   }
   else{
-    handleLogin(props.userData);
+    handleLogin(props.userData, props.navigation);
   }
 }
   return (
