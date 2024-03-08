@@ -7,6 +7,8 @@ import { CancelButton } from '../components/CancelButton';
 import UploadIcon from '../components/UploadIcon';
 import { UploadButton } from '../components/UploadButton';
 import { TextInputContainer } from '../components/TextInputContainer';
+import { uploadPostFunction } from '../api/uploadPosts';
+import { PostData } from '../types/PostData';
 
 
 
@@ -35,7 +37,40 @@ const UploadScreen = ({ navigation }: any) => {
 
 
   const handleCancel = () => {};
-  const handleUpload = () => {};
+const handleUpload = async () => {
+  try {
+    let newPost: PostData = {
+      UserId: '1',
+      PostCaption: caption,
+      Images: [],
+    };
+
+    const base64Promises = selectedImages.map(async image => {
+      const base64 = await RNFS.readFile(image.path, 'base64');
+
+      return {file: base64};
+    });
+
+    const base64Images = await Promise.all(base64Promises);
+
+    for (let i = 0; i < base64Images.length; i++) {
+      newPost.Images.push(base64Images[i].file);
+    }
+
+    const response = await uploadPostFunction(newPost);
+
+    console.log('Responded', (await response).status);
+    if (response.status == 200) {
+      console.log('Images and caption uploaded successfully');
+      navigation.navigate('Home');
+    } else {
+      console.error('Failed to upload images and caption');
+    }
+  } catch (error) {
+    console.error('Error uploading images and caption:', error);
+  }
+  };
+
   return (
     <SafeAreaView style={styles.SafeAreaView}>
       <View style={styles.container}>
