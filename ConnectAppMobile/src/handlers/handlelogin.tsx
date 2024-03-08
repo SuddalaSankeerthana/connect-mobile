@@ -1,35 +1,23 @@
-import {Platform} from 'react-native';
-import { REPL_MODE_SLOPPY } from 'repl';
-import { Alert } from 'react-native';
-import {LoginRouteProps} from '../types/LoginRouteProps';
-export const handleLogin = async (
-  userData: LoginRouteProps,
-  navigation: any,
-) => {
-  try {
-    const url =
-      Platform.OS == 'android'
-        ? 'http://10.0.2.2:8080/auth/login'
-        : 'http://localhost:8080/auth/login';
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userData),
-    }).then(res => {return res;});
-    if (response.status === 200 || 201) {
-      navigation.navigate('Home');
-      Alert.alert('Login successfully!');
-    } else if (response.status === 401) {
-      Alert.alert('Regester as new user');
-    } else {
-      Alert.alert('Something went wrong');
-    }
-  } catch (error) {
-    console.error('Error registering user:', error);
-    Alert.alert('Failed to login');
+import { LoginRouteProps } from "../types/LoginRouteProps";
+export const handleLogin=async (userData:LoginRouteProps)=>{
+  try{
+    const response= await fetch("http://10.0.2.2:8080/auth/login",{
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json' 
+    },
+    body: JSON.stringify(userData)
+  }).then((res)=>{
+    return res
+  })
+  if(!response.ok){
+    alert('Incorrect details')
+  }else{
+    alert('Login successful')
   }
-  return true;
-};
-
+  }
+  catch(error){
+    alert('Failed to login')
+  }
+  return true
+}
