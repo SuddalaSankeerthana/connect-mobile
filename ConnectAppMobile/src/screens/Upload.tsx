@@ -7,7 +7,7 @@ import {CancelButton} from '../components/CancelButton';
 import UploadIcon from '../components/UploadIcon';
 import {UploadButton} from '../components/UploadButton';
 import {TextInputContainer} from '../components/TextInputContainer';
-import {UploadPostDetails} from '../api/uploadPosts';
+import {UploadPostDetails} from '../api/UploadPosts';
 import {PostData} from '../types/PostData';
 
 const UploadScreen = ({navigation}: any) => {
