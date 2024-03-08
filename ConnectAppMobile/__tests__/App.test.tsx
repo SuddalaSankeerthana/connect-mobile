@@ -12,11 +12,10 @@ import {
 } from '@testing-library/react-native';
 
 import LoginScreen from '../screens/Login';
-import { render, screen, fireEvent } from '@testing-library/react-native';
 // Note: import explicitly to use the types shipped with jest.
 import {it} from '@jest/globals';
 import { NavigationContainer } from '@react-navigation/native';
-
+import renderer from 'react-test-renderer';
 
 
 import AppStack from '../App';

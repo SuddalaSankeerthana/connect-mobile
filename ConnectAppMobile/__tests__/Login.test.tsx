@@ -12,8 +12,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Alert } from 'react-native';
 import renderer from 'react-test-renderer';
 import LoginButton from '../src/components/Button';
-import { responseResults } from '../src/handlers/loginResponseResults';
-import exp from 'constants';
 
 it('renders correctly', () => {
   renderer.create(<LoginScreen />);
