@@ -6,8 +6,6 @@ import Caption from '../components/Caption';
 import {styles} from '../styles/Login.styles';
 import Logo from '../components/Logo';
 
-
-
 function LoginScreen({navigation}:any): React.JSX.Element {
   const [email, setEmail]= React.useState('');
   const [password, setPassword]= React.useState('');

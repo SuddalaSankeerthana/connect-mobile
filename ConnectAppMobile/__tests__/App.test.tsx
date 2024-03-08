@@ -61,10 +61,11 @@ describe('Testing react navigation', () => {
     fireEvent.press(registrationInLogin);
     const registerInRegistrationScreen = await screen.findByText('Register');
     fireEvent.press(registerInRegistrationScreen);
-    const uploadButton = await screen.findByText('Upload');
-    const logOutButton = await screen.findByText('Log-out');
+    waitFor(()=>{const uploadButton = screen.findByText('Upload');
+    const logOutButton = screen.findByText('Log-out');
     expect(uploadButton).toBeDefined();
-    expect(logOutButton).toBeDefined();
+    expect(logOutButton).toBeDefined();})
+ 
   });
   test('page navigates from registration screen to login screen on press to sign in button', async () => {
     const component = <AppStack />;
@@ -90,6 +91,7 @@ describe('Testing react navigation', () => {
     const registrationInLoginAfter = await screen.findByText('Register');
     expect(registrationInLoginAfter).toBeDefined();
   });
+  
   test('page navigates from homeScreen to upload screen on upload post button press', async () => {
     const component = <AppStack />;
     render(component);
