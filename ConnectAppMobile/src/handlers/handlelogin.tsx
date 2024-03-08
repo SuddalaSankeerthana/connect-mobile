@@ -19,8 +19,8 @@ export const handleLogin = async (
       body: JSON.stringify(userData),
     }).then(res => {return res;});
     if (response.status === 200 || 201) {
-      navigation.navigate('Home');
       Alert.alert('Login successfully!');
+      navigation.navigate('Home');
     } else if (response.status === 401) {
       Alert.alert('Regester as new user');
     } else {
