@@ -17,6 +17,7 @@ function InputField(props:any): React.JSX.Element {
              inlineImageLeft="Frame1"
              inlineImagePadding={2}
              autoCapitalize='none'
+             secureTextEntry={props.secureTextEntry}
            />
        </View>
     </View>
