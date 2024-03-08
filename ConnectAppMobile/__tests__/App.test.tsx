@@ -1,3 +1,6 @@
+/**
+ * @format
+ */
 import 'react-native';
 import AppStack from '../App';
 import React from 'react';

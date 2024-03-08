@@ -1,9 +1,10 @@
 import React from 'react';
-import {Button, View, Text} from 'react-native';
+import {View} from 'react-native';
 import {SafeAreaView} from 'react-native';
 import {Body} from '../components/homeScreen/Body';
 import {Header} from '../components/homeScreen/Header';
 import {styles} from '../styles/HomeScreenBodyStyles';
+
 
 export const HomeScreen = ({navigation}: any) => {
   return (
