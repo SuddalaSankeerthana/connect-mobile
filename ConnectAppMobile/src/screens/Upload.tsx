@@ -7,7 +7,7 @@ import { CancelButton } from '../components/CancelButton';
 import UploadIcon from '../components/UploadIcon';
 import { UploadButton } from '../components/UploadButton';
 import { TextInputContainer } from '../components/TextInputContainer';
-import { uploadPostFunction } from '../api/uploadPosts';
+import { UploadPostDetails } from '../api/uploadPosts';
 import { PostData } from '../types/PostData';
 
 
@@ -57,7 +57,7 @@ const handleUpload = async () => {
       newPost.Images.push(base64Images[i].file);
     }
 
-    const response = await uploadPostFunction(newPost);
+    const response = await UploadPostDetails(newPost);
 
     console.log('Responded', (await response).status);
     if (response.status == 200) {
