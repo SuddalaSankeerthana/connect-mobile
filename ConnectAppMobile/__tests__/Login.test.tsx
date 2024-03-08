@@ -1,7 +1,7 @@
 /**
  * @format
  */
-
+// @ts-ignore
 import 'react-native';
 import React from 'react';
 import LoginScreen from '../screens/Login';
@@ -11,8 +11,9 @@ import {it} from '@jest/globals';
 import { NavigationContainer } from '@react-navigation/native';
 import { Alert } from 'react-native';
 import renderer from 'react-test-renderer';
-import InputField from '../src/components/InputFields';
 import LoginButton from '../src/components/Button';
+import { responseResults } from '../src/handlers/loginResponseResults';
+import exp from 'constants';
 
 it('renders correctly', () => {
   renderer.create(<LoginScreen />);
@@ -134,13 +135,47 @@ describe("test for the login screens",()=>{
   })
 
   test("Alert on not filling all the details in input field",()=>{
+    const navigation = {
+      navigate: jest.fn(() => {}),
+    };
     render(<NavigationContainer>
-      <LoginButton email="hjdghgdgd@gmailcom" password=""/>
+      <LoginButton email="hjdghgdgd@gmailcom" password="" navigation={navigation}/>
       </NavigationContainer>)
+
     jest.spyOn(Alert, 'alert');
     const login= screen.getByText('Login')
     expect(login).toBeDefined();
     fireEvent.press(login)
     expect(Alert.alert).toHaveBeenCalledWith("please fill out all the fields");
   })
+
+  test("Alert on not filling invalid email in input field",()=>{
+    const navigation = {
+      navigate: jest.fn(() => {}),
+    };
+    render(<NavigationContainer>
+      <LoginButton email="hjdghgdgd@gmailcom" password="hjgjhg" navigation={navigation}/>
+      </NavigationContainer>)
+      jest.spyOn(Alert, 'alert').mockImplementation(()=>{ return "Please enter valid email address"})
+    const login= screen.getByText('Login')
+    expect(login).toBeDefined();
+    fireEvent.press(login)
+    expect(Alert.alert).toHaveBeenCalled();
+  })
+
+
+  test("Alert on all correct the details in input field",()=>{
+    const navigation = {
+      navigate: jest.fn(() => {}),
+    };
+    render(<NavigationContainer>
+      <LoginButton email="hjdgh@everest.engineering" password="hjgjhg" navigation={navigation}/>
+      </NavigationContainer>)
+      jest.spyOn(Alert, 'alert').mockImplementation(()=>{ })
+    const login= screen.getByText('Login')
+    expect(login).toBeDefined();
+    fireEvent.press(login)
+    expect(Alert.alert).toHaveBeenCalled();
+  })
+
 })
