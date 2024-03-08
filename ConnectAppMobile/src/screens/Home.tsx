@@ -1,23 +1,18 @@
 import React from 'react';
 import {Button, View, Text} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import {Body} from '../components/homeScreen/Body';
+import {Header} from '../components/homeScreen/Header';
+import {styles} from '../styles/HomeScreenBodyStyles';
 
-const HomeScreen = ({navigation}: any) => {
+export const HomeScreen = ({navigation}: any) => {
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        alignContent: 'center',
-        justifyContent: 'center',
-      }}>
-      <Text>Home screen</Text>
-      <Button
-        title="Upload"
-        onPress={() => navigation.navigate('Upload')}></Button>
-      <Button
-        title="Log-out"
-        onPress={() => navigation.navigate('Login')}></Button>
-    </View>
+    <SafeAreaView>
+      <View style={styles.homeContainer}>
+        <Header navigation={navigation} />
+        <Body />
+      </View>
+    </SafeAreaView>
   );
 };
-export default HomeScreen;
+

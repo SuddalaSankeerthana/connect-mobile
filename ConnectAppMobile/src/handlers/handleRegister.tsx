@@ -15,18 +15,18 @@ export const handleRegister=async (userData:RegisterRouteProps, navigation: any)
     }).then(res => {return res;});
     if (response.status === 201) {
       navigation.navigate('Home')
-      alert("User registered successfully!");
+      Alert.alert("User registered successfully!");
     }
     else if (response.status === 401) {
-      alert("User already existed!");
+      Alert.alert("User already existed!");
     }
     else {
-      alert("Something went wrong");
+      Alert.alert("Something went wrong");
     }
   }
   catch (error) {
     console.error("Error registering user:", error);
-    alert("Failed to register user. Please try again later.");
+    Alert.alert("Failed to register user. Please try again later.");
   }
   return true
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { SafeAreaView, View} from 'react-native';
-import InputField from '../components/InputFields';
-import LoginButton from '../components/Button';
-import Caption from '../components/Caption';
+import InputField from '../components/loginScreen/InputFields';
+import LoginButton from '../components/loginScreen/Button';
+import Caption from '../components/loginScreen/Caption';
 import {styles} from '../styles/Login.styles';
-import Logo from '../components/Logo';
+import Logo from '../components/loginScreen/Logo';
 
 function LoginScreen({navigation}:any): React.JSX.Element {
   const [email, setEmail]= React.useState('');

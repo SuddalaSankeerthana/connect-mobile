@@ -1,10 +1,14 @@
 {
+  "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
     "esModuleInterop": true,
-    "jsx":"react",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react",
     "strict": true,
     "paths": {
-      "react": [ "./node_modules/@types/react", ]
+      "react": ["./node_modules/@types/react"]
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, TextInput, Image} from 'react-native';
-import { styles } from '../styles/Login.styles';
+import { styles } from '../../styles/Login.styles';
 
 function InputField(props:any): React.JSX.Element {
   return (

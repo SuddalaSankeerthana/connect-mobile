@@ -1,8 +1,8 @@
 import React from 'react';
 import {SafeAreaView, Text, View, Image, Button, Pressable, TouchableOpacity} from 'react-native';
-import { styles } from '../styles/Login.styles';
+import { styles } from '../../styles/Login.styles';
 import { Alert } from 'react-native';
-import { handleLogin } from '../handlers/handlelogin';
+import { handleLogin } from '../../handlers/handlelogin';
 
 function LoginButton(props:any): React.JSX.Element {
 let emailRegex = /[_A-Za-z'\\.\\!'0-9-\\+]+@gmail+\.com/
@@ -23,7 +23,7 @@ const handleValidations=()=>{
   }
 }
   return (
-        <Text style={styles.loginButton} onPress={handleValidations}>Login</Text>
+        <Text style={styles.loginButton} onPress={handleValidations} testID="loginButton">Login</Text>
   );
 }
 

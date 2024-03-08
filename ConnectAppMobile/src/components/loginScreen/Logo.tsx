@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, Text, View, Image} from 'react-native';
-import { styles } from '../styles/Login.styles';
+import { styles } from '../../styles/Login.styles';
 import Caption from './Caption';
 
 function Logo(): React.JSX.Element {
@@ -9,7 +9,7 @@ function Logo(): React.JSX.Element {
       <View style={styles.container}>
         <View style={styles.logoTitle}>
           <View testID="logo">
-            <Image source={require('../assets/logo2.png')} style={styles.logo}/>
+            <Image source={require('../../assets/logo2.png')} style={styles.logo}/>
           </View>
           <View>
             <Caption text="CONNECT" style={styles.title}/>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { SafeAreaView, View} from 'react-native';
-import LoginLogo from '../src/components/Logo';
-import InputField from '../src/components/InputFields';
-import LoginButton from '../src/components/Button';
-import Caption from '../src/components/Caption';
+import LoginLogo from '../src/components/loginScreen/Logo';
+import InputField from '../src/components/loginScreen/InputFields';
+import LoginButton from '../src/components/loginScreen/Button';
+import Caption from '../src/components/loginScreen/Caption';
 import {styles} from '../src/styles/Login.styles';
 
 function LoginScreen({navigation}:any): React.JSX.Element {
