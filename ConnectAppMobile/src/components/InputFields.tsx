@@ -16,6 +16,7 @@ function InputField(props:any): React.JSX.Element {
              value={props.text}
              inlineImageLeft="Frame1"
              inlineImagePadding={2}
+             autoCapitalize='none'
            />
        </View>
     </View>

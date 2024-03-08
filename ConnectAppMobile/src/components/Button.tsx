@@ -5,8 +5,8 @@ import { Alert } from 'react-native';
 import { handleLogin } from '../handlers/handlelogin';
 
 function LoginButton(props:any): React.JSX.Element {
-let emailRegex = /[_A-Za-z'\\.\\!'0-9-\\+]+@gmail+\.com/
-let emailRegex2 = /[_A-Za-z'\\.\\!'0-9-\\+]+@everest+\.engineering/
+let emailRegex = /[a-z]+[_A-Za-z'\\.\\!'0-9-\\+]+@gmail+\.com/
+let emailRegex2 = /[a-z]+[_A-Za-z'\\.\\!'0-9-\\+]+@everest+\.engineering/
 const handleValidations=()=>{
   if((!props.password) ||  (!props.email))
   {
@@ -19,7 +19,7 @@ const handleValidations=()=>{
      return;
   }
   else{
-    handleLogin(props.userData);
+    handleLogin(props.userData, props.navigation);
   }
 }
   return (
