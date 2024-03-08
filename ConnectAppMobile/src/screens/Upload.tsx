@@ -33,7 +33,11 @@ const UploadScreen = ({navigation}: any) => {
     }
   };
 
-  const handleCancel = () => {};
+  const handleCancel = () => {
+    navigation.navigate('Home');
+  };
+  
+  
   const handleUpload = async () => {
     try {
       let newPost: PostData = {
