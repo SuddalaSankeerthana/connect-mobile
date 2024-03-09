@@ -8,7 +8,7 @@ import RegisterButton from '../components/registrationScreen/RegisterButton';
 import WelcomeAndTagline from '../components/registrationScreen/WelcomAndTagline';
 import BackGroundImage from '../components/registrationScreen/BackgroundImage';
 import styles from '../styles/registration.style';
-import SigInContent from '../components/registrationScreen/SiginContent';
+import SigInContent from '../components/registrationScreen/SignInContent';
 
 const RegistrationScreen = ({navigation}: any) => {
   const [fullName, setFullName] = useState('');
