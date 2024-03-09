@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   logOutContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent:'center'
+    justifyContent: 'center',
   },
   profileName: {
     color: 'white',
@@ -47,8 +47,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginStart:'auto',
-    padding:5
+    marginStart: 'auto',
+    padding: 5,
   },
   logo: {
     height: 25,
@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 5,
-    marginEnd:'auto'
+    marginEnd: 'auto',
   },
   header: {
     height: 60,
@@ -123,17 +123,13 @@ export const styles = StyleSheet.create({
     marginRight: 30,
     borderRadius: 20,
   },
-  containerStyle:
-  {
+  containerStyle: {
     paddingTop: -20,
   },
-  inDotStyle:
-  {
-    backgroundColor:'grey'
-
+  inDotStyle: {
+    backgroundColor: 'grey',
   },
-  dotStyle:
-  {
+  dotStyle: {
     width: 10,
     borderRadius: 18,
     backgroundColor: '#0074FF',
@@ -154,5 +150,26 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+  },
+  modalContainer: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeIconContainer: {
+    position: 'absolute',
+    top: 60,
+    right: 20,
+    backgroundColor: 'black',
+    borderRadius: 20,
+    padding: 5,
+  },
+  closeIcon: {
+    color: 'white',
   },
 });
