@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { act } from 'react-test-renderer';
 import UploadScreen from '../src/screens/Upload';
-import { UploadPostDetails } from '../src/api/UploadPosts';
+import { uploadPostDetails } from '../src/api/uploadPostService';
 
 jest.mock('react-native-image-crop-picker', () => {
   return {
@@ -15,8 +15,8 @@ jest.mock('react-native-fs', () => ({
   readFile: jest.fn().mockResolvedValue('base64data'),
 }));
 
-jest.mock('../src/api/UploadPosts', () => ({
-  UploadPostDetails: jest.fn().mockResolvedValue({status: 200}),
+jest.mock('../src/api/uploadPostService', () => ({
+  uploadPostDetails: jest.fn().mockResolvedValue({status: 200}),
 }));
 
 
@@ -93,7 +93,7 @@ describe('UploadPostScreen component', () => {
     });
 
     await waitFor(() => {
-      expect(UploadPostDetails).toHaveBeenCalledWith({
+      expect(uploadPostDetails).toHaveBeenCalledWith({
         UserId: '1',
         PostCaption: '',
         Images: ['base64data', 'base64data'],

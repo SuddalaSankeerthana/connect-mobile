@@ -7,8 +7,8 @@ import {CancelButton} from '../components/CancelButton';
 import UploadIcon from '../components/UploadIcon';
 import {UploadButton} from '../components/UploadButton';
 import {TextInputContainer} from '../components/TextInputContainer';
-import {UploadPostDetails} from '../api/UploadPosts';
-import {PostData} from '../types/PostData';
+import {uploadPostDetails} from '../api/uploadPostService';
+import {PostDataBody} from '../types/PostBodyType';
 
 const UploadScreen = ({navigation}: any) => {
   const [selectedImages, setSelectedImages] = useState<ImageOrVideo[]>([]);
@@ -37,10 +37,10 @@ const UploadScreen = ({navigation}: any) => {
     navigation.navigate('Home');
   };
   
-  
+
   const handleUpload = async () => {
     try {
-      let newPost: PostData = {
+      let newPost: PostDataBody = {
         UserId: '1',
         PostCaption: caption,
         Images: [],
@@ -58,7 +58,7 @@ const UploadScreen = ({navigation}: any) => {
         newPost.Images.push(base64Images[i].file);
       }
 
-      const response = await UploadPostDetails(newPost);
+      const response = await uploadPostDetails(newPost);
 
       console.log('Responded', (await response).status);
       if (response.status == 200) {
