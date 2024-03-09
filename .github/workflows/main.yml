@@ -7,9 +7,6 @@ on:
   pull_request:
     branches:
       - "**"
-  # push:
-  #   branches:
-  #     - "**"
 
 jobs:
   build:
@@ -38,7 +35,7 @@ jobs:
 
     
   build-android:
-    needs: install-and-test
+    needs: build
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v3
