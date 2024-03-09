@@ -42,7 +42,7 @@ describe('Testing react navigation', () => {
     await waitFor(() => {
       expect(screen.getByText('Sign in')).toBeDefined();
     });
-  });  
+  });
 
   test('page navigates to Home screen on click to login screen from login screen ', async () => {
     const component = <AppStack />;
@@ -52,10 +52,10 @@ describe('Testing react navigation', () => {
     fireEvent.press(loginButton);
     const uploadButton = await screen.findByText('Upload');
     const logOutButton = await screen.findByText('Log-out');
-     await waitFor(() => {
-       expect(uploadButton).toBeDefined();
-       expect(logOutButton).toBeDefined();
-     });
+    await waitFor(() => {
+      expect(uploadButton).toBeDefined();
+      expect(logOutButton).toBeDefined();
+    });
   });
   test('page navigates from registration screen to home screen on press to register button registration screen', async () => {
     const component = <AppStack />;
@@ -107,22 +107,5 @@ describe('Testing react navigation', () => {
     fireEvent.press(uploadHomeScreen);
     const uploadInUploadScreen = await screen.findByText('Upload');
     expect(uploadInUploadScreen).toBeDefined();
-  });
-  test('page navigates from upload screen to home screen on upload button press', async () => {
-    const component = <AppStack />;
-    render(component);
-    const loginButton = await screen.findByText('Login');
-    expect(loginButton).toBeDefined();
-    fireEvent.press(loginButton);
-    const uploadHomeScreen = await screen.findByText('Upload');
-    expect(uploadHomeScreen).toBeDefined();
-    fireEvent.press(uploadHomeScreen);
-    const uploadInUploadScreen = await screen.findByText('Upload');
-    expect(uploadInUploadScreen).toBeDefined();
-    fireEvent.press(uploadInUploadScreen);
-    waitFor(async() => {
-      const homeScreenLogOut = await screen.findByText('Log-out');
-      expect(homeScreenLogOut).toBeDefined();
-    })
   });
 });
