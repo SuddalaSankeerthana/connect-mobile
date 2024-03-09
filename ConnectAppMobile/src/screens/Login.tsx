@@ -40,7 +40,6 @@ function LoginScreen({navigation}:any): React.JSX.Element {
      <Caption text="Sign Up" style={styles.signUp} onPress={()=> navigation.navigate('Registration')}/>
      </View>
      <View style={styles.vectorContainer}>
-     <Image source={require('../assets/Vector2.png')} style={styles.vectorStyle2}/>
      </View>
      </ImageBackground>
      </View>
