@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { HomeScreen } from './src/screens/Home';
 import RegistrationScreen from './src/screens/Registration';
 import UploadScreen from './src/screens/Upload';
-import LoginScreen from './screens/Login';
+import LoginScreen from './src/screens/Login';
 
 type AppStackParamList = {
   Home: undefined;
