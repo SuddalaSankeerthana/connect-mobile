@@ -3,17 +3,25 @@ import React, {Dispatch, SetStateAction, useContext, useState} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
 import {faHeart as faSHeart} from '@fortawesome/free-solid-svg-icons';
-import { LikeContext } from './LikeContext';
+import {LikeContext, PostContext, CurrentUserContext} from './LikeContext';
+import {updateLikeStatus} from '../../handlers/handlerLike';
 
 const LikeButton = () => {
   const likeContext = useContext(LikeContext);
+  const postContext = useContext(PostContext);
+  const currentUser = useContext(CurrentUserContext);
   return (
     <TouchableOpacity
       onPress={() => {
-        likeContext.setLikeStatus(!likeContext.likeStatus);
         likeContext.likeStatus
           ? likeContext.setLikesCount(likeContext.likesCount - 1)
           : likeContext.setLikesCount(likeContext.likesCount + 1);
+        updateLikeStatus(
+          likeContext.setLikeStatus,
+          likeContext.likeStatus,
+          postContext.PostId,
+          currentUser.UserId,
+        );
       }}>
       {likeContext.likeStatus ? (
         <FontAwesomeIcon

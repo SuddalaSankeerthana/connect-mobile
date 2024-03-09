@@ -1,26 +1,28 @@
 import {Image, ImageBackground, View} from 'react-native';
 import {styles} from '../../styles/HomeScreenBodyStyles';
-import React, {
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import {
   GestureHandlerRootView,
   TapGestureHandler,
 } from 'react-native-gesture-handler';
-import LikeButton from './LikeButton';
-import { LikeContext } from './LikeContext';
+
+import {CurrentUserContext, LikeContext, PostContext} from './LikeContext';
+import { updateLikeStatus } from '../../handlers/handlerLike';
 
 export function PostImage({image}: {image: string}) {
-  const likeContext:any = useContext(LikeContext);
+  const likeContext: any = useContext(LikeContext);
+  const postContext = useContext(PostContext);
+  const currentUser = useContext(CurrentUserContext);
   const onDoubleTap = () => {
     setIsShow(true);
     if (!likeContext.likeStatus) {
       likeContext.setLikesCount(likeContext.likesCount + 1);
-      likeContext.setLikeStatus(!likeContext.likeStatus);
+      updateLikeStatus(
+        likeContext.setLikeStatus,
+        likeContext.likeStatus,
+        postContext.PostId,
+        currentUser.UserId,
+      );
     }
     setTimeout(() => {
       setIsShow(false);

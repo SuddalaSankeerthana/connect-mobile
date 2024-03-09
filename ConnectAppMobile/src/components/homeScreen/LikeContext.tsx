@@ -1,5 +1,6 @@
 import React, {Dispatch, SetStateAction} from 'react';
-import { createContext } from 'react';
+
+import {PostType} from './Body';
 
 export type LikeContextType = {
   likesCount: number;
@@ -7,5 +8,9 @@ export type LikeContextType = {
   setLikesCount: Dispatch<SetStateAction<number>>;
   setLikeStatus: Dispatch<SetStateAction<boolean>>;
 };
-// export const LikesContext = React.createContext<LikeContextType>();
-export const LikeContext=React.createContext<LikeContextType>();
+export type User = {
+  UserId: string;
+};
+export const CurrentUserContext = React.createContext<User>({UserId: '3'});
+export const LikeContext = React.createContext<LikeContextType>();
+export const PostContext = React.createContext<PostType>();
