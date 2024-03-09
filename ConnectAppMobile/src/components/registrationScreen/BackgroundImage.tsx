@@ -7,7 +7,7 @@ const BackGroundImage = () => {
   return (
     <Image
       style={styles.backGroundImage}
-      testID="backgground-image"
+      testID="background-image"
       source={require('../../images/png/shape.png')}></Image>
   );
 };
