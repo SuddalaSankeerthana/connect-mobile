@@ -3,7 +3,7 @@ import {TouchableOpacity, Text} from 'react-native';
 
 import styles from '../../styles/registration.style';
 
-const SigIn = ({navigation}: any) => {
+const SignIn = ({navigation}: any) => {
   return (
     <TouchableOpacity onPress={() => navigation.navigate('Login')}>
       <Text style={styles.signInText}>Sign in</Text>
@@ -11,4 +11,4 @@ const SigIn = ({navigation}: any) => {
   );
 };
 
-export default SigIn;
+export default SignIn;
