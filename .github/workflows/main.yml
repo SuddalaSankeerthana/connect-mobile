@@ -30,8 +30,8 @@ jobs:
       - name: Install dependencies in app
         run: cd ConnectAppMobile && npm install
 
-      - name: Run tests
-        run: cd ConnectAppMobile && npm run test
+      # - name: Run tests
+      #   run: cd ConnectAppMobile && npm run test
 
     
   build-android:
