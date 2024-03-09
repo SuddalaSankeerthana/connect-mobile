@@ -3,6 +3,7 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
 import {styles} from '../../styles/HomeScreenBodyStyles';
+import Comment from './comment/Comment';
 
 export function LikesAndComments({likes_count}: {likes_count: number}) {
   return (
@@ -14,9 +15,8 @@ export function LikesAndComments({likes_count}: {likes_count: number}) {
         <Text>{likes_count}</Text>
       </View>
       <View>
-        <Image
-          source={require('../../assets/commentIcon.png')}
-          style={styles.commentIcon}></Image>
+        
+          <Comment />
       </View>
     </View>
   );
