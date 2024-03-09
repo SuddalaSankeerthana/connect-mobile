@@ -8,7 +8,7 @@ import RegisterButton from '../components/registrationScreen/RegisterButton';
 import WelcomeAndTagline from '../components/registrationScreen/WelcomAndTagline';
 import BackGroundImage from '../components/registrationScreen/BackgroundImage';
 import styles from '../styles/registration.style';
-import SigInContent from '../components/registrationScreen/SiginContent';
+import SigInContent from '../components/registrationScreen/SignInContent';
 
 const RegistrationScreen = ({navigation}: any) => {
   const [fullName, setFullName] = useState('');
@@ -28,6 +28,8 @@ const RegistrationScreen = ({navigation}: any) => {
     confirmPassword: confirmPassword,
     profileImageAddress: "profileImageAddress"
    }
+    const imageUrl = {uri: 'https://example.com/image.jpg'};
+
   return (
     <SafeAreaView>
       <View style={styles.registrationContainer}>
@@ -35,7 +37,7 @@ const RegistrationScreen = ({navigation}: any) => {
         <View style={styles.registrationInputContainer}>
           <LogoAndTitle></LogoAndTitle>
           <WelcomeAndTagline></WelcomeAndTagline>
-          <RegistraionProfile></RegistraionProfile>
+          <RegistraionProfile url={imageUrl} />
           <TextInputBox
             placeholder="Enter your full name"
             value={fullName}

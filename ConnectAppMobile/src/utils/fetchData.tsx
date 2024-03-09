@@ -11,3 +11,4 @@ export const fetchData = async () => {
   const posts: PostType[] = Object.values(response.posts);
   return posts;
 };
+
