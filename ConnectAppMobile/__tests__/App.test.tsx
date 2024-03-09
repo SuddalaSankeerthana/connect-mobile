@@ -20,6 +20,10 @@ jest.mock('react-native-image-crop-picker', () => {
   };
 });
 
+jest.mock('react-native-fs', () => ({
+  readFile: jest.fn().mockResolvedValue('base64data'),
+}));
+
 describe('Testing react navigation', () => {
   test('test for page is at login screen', async () => {
     const component = <AppStack />;
@@ -35,9 +39,11 @@ describe('Testing react navigation', () => {
     const registration = await screen.findByText('Register');
     expect(registration).toBeDefined();
     fireEvent.press(registration);
-    const SignIn = await screen.findByText('Sign in');
-    expect(SignIn).toBeDefined();
-  });
+    await waitFor(() => {
+      expect(screen.getByText('Sign in')).toBeDefined();
+    });
+  });  
+
   test('page navigates to Home screen on click to login screen from login screen ', async () => {
     const component = <AppStack />;
     render(component);
@@ -46,8 +52,10 @@ describe('Testing react navigation', () => {
     fireEvent.press(loginButton);
     const uploadButton = await screen.findByText('Upload');
     const logOutButton = await screen.findByText('Log-out');
-    expect(uploadButton).toBeDefined();
-    expect(logOutButton).toBeDefined();
+     await waitFor(() => {
+       expect(uploadButton).toBeDefined();
+       expect(logOutButton).toBeDefined();
+     });
   });
   test('page navigates from registration screen to home screen on press to register button registration screen', async () => {
     const component = <AppStack />;
@@ -59,8 +67,10 @@ describe('Testing react navigation', () => {
     fireEvent.press(registerInRegistrationScreen);
     const uploadButton = await screen.findByText('Upload');
     const logOutButton = await screen.findByText('Log-out');
-    expect(uploadButton).toBeDefined();
-    expect(logOutButton).toBeDefined();
+    await waitFor(() => {
+      expect(uploadButton).toBeDefined();
+      expect(logOutButton).toBeDefined();
+    });
   });
   test('page navigates from registration screen to login screen on press to sign in button', async () => {
     const component = <AppStack />;
