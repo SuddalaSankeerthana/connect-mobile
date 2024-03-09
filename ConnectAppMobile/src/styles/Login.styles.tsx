@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
  vectorContainer:
  {
 // backgroundColor:'black',
-marginTop:120,
+// marginTop:120,
 width:200,
  },
  loginMainContainer: {
@@ -36,17 +36,14 @@ width:200,
  {
 height:150,
 width:200,
-// marginStart:'auto',
-marginTop:-30,
-marginLeft:100
+marginTop:165,
+marginLeft:120
  },
  backgroundEffect:
  {
 width:'95%',
-height:'100%',
-// padding:'10%',
-// marginTop:100
-// flexDirection:'row-reverse'
+height:'110%',
+
  },
  logoTitle: {
   display: 'flex',
@@ -74,7 +71,6 @@ height:'100%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  // marginBottom: '10%',
   paddingBottom:'20%',
  },
  connect: {
