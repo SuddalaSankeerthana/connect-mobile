@@ -3,7 +3,7 @@ import {TouchableOpacity, View, Text} from 'react-native';
 import {handleRegister} from '../../handlers/handleRegister';
 import styles from '../../styles/registration.style';
 import {Alert} from 'react-native';
-import {RegisterRouteProps} from '../../types/RegisterRouteProps';
+
 
 const RegisterButton = ( props: any) => {
   const handleValidations = () => {
@@ -27,7 +27,7 @@ const RegisterButton = ( props: any) => {
      return;
     }
     else {
-      handleRegister(props.userData, props.navigation)
+    handleRegister(props.userData, props.changedImage, props.navigation);
       return;
     }
   };
