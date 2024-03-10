@@ -154,7 +154,8 @@ export const styles = StyleSheet.create({
     width: 250,
     left: 0,
     marginTop: 40,
-
+alignItems:'center',
+justifyContent:'center',
     borderRadius: 20,
   },
   containerStyle: {

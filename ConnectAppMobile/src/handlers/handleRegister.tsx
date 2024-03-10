@@ -29,7 +29,11 @@ export const handleRegister = async (
     if ((response.message = 'User registered successfully')) {
       navigation.navigate('Home');
       Alert.alert('User registered successfully!');
-    } else {
+    } else if(response.message === "Email adrress already exists") {
+      Alert.alert("User already exists with this email!");
+    }else if(response.message === "Failed to create user!"){
+      Alert.alert("Ops.. Failed to create user!");
+    }else {
       Alert.alert('Something went wrong');
     }
   } catch (error) {

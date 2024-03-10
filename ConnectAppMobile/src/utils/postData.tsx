@@ -12,8 +12,6 @@ const postUpdateLikeTable = async (
       'Content-Type': 'application/json',
     },
   });
-  const result = await response.json();
-  console.log(result);
 };
 export const postLikeUpdatetoPostData = async (url: string) => {
   const response = await fetch(url, {
@@ -22,7 +20,5 @@ export const postLikeUpdatetoPostData = async (url: string) => {
       'Content-Type': 'application/json',
     },
   });
-  const result = await response.json();
-  console.log(result);
 };
 export default postUpdateLikeTable;
