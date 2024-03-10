@@ -27,6 +27,7 @@ const Comment = ({post}: {post: PostType}) => {
   const [parentCommentId, setParentCommentId] = useState('');
   const [showReplies, setShowReplies] = useState(false);
   const [showReplyId, setShowReplyId] = useState<number | null>(null);
+  const [updateComments, setUpdateComments] = useState(false);
 
   const handleIconPress = async () => {
     setModalVisible(true);
@@ -59,7 +60,7 @@ const Comment = ({post}: {post: PostType}) => {
       }
     };
     fetchData();
-  }, [isModalVisible]);
+  }, [isModalVisible, updateComments]);
 
   const handleComment = (username: string) => {
     setSelectedUsername(username);
@@ -86,144 +87,176 @@ const Comment = ({post}: {post: PostType}) => {
           animationIn="fadeIn"
           animationOut="fadeOut">
           <View style={[styles.modalContainer, {height: windowHeight * 0.85}]}>
+            <Pressable onPress={closeModal} style={styles.closeIconContainer}>
+              <View>
+                <FontAwesomeIcon icon={faTimes} style={styles.closeIcon} />
+              </View>
+            </Pressable>
             <View>
-              <Pressable onPress={closeModal} style={styles.closeIconContainer}>
-                <View>
-                  <FontAwesomeIcon icon={faTimes} style={styles.closeIcon} />
-                </View>
-              </Pressable>
               <View
                 style={{
                   height: windowHeight * 0.6,
                   width: windowHeight * 0.35,
                 }}>
-                {commentsData.map((comment: any, index: number) => {
-                  const currentComment = comment[1];
-
-                  return (
-                    <View key={index}>
-                      <View style={{display: 'flex', flexDirection: 'row'}}>
-                        <Image
-                          source={{uri: currentComment.ProfileImageAddress}}
-                          style={{
-                            width: 40,
-                            height: 40,
-                            borderRadius: 50,
-                            marginRight: 10,
-                          }}
-                        />
-                        <View
-                          style={{display: 'flex', flexDirection: 'column'}}>
-                          <View style={{display: 'flex', flexDirection: 'row'}}>
-                            <Text
-                              style={{paddingRight: 10, fontWeight: 'bold'}}>
-                              {currentComment.Username}
-                            </Text>
-                            <Text>{currentComment.CommentMessage}</Text>
-                          </View>
-                          <TouchableOpacity
-                            onPress={() => {
-                              handleComment(currentComment.Username);
-                              setParentCommentId(currentComment.CommentId);
+                <ScrollView>
+                  <View style={{height: '100%'}}>
+                    {commentsData.map((comment: any, index: number) => {
+                      const currentComment = comment[1];
+                      return (
+                        <View key={index}>
+                          <View
+                            style={{
+                              display: 'flex',
+                              flexDirection: 'row',
+                              paddingVertical: 8,
                             }}>
-                            <Text>Reply</Text>
-                          </TouchableOpacity>
-                          {showReplyId != index && currentComment.Replays && (
-                            <TouchableOpacity
-                              onPress={() => {
-                                handleViewComments(index);
-                                setShowReplyId(index);
+                            <Image
+                              source={{uri: currentComment.ProfileImageAddress}}
+                              style={{
+                                width: 40,
+                                height: 40,
+                                borderRadius: 50,
+                                marginRight: 10,
+                              }}
+                            />
+                            <View
+                              style={{
+                                display: 'flex',
+                                flexDirection: 'column',
                               }}>
-                              <Text>View more replies......</Text>
-                            </TouchableOpacity>
-                          )}
-                        </View>
-                      </View>
-
-                      {currentComment.Replays &&
-                        showReplyId == index &&
-                        showReplies && (
-                          <View>
-                            {currentComment.Replays.map(
-                              (reply: ReplyDataType, replyIndex: number) => (
-                                <View
-                                  key={replyIndex}
+                              <View
+                                style={{display: 'flex', flexDirection: 'row'}}>
+                                <Text
                                   style={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    paddingLeft: 50,
-                                    padding: 10,
+                                    paddingRight: 10,
+                                    fontWeight: 'bold',
                                   }}>
-                                  <View
-                                    style={{
-                                      display: 'flex',
-                                      flexDirection: 'row',
+                                  {currentComment.Username}
+                                </Text>
+                                <Text>{currentComment.CommentMessage}</Text>
+                              </View>
+                              <TouchableOpacity
+                                onPress={() => {
+                                  handleComment(currentComment.Username);
+                                  setParentCommentId(currentComment.CommentId);
+                                }}>
+                                <Text style={{color: 'dodgerblue', padding: 5}}>
+                                  Reply
+                                </Text>
+                              </TouchableOpacity>
+                              {showReplyId != index &&
+                                currentComment.Replays && (
+                                  <TouchableOpacity
+                                    onPress={() => {
+                                      handleViewComments(index);
+                                      setShowReplyId(index);
                                     }}>
-                                    <Image
-                                      source={{uri: reply.ProfileImageAddress}}
-                                      style={{
-                                        width: 40,
-                                        height: 40,
-                                        borderRadius: 50,
-                                        marginRight: 10,
-                                      }}
-                                    />
+                                    <Text
+                                      style={{color: 'grey', paddingLeft: 5}}>
+                                      _____view more replies
+                                    </Text>
+                                  </TouchableOpacity>
+                                )}
+                            </View>
+                          </View>
+                          {currentComment.Replays &&
+                            showReplyId == index &&
+                            showReplies && (
+                              <View>
+                                {currentComment.Replays.map(
+                                  (
+                                    reply: ReplyDataType,
+                                    replyIndex: number,
+                                  ) => (
                                     <View
+                                      key={replyIndex}
                                       style={{
                                         display: 'flex',
-                                        flexDirection: 'column',
+                                        flexDirection: 'row',
+                                        paddingLeft: 50,
+                                        paddingBottom: 10,
                                       }}>
                                       <View
                                         style={{
                                           display: 'flex',
                                           flexDirection: 'row',
                                         }}>
-                                        <Text
+                                        <Image
+                                          source={{
+                                            uri: reply.ProfileImageAddress,
+                                          }}
                                           style={{
-                                            paddingRight: 10,
-                                            fontWeight: 'bold',
-                                          }}>
-                                          {reply.Username}
-                                        </Text>
-                                        <Text
+                                            width: 40,
+                                            height: 40,
+                                            borderRadius: 50,
+                                            marginRight: 10,
+                                          }}
+                                        />
+                                        <View
                                           style={{
                                             display: 'flex',
-                                            flexWrap: 'wrap',
+                                            flexDirection: 'column',
                                           }}>
-                                          {reply.CommentMessage}
-                                        </Text>
-                                      </View>
+                                          <View
+                                            style={{
+                                              display: 'flex',
+                                              flexDirection: 'row',
+                                            }}>
+                                            <Text
+                                              style={{
+                                                paddingRight: 10,
+                                                fontWeight: 'bold',
+                                              }}>
+                                              {reply.Username}
+                                            </Text>
+                                            <Text
+                                              style={{
+                                                display: 'flex',
+                                               
+                                              }}>
+                                              {reply.CommentMessage}
+                                            </Text>
+                                          </View>
 
-                                      <TouchableOpacity
-                                        onPress={() => {
-                                          handleComment(reply.Username);
-                                          setParentCommentId(
-                                            reply.ParentCommentId,
-                                          );
-                                        }}>
-                                        <Text>Reply</Text>
-                                      </TouchableOpacity>
+                                          <TouchableOpacity
+                                            onPress={() => {
+                                              handleComment(reply.Username);
+                                              setParentCommentId(
+                                                reply.ParentCommentId,
+                                              );
+                                            }}>
+                                            <Text style={{color: 'dodgerblue'}}>
+                                              Reply
+                                            </Text>
+                                          </TouchableOpacity>
+                                        </View>
+                                      </View>
                                     </View>
-                                  </View>
-                                </View>
-                              ),
+                                  ),
+                                )}
+                              </View>
                             )}
-                          </View>
-                        )}
-                      {showReplyId == index && (
-                        <TouchableOpacity
-                          onPress={() => {
-                            setShowReplyId(null);
-                            setShowReplies(false);
-                          }}>
-                          <Text style={{paddingLeft: 40, paddingBottom: 10}}>
-                            Hide replies.....
-                          </Text>
-                        </TouchableOpacity>
-                      )}
-                    </View>
-                  );
-                })}
+                          {showReplyId == index && (
+                            <TouchableOpacity
+                              onPress={() => {
+                                setShowReplyId(null);
+                                setShowReplies(false);
+                              }}>
+                              <Text
+                                style={{
+                                  paddingLeft: 50,
+                                  paddingBottom: 10,
+                                  color: 'grey',
+                                }}>
+                                Hide replies.....
+                              </Text>
+                            </TouchableOpacity>
+                          )}
+                        </View>
+                      );
+                    })}
+                  </View>
+                </ScrollView>
               </View>
             </View>
             <CommentForm
@@ -233,6 +266,8 @@ const Comment = ({post}: {post: PostType}) => {
               parentCommentId={parentCommentId}
               setParentCommentId={setParentCommentId}
               post={post}
+              setUpdateComments={setUpdateComments}
+              handleIconPress={handleIconPress}
             />
           </View>
         </Modal>

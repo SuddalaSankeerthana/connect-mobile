@@ -10,9 +10,8 @@ import {
   Text,
   TextInput,
 } from 'react-native';
-import {styles} from '../../../styles/HomeScreenBodyStyles';
+import { styles } from '../../../styles/HomeScreenBodyStyles';
 import {PostType} from '../Body';
-import {Formstyles} from './CommentFormStyles';
 
 const CommentForm = ({
   commentText,
@@ -21,6 +20,8 @@ const CommentForm = ({
   post,
   parentCommentId,
   setParentCommentId,
+  setUpdateComments,
+  handleIconPress,
 }: {
   commentText: string;
   selectedUsername: string;
@@ -28,6 +29,8 @@ const CommentForm = ({
   setCommentText: (text: string) => void;
   parentCommentId: string;
   setParentCommentId: (text: string) => void;
+  setUpdateComments: any;
+  handleIconPress: () => void;
 }) => {
   const [inputText, setInputText] = useState(commentText);
 
@@ -65,27 +68,30 @@ const CommentForm = ({
     setCommentText('');
     setParentCommentId('');
     setInputText('');
+    setUpdateComments((value: boolean) => !value);
+    handleIconPress();
   };
 
   return (
-    <View style={Formstyles.commentInputContainer}>
-      <View style={Formstyles.profileImageContainer}>
+    <View style={styles.commentInputContainer}>
+      <View style={styles.profileImageContainer}>
         <Image
           source={{uri: post.ProfileImageAddress}}
-          style={Formstyles.profileImage}
+          style={styles.profileImageCommentId}
         />
       </View>
-      <View style={Formstyles.inputContainer}>
+      <View style={styles.inputContainer}>
         <TextInput
           placeholder={`Replying to ${post.Username}`}
-          style={Formstyles.input}
+          style={styles.input}
           value={inputText}
           onChangeText={text => {
+            if (text == '') setParentCommentId('');
             setInputText(text);
             setCommentText(text);
           }}
         />
-        <Pressable style={Formstyles.sendButton} onPress={handleSend}>
+        <Pressable style={styles.sendButton} onPress={handleSend}>
           <FontAwesomeIcon icon={faPaperPlane} size={20} />
         </Pressable>
       </View>

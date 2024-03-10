@@ -220,4 +220,40 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
+  commentInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding:10,
+    position: 'absolute',
+    bottom: 10
+  },
+  input: {
+    flex: 1,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    marginLeft: 5,
+  },
+  sendButton: {
+    marginLeft: 10,
+    padding: 10,
+    borderRadius: 8,
+  },
+  profileImageContainer: {
+    marginRight: 10,
+  },
+  profileImageCommentId: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    marginRight: 10,
+  },
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    padding: 5,
+    borderColor: '#ccc',
+    borderRadius: 20,
+  },
 });
