@@ -10,7 +10,6 @@ export const updateLikeStatus = (
   userId: string,
 ) => {
   const networkHost = getHostName();
-  console.log('Status', status);
   setLikeStatus(!status);
   const urlForPosts = `http://${networkHost}:8080/homepage/like?postId=${postId}&likeStatus=${!status}`;
   postLikeUpdatetoPostData(urlForPosts);
