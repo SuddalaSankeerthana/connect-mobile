@@ -1,12 +1,13 @@
 import {Platform} from 'react-native';
-import {REPL_MODE_SLOPPY} from 'repl';
+
 import {Alert} from 'react-native';
 import {LoginRouteProps} from '../types/LoginRouteProps';
-import {CurrentUserContext} from '../components/homeScreen/LikeContext';
+import {CurrentUserContextType} from '../components/CurrentContext';
+
 export const handleLogin = async (
   userData: LoginRouteProps,
   navigation: any,
-  userContext: CurrentUserContext,
+  userContext: CurrentUserContextType,
 ) => {
   try {
     const url =
@@ -28,10 +29,8 @@ export const handleLogin = async (
       profile: response.user.ProfileImageAddress,
       email: response.user.Email,
     });
-    console.log(userContext.user);
     if (response.message === 'Loggged in successfully') {
       Alert.alert('Login successfully!');
-      console.log('s', response.user);
       navigation.navigate('Home');
     } else {
       Alert.alert('Something went wrong');

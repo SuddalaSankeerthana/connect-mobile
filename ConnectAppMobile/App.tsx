@@ -6,7 +6,7 @@ import RegistrationScreen from './src/screens/Registration';
 import UploadScreen from './src/screens/Upload';
 import LoginScreen from './src/screens/Login';
 import {UserDetails} from './src/types/User';
-import {CurrentUserContext} from './src/components/homeScreen/LikeContext';
+import {CurrentUserContext} from './src/components/CurrentContext';
 
 type AppStackParamList = {
   Home: undefined;
@@ -18,13 +18,7 @@ type AppStackParamList = {
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
 function AppStack() {
-  const [user, setUser] = useState<UserDetails>({
-    userId: '3',
-    userName: 'ss',
-    profile:
-      'https://i.pinimg.com/originals/d8/2b/ca/d82bca57dcaa9ceb4c827e3d6ab9fcfe.jpg',
-    email: '',
-  });
+  const [user, setUser] = useState<UserDetails>({});
   return (
     <CurrentUserContext.Provider value={{user: user, setUser: setUser}}>
       <NavigationContainer>

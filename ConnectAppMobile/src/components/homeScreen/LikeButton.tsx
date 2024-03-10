@@ -3,8 +3,10 @@ import React, {useContext} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
 import {faHeart as faSHeart} from '@fortawesome/free-solid-svg-icons';
-import {LikeContext, PostContext, CurrentUserContext} from './LikeContext';
+import {LikeContext} from './LikeContext';
 import {updateLikeStatus} from '../../handlers/handlerLike';
+import {PostContext} from './PostContext';
+import { CurrentUserContext } from '../CurrentContext';
 
 const LikeButton = () => {
   const likeContext = useContext(LikeContext);

@@ -6,8 +6,10 @@ import {
   TapGestureHandler,
 } from 'react-native-gesture-handler';
 
-import {CurrentUserContext, LikeContext, PostContext} from './LikeContext';
-import { updateLikeStatus } from '../../handlers/handlerLike';
+import {LikeContext} from './LikeContext';
+import {updateLikeStatus} from '../../handlers/handlerLike';
+import {PostContext} from './PostContext';
+import {CurrentUserContext} from '../CurrentContext';
 
 export function PostImage({image}: {image: string}) {
   const likeContext: any = useContext(LikeContext);

@@ -3,7 +3,9 @@ import {PostItem} from './PostItem';
 import React, {useContext, useEffect} from 'react';
 import {useState} from 'react';
 import {fetchData} from '../../utils/fetchData';
-import {PostContext, CurrentUserContext} from './LikeContext';
+
+import {PostContext} from './PostContext';
+import {CurrentUserContext} from '../CurrentContext';
 export type PostType = {
   PostId: string;
   UserId?: string;

@@ -7,7 +7,7 @@ import {Profile} from './Profile';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
 import {useState} from 'react';
 import {Menu, MenuItem} from 'react-native-material-menu';
-import {CurrentUserContext} from './LikeContext';
+import {CurrentUserContext} from '../CurrentContext';
 
 export function Header({navigation}: any) {
   const [visible, setVisible] = useState(false);
