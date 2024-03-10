@@ -12,10 +12,6 @@ import PropTypes from 'prop-types';
 import {LikeContext} from './LikeContext';
 
 
-PostItem.propTypes = {
-  dotStyle: PropTypes.any.isRequired,
-  containerStyle: PropTypes.any.isRequired,
-};
 export function PostItem(props: PostType) {
   const images: ArrayLike<string[]> & readonly string[][] = props.Images;
   const length = props.Images.length;
