@@ -58,7 +58,7 @@ export function PostItem(props: PostType) {
         inactiveDotStyle={styles.inDotStyle}
       />
 
-      <LikesAndComments likes_count={props.LikesCount} />
+      <LikesAndComments likes_count={props.LikesCount} post={props}/>
 
       <Caption description={props.Caption} />
     </View>

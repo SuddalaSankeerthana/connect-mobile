@@ -4,8 +4,15 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
 import {styles} from '../../styles/HomeScreenBodyStyles';
 import Comment from './comment/Comment';
+import { PostType } from './Body';
 
-export function LikesAndComments({likes_count}: {likes_count: number}) {
+export function LikesAndComments({
+  likes_count,
+  post
+}: {
+  likes_count: number;
+  post: PostType;
+}) {
   return (
     <View style={styles.likesAndComment}>
       <View style={styles.heartIcon}>
@@ -15,8 +22,7 @@ export function LikesAndComments({likes_count}: {likes_count: number}) {
         <Text>{likes_count}</Text>
       </View>
       <View>
-        
-          <Comment />
+        <Comment  post={post}/>
       </View>
     </View>
   );
