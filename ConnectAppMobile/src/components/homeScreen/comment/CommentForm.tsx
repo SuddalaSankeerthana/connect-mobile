@@ -1,17 +1,16 @@
 import {faPaperPlane} from '@fortawesome/free-regular-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   Image,
   Pressable,
-  ScrollView,
-  TouchableOpacity,
   View,
   Text,
   TextInput,
 } from 'react-native';
-import { styles } from '../../../styles/HomeScreenBodyStyles';
+import {styles} from '../../../styles/HomeScreenBodyStyles';
 import {PostType} from '../Body';
+import {CurrentUserContext} from '../../CurrentContext';
 
 const CommentForm = ({
   commentText,
@@ -33,14 +32,14 @@ const CommentForm = ({
   handleIconPress: () => void;
 }) => {
   const [inputText, setInputText] = useState(commentText);
-
+  const currentUser = useContext(CurrentUserContext);
   useEffect(() => {
     setInputText(commentText);
   }, [commentText]);
 
   const handleSend = async () => {
     const newCommentData = {
-      UserId: '1',
+      UserId: currentUser.user.userId,
       PostId: post.PostId,
       CommentMessage: commentText,
       ParentCommentId: parentCommentId,
