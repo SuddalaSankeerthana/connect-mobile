@@ -17,6 +17,7 @@ jest.mock('@fortawesome/react-native-fontawesome', () => ({
 }));
 
 describe('test for the login screens', () => {
+ 
   jest.spyOn(Alert, 'alert');
   afterAll(() => console.log('1 - afterAll'));
   test('To check logo', () => {

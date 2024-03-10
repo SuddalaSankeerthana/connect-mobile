@@ -7,10 +7,11 @@ import {Body} from '../src/components/homeScreen/Body';
 import {fetchData} from '../src/utils/fetchData';
 import { NavigationContainer } from '@react-navigation/native';
 
-jest.mock('../src/utils/fetchData');
+
 jest.mock('@fortawesome/react-native-fontawesome', () => ({
   FontAwesomeIcon: '',
 }));
+jest.mock('../src/utils/fetchData');
 
 describe('test rendering', () => {
   afterAll(() => console.log('1 - afterAll'));
