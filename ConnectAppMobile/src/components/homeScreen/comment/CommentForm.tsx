@@ -1,16 +1,11 @@
 import {faPaperPlane} from '@fortawesome/free-regular-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React, {useContext, useEffect, useState} from 'react';
-import {
-  Image,
-  Pressable,
-  View,
-  Text,
-  TextInput,
-} from 'react-native';
+import {Image, Pressable, View, Text, TextInput} from 'react-native';
 import {styles} from '../../../styles/HomeScreenBodyStyles';
 import {PostType} from '../Body';
 import {CurrentUserContext} from '../../CurrentContext';
+import {getHostName} from '../../../utils/getHostName';
 
 const CommentForm = ({
   commentText,
@@ -48,7 +43,7 @@ const CommentForm = ({
     try {
       if (commentText !== '') {
         const response = await fetch(
-          'http://localhost:8080/homepage/post-comment',
+          `http://${getHostName()}:8080/homepage/post-comment`,
           {
             method: 'POST',
             headers: {
