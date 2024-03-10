@@ -19,19 +19,18 @@ const RegistrationScreen = ({navigation}: any) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [changedImage, setChangedImage] = useState('');
   const [uploadedStatus, setUploadedStatus] = useState(false);
+
   const handleImageCropPicker = () => {
     ImagePicker.openPicker({
       width: 100,
       height: 100,
       cropping: true,
-      includeBase64: true,
     })
       .then(image => {
         if (image && image.path) {
           RNFS.readFile(image.path, 'base64')
             .then(base64 => {
-              console.log("Bas64",base64);
-              setChangedImage(base64); 
+              setChangedImage(base64);
               setUploadedStatus(true);
             })
             .catch(error => {
@@ -43,12 +42,14 @@ const RegistrationScreen = ({navigation}: any) => {
         console.error('Error picking image:', error);
       });
   };
+
   const userData = {
     username: fullName,
     email: email,
     password: password,
     profileImageAddress: 'profileImageAddress',
   };
+
   const userDataValidations = {
     username: fullName,
     email: email,
@@ -56,6 +57,7 @@ const RegistrationScreen = ({navigation}: any) => {
     confirmPassword: confirmPassword,
     profileImageAddress: 'profileImageAddress',
   };
+
   const imageUrl = {uri: 'https://example.com/image.jpg'};
   return (
     <SafeAreaView>
@@ -95,12 +97,12 @@ const RegistrationScreen = ({navigation}: any) => {
           <RegisterButton
             navigation={navigation}
             userData={userDataValidations}
-            changedImage={changedImage}
-        ></RegisterButton>
+            changedImage={changedImage}></RegisterButton>
           <SigInContent navigation={navigation}></SigInContent>
         </View>
       </View>
     </SafeAreaView>
   );
 };
+
 export default RegistrationScreen;
