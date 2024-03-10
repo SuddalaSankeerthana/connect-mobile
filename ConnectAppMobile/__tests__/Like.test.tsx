@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 
 import {fireEvent, render, screen} from '@testing-library/react-native';
-import {LikesContext} from '../src/components/homeScreen/LikeContext';
+import {LikeContext} from '../src/components/homeScreen/LikeContext';
 import LikeButton from '../src/components/homeScreen/LikeButton';
 import {LikesAndComments} from '../src/components/homeScreen/LikesandComments';
 
@@ -16,10 +16,10 @@ describe('Test suit for liked Button component', () => {
     const setLikeStatus = jest.fn();
     var likeStatus = false;
     render(
-      <LikesContext.Provider
+      <LikeContext.Provider
         value={{likesCount, setLikesCount, likeStatus, setLikeStatus}}>
         <LikeButton></LikeButton>
-      </LikesContext.Provider>,
+      </LikeContext.Provider>,
     );
     const likedButton = screen.getByTestId('not-liked-button');
     expect(likedButton).toBeDefined();
@@ -30,10 +30,10 @@ describe('Test suit for liked Button component', () => {
     const setLikeStatus = jest.fn();
     var likeStatus = false;
     render(
-      <LikesContext.Provider
+      <LikeContext.Provider
         value={{likesCount, setLikesCount, likeStatus, setLikeStatus}}>
         <LikeButton></LikeButton>
-      </LikesContext.Provider>,
+      </LikeContext.Provider>,
     );
     const notLikedButton = screen.getByTestId('not-liked-button');
     fireEvent.press(notLikedButton);
@@ -46,10 +46,10 @@ describe('Test suit for liked Button component', () => {
     const setLikeStatus = jest.fn();
     var likeStatus = true;
     render(
-      <LikesContext.Provider
+      <LikeContext.Provider
         value={{likesCount, setLikesCount, likeStatus, setLikeStatus}}>
         <LikeButton></LikeButton>
-      </LikesContext.Provider>,
+      </LikeContext.Provider>,
     );
     const likedButton = screen.getByTestId('liked-button');
     expect(likedButton).toBeDefined();
@@ -60,10 +60,10 @@ describe('Test suit for liked Button component', () => {
     const setLikeStatus = jest.fn();
     var likeStatus = true;
     render(
-      <LikesContext.Provider
+      <LikeContext.Provider
         value={{likesCount, setLikesCount, likeStatus, setLikeStatus}}>
         <LikeButton></LikeButton>
-      </LikesContext.Provider>,
+      </LikeContext.Provider>,
     );
     const likedButton = screen.getByTestId('liked-button');
     expect(likedButton).toBeDefined();
@@ -79,10 +79,21 @@ describe('test suit for likes and comment', () => {
     const setLikeStatus = jest.fn();
     var likeStatus = true;
     render(
-      <LikesContext.Provider
+      <LikeContext.Provider
         value={{likesCount, setLikesCount, likeStatus, setLikeStatus}}>
-        <LikesAndComments></LikesAndComments>
-      </LikesContext.Provider>,
+        <LikesAndComments
+          likes_count={0}
+          post={{
+            PostId: '1',
+            UserId: undefined,
+            Username: 'dhdh',
+            ProfileImageAddress: 'dhdh',
+            Images: undefined,
+            Caption: 'dhhd',
+            LikesCount: 1,
+            LikeStatus: true,
+          }}></LikesAndComments>
+      </LikeContext.Provider>,
     );
     const count = screen.getByText('100');
     expect(count).toBeDefined();
@@ -93,10 +104,21 @@ describe('test suit for likes and comment', () => {
     const setLikeStatus = jest.fn();
     var likeStatus = true;
     render(
-      <LikesContext.Provider
+      <LikeContext.Provider
         value={{likesCount, setLikesCount, likeStatus, setLikeStatus}}>
-        <LikesAndComments></LikesAndComments>
-      </LikesContext.Provider>,
+        <LikesAndComments
+          likes_count={0}
+          post={{
+            PostId: '1',
+            UserId: undefined,
+            Username: 'dhdh',
+            ProfileImageAddress: 'dhdh',
+            Images: undefined,
+            Caption: 'dhhd',
+            LikesCount: 1,
+            LikeStatus: true,
+          }}></LikesAndComments>
+      </LikeContext.Provider>,
     );
   });
 });

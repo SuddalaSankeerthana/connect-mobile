@@ -1,32 +1,27 @@
 import 'react-native';
-import { ReactTestRenderer } from 'react-test-renderer';
+import {ReactTestRenderer} from 'react-test-renderer';
 import React from 'react';
-import {
-  act,
-} from '@testing-library/react-native';
+import {act, waitFor} from '@testing-library/react-native';
 import TestRenderer from 'react-test-renderer';
 import {Body} from '../src/components/homeScreen/Body';
-import { fetchData } from '../src/utils/fetchData';
+import {fetchData} from '../src/utils/fetchData';
+import { NavigationContainer } from '@react-navigation/native';
 
-jest.mock('../src/utils/fetchData')
+jest.mock('../src/utils/fetchData');
 jest.mock('@fortawesome/react-native-fontawesome', () => ({
   FontAwesomeIcon: '',
 }));
 
-describe("test rendering",()=>
-{
+describe('test rendering', () => {
   afterAll(() => console.log('1 - afterAll'));
-  
-  test("render posts",()=>
-  {
-    
+
+  it('render posts', async () => {
     let renderer: ReactTestRenderer;
-  act(() => {
-    renderer = TestRenderer.create(<Body />);
+    act(() => {
+      renderer = TestRenderer.create(<NavigationContainer><Body /></NavigationContainer>);
+    });
+    await waitFor(() => {
+      expect(fetchData).toHaveBeenCalledTimes(1);
+    });
   });
-  
-    expect(fetchData).toHaveBeenCalledTimes(1);
-    
-    
-  })
-})
+});

@@ -27,8 +27,7 @@ describe('test rendeirng post details', () => {
         ProfileImageAddress={item.profile_pic}
         Images={item.images}
         Caption={item.description}
-        LikesCount={item.likes_count}
-      />,
+        LikesCount={item.likes_count} LikeStatus={true}      />,
     );
     expect(screen.getByText('Dhana')).toBeTruthy();
     expect(screen.getByTestId('profile')).toBeDefined();
