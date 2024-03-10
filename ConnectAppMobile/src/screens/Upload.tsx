@@ -18,8 +18,11 @@ const UploadScreen = ({navigation}: any) => {
 
   const handleUploadIconPress = async () => {
     const images = await ImagePicker.openPicker({
+      width: 200,
+      height: 200,
       multiple: true,
-      mediaType: 'photo',
+      cropping: true,
+      freeStyleCropEnabled: true, 
     });
 
     if (images.length <= 4) {

@@ -7,12 +7,43 @@ export const styles = StyleSheet.create({
     backgroundColor: '#43A5EB21',
     borderBlockEndColor: 'black',
     borderRadius: 30,
-    paddingTop: 10,
-    margin: 25,
+    marginRight: 20,
+    marginLeft: 40,
+    marginTop: 70,
+    marginBottom: -45,
+    height: 370,
+    width: 300,
     shadowColor: '#171717',
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 3,
+  },
+  dotContainer: {
+    marginBottom: -15,
+  },
+  carousel: {
+    backgroundColor: 'black',
+    height: '100%',
+    width: '100%',
+  },
+  paginationDot: {
+    color: '#0074FF',
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
+  pagination: {
+    height: 30,
+    top: 10,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  likeCount: {
+    top: 2,
+  },
+  likeButtonEmpty: {
+    marginRight: 2,
   },
   logOutContainer: {
     display: 'flex',
@@ -81,9 +112,10 @@ export const styles = StyleSheet.create({
   captionContainer: {
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: 0,
+    left: 37,
+    paddingTop: 25,
+    paddingLeft: 12,
     paddingBottom: 20,
-    paddingLeft: 20,
   },
   commentIcon: {
     height: 24,
@@ -94,10 +126,9 @@ export const styles = StyleSheet.create({
   likesAndComment: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: -20,
+    top: 15,
     marginLeft: 10,
-    marginBottom: 10,
-    padding: 5,
+    paddingLeft: 30,
   },
   heartIcon: {
     padding: 2,
@@ -108,44 +139,44 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 50,
     marginBottom: -10,
+    top: 10,
     alignItems: 'center',
   },
   profileImage: {
-    height: 50,
-    width: 50,
+    height: 40,
+    width: 40,
     marginRight: 5,
     marginLeft: 20,
     borderRadius: 25,
   },
   image: {
-    height: 300,
-    width: 280,
-    marginRight: 30,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  containerStyle:
-  {
-    paddingTop: -20,
-  },
-  inDotStyle:
-  {
-    backgroundColor:'grey'
+    height: 200,
+    width: 250,
+    left: 0,
+    marginTop: 40,
 
+    borderRadius: 20,
   },
-  dotStyle:
-  {
-    width: 10,
+  containerStyle: {
+    paddingVertical: 20,
+
+    marginTop: -45,
+  },
+  inDotStyle: {
+    backgroundColor: 'grey',
+  },
+  likeButtonRed: {
+    color: 'red',
+    borderColor: 'black',
+    marginRight: 2,
+  },
+  dotStyle: {
     borderRadius: 18,
-    backgroundColor: '#0074FF',
+    backgroundColor: '#FFFFFF',
   },
   imageContainer: {
-    height: 350,
+    height: 250,
     width: 300,
-    marginRight: 10,
-    display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#171717',
     shadowOffset: {width: -2, height: 4},
@@ -153,8 +184,10 @@ export const styles = StyleSheet.create({
     shadowRadius: 3,
   },
   bodyContainer: {
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+    height: '100%',
   },
 });
