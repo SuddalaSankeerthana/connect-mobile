@@ -151,25 +151,104 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
+  // modalContainer: {
+  //   backgroundColor: 'white',
+  //   borderTopLeftRadius: 16,
+  //   borderTopRightRadius: 16,
+  //   borderBottomLeftRadius: 16,
+  //   borderBottomRightRadius: 16,
+  //   flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  // },
+  // closeIconContainer: {
+  //   position: 'absolute',
+  //   top: 60,
+  //   right: 20,
+  //   backgroundColor: 'black',
+  //   borderRadius: 20,
+  //   padding: 5,
+  // },
+  // closeIcon: {
+  //   color: 'white',
+  // },
+  // commentContainer: {
+  //   flexDirection: 'row',
+  //   alignItems: 'center',
+  //   marginVertical: 8,
+  // },
+  commentProfileImage: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    marginRight: 8,
+  },
+  commentTextContainer: {
+    flex: 1,
+  },
+  commentUsername: {
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  commentMessage: {
+    color: '#333',
+  },
   modalContainer: {
-    backgroundColor: 'white',
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
-    borderBottomLeftRadius: 16,
-    borderBottomRightRadius: 16,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: 40,
   },
   closeIconContainer: {
     position: 'absolute',
-    top: 60,
-    right: 20,
+    top: 10,
+    right: 10,
     backgroundColor: 'black',
-    borderRadius: 20,
-    padding: 5,
   },
   closeIcon: {
+    fontSize: 20,
     color: 'white',
   },
+  // commentContainer: {
+  //   flexDirection: 'row',
+  //   alignItems: 'center',
+  //   padding: 10,
+  //   borderBottomWidth: 1,
+  //   borderBottomColor: '#ccc',
+  // },
+  commentContent: {
+    marginLeft: 10,
+    flex: 1,
+  },
+  username: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  commentText: {
+    fontSize: 14,
+  },
+  replyText: {
+    color: 'blue',
+  },
+  repliesContainer: {
+    marginLeft: 40,
+    marginTop: 10,
+  },
+  replyContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 5,
+  },
+  replyContent: {
+    marginLeft: 10,
+  },
+  commentContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  
 });
