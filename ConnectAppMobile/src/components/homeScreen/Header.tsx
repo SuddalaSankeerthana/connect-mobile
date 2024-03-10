@@ -6,7 +6,7 @@ import {faPlusSquare} from '@fortawesome/free-regular-svg-icons';
 import {Profile} from './Profile';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
 import {useState} from 'react';
-import {Menu, MenuItem, MenuDivider} from 'react-native-material-menu';
+import {Menu, MenuItem} from 'react-native-material-menu';
 import {CurrentUserContext} from './LikeContext';
 
 export function Header({navigation}: any) {

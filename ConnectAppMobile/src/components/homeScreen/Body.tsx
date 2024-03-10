@@ -1,10 +1,9 @@
-import {FlatList} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
 import {PostItem} from './PostItem';
 import React, {useContext, useEffect} from 'react';
 import {useState} from 'react';
 import {fetchData} from '../../utils/fetchData';
-import {LikeContext, PostContext} from './LikeContext';
-
+import {PostContext, CurrentUserContext} from './LikeContext';
 export type PostType = {
   PostId: string;
   UserId?: string;
@@ -32,13 +31,12 @@ const renderPostDetails = ({item}: {item: PostType}) => {
 };
 
 export const useFecthData = () => {
-  const postContext = useContext(PostContext);
-  const likeContext = useContext(LikeContext);
+  const userContext = useContext(CurrentUserContext);
   const [data, setData] = useState<PostType[]>([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async () => {
-      const posts = await fetchData();
+      const posts = await fetchData(userContext.user.userId);
       setData(posts);
       console.log(posts);
     })();

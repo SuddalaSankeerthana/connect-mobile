@@ -20,13 +20,19 @@ export const handleLogin = async (
       },
       body: JSON.stringify(userData),
     }).then(res => {
-      return res;
+      return res.json();
     });
-    if (response.status === 200) {
+    userContext.setUser({
+      userId: response.user.UserId,
+      userName: response.user.Username,
+      profile: response.user.ProfileImageAddress,
+      email: response.user.Email,
+    });
+    console.log(userContext.user);
+    if (response.message === 'Loggged in successfully') {
       Alert.alert('Login successfully!');
+      console.log('s', response.user);
       navigation.navigate('Home');
-    } else if (response.status === 401) {
-      Alert.alert('Invalid user');
     } else {
       Alert.alert('Something went wrong');
     }
