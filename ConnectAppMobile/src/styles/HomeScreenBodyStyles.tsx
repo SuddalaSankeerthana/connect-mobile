@@ -165,8 +165,8 @@ export const styles = StyleSheet.create({
   },
   closeIconContainer: {
     position: 'absolute',
-    top: 0,
-    right: 10,
+    top: 30,
+    right: 20,
     backgroundColor: 'black',
     borderRadius: 20,
     padding: 5,
