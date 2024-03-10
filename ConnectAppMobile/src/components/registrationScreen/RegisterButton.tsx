@@ -3,6 +3,7 @@ import {TouchableOpacity, View, Text} from 'react-native';
 import {handleRegister} from '../../handlers/handleRegister';
 import styles from '../../styles/registration.style';
 import {Alert} from 'react-native';
+
 import {CurrentUserContext} from '../CurrentContext';
 
 const RegisterButton = (props: any) => {
@@ -39,11 +40,13 @@ const RegisterButton = (props: any) => {
       );
       return;
     }
-    if (props.userData.password !== props.userData.confirmPassword) {
-      Alert.alert('Password not matched');
-      return;
-    } else {
-      handleRegister(props.userData, props.navigation, userContext);
+    else {
+      handleRegister(
+        props.userData,
+        props.navigation,
+        userContext,
+        props.changedImage,
+      );
       return;
     }
   };

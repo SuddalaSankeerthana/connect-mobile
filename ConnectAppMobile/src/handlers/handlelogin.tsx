@@ -23,19 +23,23 @@ export const handleLogin = async (
     }).then(res => {
       return res.json();
     });
-    if (response.message === 'Loggged in successfully') {
+    if (response.message === 'Logged in Successfully!') {
       userContext.setUser({
         userId: response.user.UserId,
         userName: response.user.Username,
         profile: response.user.ProfileImageAddress,
         email: response.user.Email,
       });
-      Alert.alert('Login successfully!');
+      Alert.alert('Logged in successfully!');
       navigation.navigate('Home');
+    } else if (response.message === 'Invalid Email') {
+      Alert.alert('Invalid Email!');
+    } else if (response.message === 'Invalid Password') {
+      Alert.alert('Invalid Password!');
     } else {
       Alert.alert('Something went wrong');
     }
-  } catch (error) {
+  }  catch (error) {
     console.error('Error registering user:', error);
     Alert.alert('Failed to login');
   }

@@ -81,7 +81,7 @@ const UploadScreen = ({navigation}: any) => {
       <View style={styles.container}>
         <Text style={styles.uploadText}>Upload</Text>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleCancel}>
           {!imagesSelected && (
             <Image
               style={styles.backIcon}
