@@ -69,18 +69,26 @@ const CommentForm = ({
 
   return (
     <View style={Formstyles.commentInputContainer}>
-      <TextInput
-        placeholder={`Replying to ${post.Username}`}
-        style={Formstyles.input}
-        value={inputText}
-        onChangeText={text => {
-          setInputText(text);
-          setCommentText(text);
-        }}
-      />
-      <Pressable style={Formstyles.sendButton} onPress={handleSend}>
-        <FontAwesomeIcon icon={faPaperPlane} size={20} />
-      </Pressable>
+      <View style={Formstyles.profileImageContainer}>
+        <Image
+          source={{uri: post.ProfileImageAddress}}
+          style={Formstyles.profileImage}
+        />
+      </View>
+      <View style={Formstyles.inputContainer}>
+        <TextInput
+          placeholder={`Replying to ${post.Username}`}
+          style={Formstyles.input}
+          value={inputText}
+          onChangeText={text => {
+            setInputText(text);
+            setCommentText(text);
+          }}
+        />
+        <Pressable style={Formstyles.sendButton} onPress={handleSend}>
+          <FontAwesomeIcon icon={faPaperPlane} size={20} />
+        </Pressable>
+      </View>
     </View>
   );
 };
