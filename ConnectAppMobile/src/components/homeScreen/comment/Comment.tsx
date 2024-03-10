@@ -14,7 +14,6 @@ import {styles} from '../../../styles/HomeScreenBodyStyles';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
 import {CommentDataType, ReplyDataType} from '../../../types/CommentDataType';
 import {PostType} from '../Body';
-import {fetchData} from '../../../utils/fetchData';
 import CommentForm from './CommentForm';
 import Modal from 'react-native-modal';
 
@@ -31,7 +30,7 @@ const Comment = ({post}: {post: PostType}) => {
 
   const handleIconPress = async () => {
     setModalVisible(true);
-    await fetchData();
+    await fetchCommentsData();
   };
 
   const closeModal = () => {
@@ -39,7 +38,7 @@ const Comment = ({post}: {post: PostType}) => {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCommentsData = async () => {
       try {
         const response = await fetch(
           `http://localhost:8080/homepage/get-comments?postId=${post.PostId}`,
@@ -53,13 +52,12 @@ const Comment = ({post}: {post: PostType}) => {
             return entry;
           },
         );
-
         setCommentsData(array);
       } catch (error) {
         console.error('Error fetching the post details:', error);
       }
     };
-    fetchData();
+    fetchCommentsData();
   }, [isModalVisible, updateComments]);
 
   const handleComment = (username: string) => {
