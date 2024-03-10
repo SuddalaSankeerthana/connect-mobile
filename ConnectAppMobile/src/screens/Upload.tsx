@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import ImagePicker, {ImageOrVideo} from 'react-native-image-crop-picker';
 import RNFS from 'react-native-fs';
@@ -9,11 +9,13 @@ import {UploadButton} from '../components/UploadButton';
 import {TextInputContainer} from '../components/TextInputContainer';
 import {uploadPostDetails} from '../api/uploadPostService';
 import {PostDataBody} from '../types/PostBodyType';
+import {CurrentUserContext} from '../components/CurrentContext';
 
 const UploadScreen = ({navigation}: any) => {
   const [selectedImages, setSelectedImages] = useState<ImageOrVideo[]>([]);
   const [imagesSelected, setImagesSelected] = useState(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
+  const currentUser = useContext(CurrentUserContext);
   const [caption, setCaption] = useState<string>('');
 
   const handleUploadIconPress = async () => {
@@ -36,12 +38,11 @@ const UploadScreen = ({navigation}: any) => {
   const handleCancel = () => {
     navigation.navigate('Home');
   };
-  
 
   const handleUpload = async () => {
     try {
       let newPost: PostDataBody = {
-        UserId: '1',
+        UserId: currentUser.user.userId,
         PostCaption: caption,
         Images: [],
       };
