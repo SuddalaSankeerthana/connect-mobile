@@ -5,6 +5,7 @@ import {faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
 import {faHeart as faSHeart} from '@fortawesome/free-solid-svg-icons';
 import {LikeContext, PostContext, CurrentUserContext} from './LikeContext';
 import {updateLikeStatus} from '../../handlers/handlerLike';
+import { styles } from '../../styles/HomeScreenBodyStyles';
 
 const LikeButton = () => {
   const likeContext = useContext(LikeContext);
@@ -28,9 +29,9 @@ const LikeButton = () => {
           icon={faSHeart}
           size={27}
           testID="liked-button"
-          style={{color: 'red', borderColor: 'black'}}></FontAwesomeIcon>
+          style={styles.likeButtonRed}></FontAwesomeIcon>
       ) : (
-        <FontAwesomeIcon testID="not-liked-button" icon={farHeart} size={27} />
+        <FontAwesomeIcon testID="not-liked-button" icon={farHeart} size={27}  style={styles.likeButtonEmpty}/>
       )}
     </TouchableOpacity>
   );
