@@ -1,5 +1,5 @@
 import Carousel, {Pagination} from 'react-native-snap-carousel';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import {PostImage} from './PostImage';
 import {styles} from '../../styles/HomeScreenBodyStyles';
 import {Profile} from './Profile';
@@ -9,7 +9,9 @@ import {LikesAndComments} from './LikesandComments';
 import {Caption} from './PostCaption';
 import {PostType} from './Body';
 import PropTypes from 'prop-types';
-import { LikeContext } from './LikeContext';
+import {LikeContext} from './LikeContext';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faCircle, faDotCircle} from '@fortawesome/free-solid-svg-icons';
 
 PostItem.propTypes = {
   dotStyle: PropTypes.any.isRequired,
@@ -52,8 +54,10 @@ export function PostItem(props: PostType) {
           sliderWidth={400}
           itemWidth={350}
           testID="images"
-        />
+          style={styles.carousel}></Carousel>
+
         <Pagination
+          dotContainerStyle={styles.dotContainer}
           activeDotIndex={page}
           carouselRef={isCarousel}
           tappableDots={true}
@@ -64,7 +68,6 @@ export function PostItem(props: PostType) {
           containerStyle={styles.containerStyle}
           inactiveDotStyle={styles.inDotStyle}
         />
-
         <LikesAndComments />
 
         <Caption description={props.Caption} />
