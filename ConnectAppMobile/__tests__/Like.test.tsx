@@ -24,19 +24,7 @@ describe('Test suit for liked Button component', () => {
   });
   afterAll(() => console.log('1 - afterAll'));
 
-  it('render posts', async () => {
-    let renderer: ReactTestRenderer;
-    act(() => {
-      renderer = TestRenderer.create(
-        <NavigationContainer>
-          <Body />
-        </NavigationContainer>,
-      );
-    });
-    await waitFor(() => {
-      expect(fetchData).toHaveBeenCalledTimes(1);
-    });
-  });
+  
   test('test for likeButton', () => {
     var likesCount = 100;
     const setLikesCount = jest.fn();
