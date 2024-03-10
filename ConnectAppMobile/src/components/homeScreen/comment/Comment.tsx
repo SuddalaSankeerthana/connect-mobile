@@ -16,6 +16,7 @@ import {CommentDataType, ReplyDataType} from '../../../types/CommentDataType';
 import {PostType} from '../Body';
 import CommentForm from './CommentForm';
 import Modal from 'react-native-modal';
+import {getHostName} from '../../../utils/getHostName';
 
 const Comment = ({post}: {post: PostType}) => {
   const windowHeight = Dimensions.get('window').height;
@@ -30,7 +31,7 @@ const Comment = ({post}: {post: PostType}) => {
 
   const handleIconPress = async () => {
     setModalVisible(true);
-    await fetchCommentsData();
+    // await fetchCommentsData();
   };
 
   const closeModal = () => {
@@ -41,7 +42,9 @@ const Comment = ({post}: {post: PostType}) => {
     const fetchCommentsData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/homepage/get-comments?postId=${post.PostId}`,
+          `http://${getHostName()}:8080/homepage/get-comments?postId=${
+            post.PostId
+          }`,
         ).then(res => {
           return res.json();
         });
@@ -210,7 +213,6 @@ const Comment = ({post}: {post: PostType}) => {
                                             <Text
                                               style={{
                                                 display: 'flex',
-                                               
                                               }}>
                                               {reply.CommentMessage}
                                             </Text>
