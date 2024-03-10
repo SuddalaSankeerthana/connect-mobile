@@ -9,8 +9,8 @@ export function LikesAndComments() {
   return (
     <View style={styles.likesAndComment}>
       <LikeButton></LikeButton>
-      <View>
-        <Text>{likeContext.likesCount}</Text>
+      <View style={styles.likeCount}>
+        <Text >{likeContext.likesCount}</Text>
       </View>
       <View>
         <Image
