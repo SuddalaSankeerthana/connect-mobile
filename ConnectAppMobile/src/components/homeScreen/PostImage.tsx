@@ -41,10 +41,12 @@ export function PostImage({image}: {image: string}) {
               numberOfTaps={2}
               onActivated={onDoubleTap}
               waitFor={doubleTapRef}>
-              <View>
+              <View >
                 <ImageBackground
                   testID="post-image"
                   source={{uri: image}}
+                  resizeMode="cover"
+                  imageStyle={{borderRadius:20}}
                   style={styles.image}>
                   {isShow ? (
                     <Image
