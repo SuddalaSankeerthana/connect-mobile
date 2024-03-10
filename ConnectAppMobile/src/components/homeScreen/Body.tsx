@@ -1,8 +1,8 @@
 import {FlatList, Text, View} from 'react-native';
 import {PostItem} from './PostItem';
-import React, {useContext, useEffect} from 'react';
-import {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {fetchData} from '../../utils/fetchData';
+import {useIsFocused} from '@react-navigation/native'; 
 
 import {PostContext} from './PostContext';
 import {CurrentUserContext} from '../CurrentContext';
@@ -32,20 +32,25 @@ const renderPostDetails = ({item}: {item: PostType}) => {
   );
 };
 
-export const useFecthData = () => {
+export const useFetchData = () => {
   const userContext = useContext(CurrentUserContext);
   const [data, setData] = useState<PostType[]>([]);
   const [loading, setLoading] = useState(true);
+  const isFocused = useIsFocused(); 
+
   useEffect(() => {
-    (async () => {
-      const posts = await fetchData(userContext.user.userId);
-      setData(posts);
-      console.log(posts);
-    })();
-  }, []);
+    if (isFocused) {
+
+      (async () => {
+        const posts = await fetchData(userContext.user.userId);
+        setData(posts);
+        setLoading(false);
+      })();
+    }
+  }, [isFocused, userContext.user.userId]);
   return {data, loading};
 };
 export function Body() {
-  const {data, loading} = useFecthData();
+  const {data, loading} = useFetchData();
   return <FlatList data={data} renderItem={renderPostDetails} testID="data" />;
 }
