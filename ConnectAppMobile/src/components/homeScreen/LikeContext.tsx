@@ -8,10 +8,28 @@ export type LikeContextType = {
   setLikesCount: Dispatch<SetStateAction<number>>;
   setLikeStatus: Dispatch<SetStateAction<boolean>>;
 };
+export type UserDetails = {
+  userId: string;
+  userName: string;
+  email: string;
+  profile: string;
+};
+export type CurrentUserContext = {
+  user: UserDetails;
+  setUser: Dispatch<SetStateAction<UserDetails>>;
+};
 export type User = {
   UserId: string;
 };
-export const CurrentUserContext = React.createContext<User>({UserId: '3'});
+export const CurrentUserContext = React.createContext<CurrentUserContext>({
+  user: {
+    userId: '',
+    userName: '',
+    email: '',
+    profile: '',
+  },
+  setUser: () => {},
+});
 export const LikeContext = React.createContext<LikeContextType>({
   likesCount: 0,
   likeStatus: false,

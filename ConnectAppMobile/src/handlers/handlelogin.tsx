@@ -1,10 +1,12 @@
 import {Platform} from 'react-native';
-import { REPL_MODE_SLOPPY } from 'repl';
-import { Alert } from 'react-native';
+import {REPL_MODE_SLOPPY} from 'repl';
+import {Alert} from 'react-native';
 import {LoginRouteProps} from '../types/LoginRouteProps';
+import {CurrentUserContext} from '../components/homeScreen/LikeContext';
 export const handleLogin = async (
   userData: LoginRouteProps,
   navigation: any,
+  userContext: CurrentUserContext,
 ) => {
   try {
     const url =
@@ -17,7 +19,9 @@ export const handleLogin = async (
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userData),
-    }).then(res => {return res;});
+    }).then(res => {
+      return res;
+    });
     if (response.status === 200) {
       Alert.alert('Login successfully!');
       navigation.navigate('Home');
@@ -30,5 +34,5 @@ export const handleLogin = async (
     console.error('Error registering user:', error);
     Alert.alert('Failed to login');
   }
-  return true
-}
+  return true;
+};

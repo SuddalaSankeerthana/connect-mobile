@@ -21,7 +21,7 @@ export function PostImage({image}: {image: string}) {
         likeContext.setLikeStatus,
         likeContext.likeStatus,
         postContext.PostId,
-        currentUser.UserId,
+        currentUser.user.userId,
       );
     }
     setTimeout(() => {
