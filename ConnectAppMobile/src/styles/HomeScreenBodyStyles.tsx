@@ -159,18 +159,20 @@ export const styles = StyleSheet.create({
   },
   containerStyle: {
     paddingVertical: 20,
-
+    paddingTop: -20,
     marginTop: -45,
   },
   inDotStyle: {
     backgroundColor: 'grey',
   },
+
   likeButtonRed: {
     color: 'red',
     borderColor: 'black',
     marginRight: 2,
   },
   dotStyle: {
+    width: 10,
     borderRadius: 18,
     backgroundColor: '#FFFFFF',
   },
@@ -189,5 +191,110 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: '100%',
+  },
+  modalContainer: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeIcon: {
+    color: 'white',
+  },
+  closeIconContainer: {
+    position: 'absolute',
+    top: 30,
+    right: 20,
+    backgroundColor: 'black',
+    borderRadius: 20,
+    padding: 5,
+  },
+  commentProfileImage: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    marginRight: 8,
+  },
+  commentTextContainer: {
+    flex: 1,
+  },
+  commentUsername: {
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  commentMessage: {
+    color: '#333',
+  },
+  commentContent: {
+    marginLeft: 10,
+    flex: 1,
+  },
+  username: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  commentText: {
+    fontSize: 14,
+  },
+  replyText: {
+    color: 'blue',
+  },
+  repliesContainer: {
+    marginLeft: 40,
+    marginTop: 10,
+  },
+  replyContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 5,
+  },
+  replyContent: {
+    marginLeft: 10,
+  },
+  commentContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  commentInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    position: 'absolute',
+    bottom: 10,
+  },
+  input: {
+    flex: 1,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    marginLeft: 5,
+  },
+  sendButton: {
+    marginLeft: 10,
+    padding: 10,
+    borderRadius: 8,
+  },
+  profileImageContainer: {
+    marginRight: 10,
+  },
+  profileImageCommentId: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    marginRight: 10,
+  },
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    padding: 5,
+    borderColor: '#ccc',
+    borderRadius: 20,
   },
 });

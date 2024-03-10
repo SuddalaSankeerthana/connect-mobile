@@ -10,8 +10,7 @@ import {Caption} from './PostCaption';
 import {PostType} from './Body';
 import PropTypes from 'prop-types';
 import {LikeContext} from './LikeContext';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faCircle, faDotCircle} from '@fortawesome/free-solid-svg-icons';
+
 
 PostItem.propTypes = {
   dotStyle: PropTypes.any.isRequired,
@@ -68,8 +67,7 @@ export function PostItem(props: PostType) {
           containerStyle={styles.containerStyle}
           inactiveDotStyle={styles.inDotStyle}
         />
-        <LikesAndComments />
-
+        <LikesAndComments likes_count={props.LikesCount} post={props}/>
         <Caption description={props.Caption} />
       </View>
     </LikeContext.Provider>
