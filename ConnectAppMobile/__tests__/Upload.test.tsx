@@ -3,6 +3,7 @@ import {render, fireEvent, waitFor} from '@testing-library/react-native';
 import {act} from 'react-test-renderer';
 import UploadScreen from '../src/screens/Upload';
 import {uploadPostDetails} from '../src/api/uploadPostService';
+import {NavigationContainer} from '@react-navigation/native';
 
 jest.mock('react-native-image-crop-picker', () => {
   return {
@@ -24,7 +25,11 @@ describe('UploadPostScreen component', () => {
     console.error = jest.fn();
   });
   test('renders correctly without selected images', () => {
-    const {getByText, queryByTestId} = render(<UploadScreen />);
+    const {getByText, queryByTestId} = render(
+      <NavigationContainer>
+        <UploadScreen />
+      </NavigationContainer>,
+    );
     expect(getByText('Upload')).toBeTruthy();
     expect(queryByTestId('cancel-button')).toBeNull();
     expect(queryByTestId('upload-button')).toBeNull();
