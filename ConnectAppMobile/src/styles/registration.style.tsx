@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 380,
     borderRadius: 25,
+    color:Platform.OS==='android'?'black':'black',
     paddingLeft: '10%',
   },
   registrationContainer: {

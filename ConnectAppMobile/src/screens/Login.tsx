@@ -36,7 +36,7 @@ function LoginScreen({navigation}:any): React.JSX.Element {
 <ImageBackground source={require('../assets/background_style2.png')} style={styles.backgroundEffect}>
      <LoginButton password={password} email={email} userData={userData} navigation={navigation}/>
      <View style={styles.noAccount}>
-     <Caption text="Don't have an account?" />
+     <Caption text="Don't have an account?"  style={styles.caption}/>
      <Caption text="Sign Up" style={styles.signUp} onPress={()=> navigation.navigate('Registration')}/>
      </View>
      <View style={styles.vectorContainer}>

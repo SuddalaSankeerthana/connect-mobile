@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
  mainContainer: {
   height: '100%',
@@ -14,6 +14,10 @@ export const styles = StyleSheet.create({
  {
   height:90,
   width:150,
+ },
+ caption:
+ {
+    color:Platform.OS==='android'?'black':'black'
  },
  vectorContainer:
  {
