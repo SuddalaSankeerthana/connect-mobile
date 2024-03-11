@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   postConitainer: {
@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
   },
   likeCount: {
     top: 2,
+    color:Platform.OS==="android"?'black':'black'
   },
   likeButtonEmpty: {
     marginRight: 2,

@@ -86,6 +86,7 @@ height:'110%',
  inputField: {
   backgroundColor: '#43A5EB12',
   width: 250,
+  color:Platform.OS==="android"?'black':'black'
  },
  inputLabels: {
   color: '#646060',

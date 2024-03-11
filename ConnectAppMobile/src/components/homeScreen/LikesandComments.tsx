@@ -20,7 +20,7 @@ export function LikesAndComments({
     <View style={styles.likesAndComment}>
       <LikeButton></LikeButton>
       <View style={styles.likeCount}>
-        <Text >{likeContext.likesCount}</Text>
+        <Text style={styles.likeCount}>{likeContext.likesCount}</Text>
       </View>
       <View>
         <Comment  post={post}/>
