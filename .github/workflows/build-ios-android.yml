@@ -1,6 +1,8 @@
+name: Build and deploy for dev
+  
 on:
   push:
-    branches: [ "bugfix/build" ]
+    branches: [ " bugfix/build" ]
 jobs:
   ios-build:
     name: iOS Dev Build
