@@ -24,7 +24,6 @@ describe('Test suit for liked Button component', () => {
   });
   afterAll(() => console.log('1 - afterAll'));
 
-  
   test('test for likeButton', () => {
     var likesCount = 100;
     const setLikesCount = jest.fn();
@@ -86,8 +85,7 @@ describe('Test suit for liked Button component', () => {
     expect(setLikeStatus).toHaveBeenCalled();
     expect(setLikesCount).toHaveBeenCalled();
   });
-});
-describe('test suit for likes and comment', () => {
+
   test('test for like count', () => {
     var likesCount = 100;
     const setLikesCount = jest.fn();
@@ -136,4 +134,4 @@ describe('test suit for likes and comment', () => {
       </LikeContext.Provider>,
     );
   });
-});
+})
