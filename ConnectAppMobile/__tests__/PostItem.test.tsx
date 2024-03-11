@@ -8,6 +8,10 @@ jest.mock('@fortawesome/react-native-fontawesome', () => ({
 }));
 
 describe('test rendeirng post details', () => {
+  beforeEach(() => {
+    global.fetch = jest.fn();
+    console.error = jest.fn();
+  });
   afterAll(() => console.log('1 - afterAll'));
   test('renders correctly', () => {
     const onSnapToItem = jest.fn();

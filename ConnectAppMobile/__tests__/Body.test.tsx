@@ -14,6 +14,10 @@ jest.mock('@fortawesome/react-native-fontawesome', () => ({
 jest.mock('../src/utils/fetchData');
 
 describe('test rendering', () => {
+  beforeEach(() => {
+    global.fetch = jest.fn();
+    console.error = jest.fn();
+  });
   afterAll(() => console.log('1 - afterAll'));
 
   it('render posts', async () => {

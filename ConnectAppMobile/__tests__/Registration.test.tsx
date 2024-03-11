@@ -32,6 +32,10 @@ jest.mock('react-native-image-crop-picker', () => {
 });
 
 describe('Test for registration screen individual components', () => {
+  beforeEach(() => {
+    global.fetch = jest.fn();
+    console.error = jest.fn();
+  });
   afterAll(() => console.log('1 - afterAll'));
   test('test for background image component', () => {
     render(<BackGroundImage></BackGroundImage>);

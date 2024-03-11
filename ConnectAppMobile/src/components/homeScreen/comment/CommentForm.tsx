@@ -70,7 +70,7 @@ const CommentForm = ({
     <View style={styles.commentInputContainer}>
       <View style={styles.profileImageContainer}>
         <Image
-          source={{uri: post.ProfileImageAddress}}
+          source={{uri:currentUser.user.profile }}
           style={styles.profileImageCommentId}
         />
       </View>

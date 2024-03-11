@@ -17,7 +17,6 @@ jest.mock('@fortawesome/react-native-fontawesome', () => ({
 }));
 
 describe('test for the login screens', () => {
- 
   jest.spyOn(Alert, 'alert');
   afterAll(() => console.log('1 - afterAll'));
   test('To check logo', () => {
@@ -93,7 +92,11 @@ test('test for navigation', async () => {
   const navigation = {
     navigate: jest.fn(() => {}),
   };
-  render(<LoginScreen navigation={navigation} />);
+  render(
+    <NavigationContainer>
+      <LoginScreen navigation={navigation} />
+    </NavigationContainer>,
+  );
   const register = await screen.findByText('Sign Up');
   expect(register).toBeDefined();
   fireEvent.press(register);
@@ -101,11 +104,7 @@ test('test for navigation', async () => {
 });
 
 test('To check for Password input field', () => {
-  render(
-   
-      <LoginScreen />
- 
-  );
+  render(<LoginScreen />);
   const password = screen.getByText('Password');
   expect(password).toBeDefined();
 });

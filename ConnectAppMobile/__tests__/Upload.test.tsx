@@ -19,6 +19,10 @@ jest.mock('../src/api/uploadPostService', () => ({
 }));
 
 describe('UploadPostScreen component', () => {
+  beforeEach(() => {
+    global.fetch = jest.fn();
+    console.error = jest.fn();
+  });
   test('renders correctly without selected images', () => {
     const {getByText, queryByTestId} = render(<UploadScreen />);
     expect(getByText('Upload')).toBeTruthy();
