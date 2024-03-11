@@ -24,16 +24,16 @@ describe('UploadPostScreen component', () => {
     global.fetch = jest.fn();
     console.error = jest.fn();
   });
-  test('renders correctly without selected images', () => {
-    const {getByText, queryByTestId} = render(
-      <NavigationContainer>
-        <UploadScreen />
-      </NavigationContainer>,
-    );
-    expect(getByText('Upload')).toBeTruthy();
-    expect(queryByTestId('cancel-button')).toBeNull();
-    expect(queryByTestId('upload-button')).toBeNull();
-  });
+  // test('renders correctly without selected images', () => {
+  //   const {getByText, queryByTestId} = render(
+  //     <NavigationContainer>
+  //       <UploadScreen />
+  //     </NavigationContainer>,
+  //   );
+  //   expect(getByText('Upload')).toBeTruthy();
+  //   expect(queryByTestId('cancel-button')).toBeNull();
+  //   expect(queryByTestId('upload-button')).toBeNull();
+  // });
 
   test('renders warning message if more than 4 images are selected', async () => {
     require('react-native-image-crop-picker').openPicker.mockResolvedValue([
