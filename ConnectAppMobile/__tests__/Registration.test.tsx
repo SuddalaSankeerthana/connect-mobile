@@ -12,10 +12,8 @@ import {
 import BackGroundImage from '../src/components/registrationScreen/BackgroundImage';
 import LogoAndTitle from '../src/components/registrationScreen/LogoTitle';
 import RegisterButton from '../src/components/registrationScreen/RegisterButton';
-import RegistrationProfile from '../src/components/registrationScreen/RegistrationProfile';
 import SigIn from '../src/components/registrationScreen/SignIn';
 import RegistrationScreen from '../src/screens/Registration';
-import SignIn from '../src/components/registrationScreen/SignIn';
 import SignInContent from '../src/components/registrationScreen/SignInContent';
 import {NavigationContainer} from '@react-navigation/native';
 
@@ -53,13 +51,13 @@ describe('Test for registration screen individual components', () => {
     expect(logo).toBeDefined();
   });
   test('test for register button', async () => {
-  //   const navigation = {
-  //     navigate: jest.fn(() => {}),
-  //   };
-    render(<RegisterButton navigation={navigation}></RegisterButton>);
+      const navigation = {
+        navigate: jest.fn(() => {}),
+      };
+    render(<NavigationContainer><RegisterButton navigation={navigation}></RegisterButton></NavigationContainer>);
     const register = await screen.findByText('Register');
     expect(register).toBeDefined();
-  //   waitFor(() => expect(navigation.navigate()).toHaveBeenCalled());
+      waitFor(() => expect(navigation.navigate()).toHaveBeenCalled());
   });
   test('Registration Profile compenent test', () => {
     render(<RegistraionProfile></RegistraionProfile>);
