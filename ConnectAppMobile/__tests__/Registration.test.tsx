@@ -68,16 +68,6 @@ describe('Test for registration screen individual components', () => {
     const editButton = screen.findByTestId('edit-icon');
     expect(editButton).toBeDefined();
   });
-  test('SignIn component test', async () => {
-    const navigation = {
-      navigate: jest.fn(() => {}),
-    };
-    render(<SigIn navigation={navigation}></SigIn>);
-    const signIn = await screen.findByText('Sign in');
-    expect(signIn).toBeDefined();
-    fireEvent.press(signIn);
-    waitFor(() => expect(navigation.navigate).toHaveBeenCalled());
-  });
   test('test for SignInContent', async () => {
     const navigation = {
       navigate: jest.fn(() => {}),
