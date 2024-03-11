@@ -3,17 +3,17 @@ import {Platform} from 'react-native';
 import {Alert} from 'react-native';
 import {LoginRouteProps} from '../types/LoginRouteProps';
 import {CurrentUserContextType} from '../components/CurrentContext';
+import {getHostName} from '../utils/getHostName';
 
 export const handleLogin = async (
   userData: LoginRouteProps,
   navigation: any,
   userContext: CurrentUserContextType,
 ) => {
+  const networkHost = getHostName();
   try {
-    const url =
-      Platform.OS == 'android'
-        ? 'http://10.0.2.2:8080/auth/login'
-        : 'http://localhost:8080/auth/login';
+    const url = `http://${networkHost}:8080/auth/login`;
+
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -39,7 +39,7 @@ export const handleLogin = async (
     } else {
       Alert.alert('Something went wrong');
     }
-  }  catch (error) {
+  } catch (error) {
     console.error('Error registering user:', error);
     Alert.alert('Failed to login');
   }

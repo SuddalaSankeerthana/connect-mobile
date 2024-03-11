@@ -8,7 +8,6 @@ import React from 'react';
 import {LikesAndComments} from './LikesandComments';
 import {Caption} from './PostCaption';
 import {PostType} from './Body';
-import PropTypes from 'prop-types';
 import {LikeContext} from './LikeContext';
 
 
@@ -21,7 +20,6 @@ export function PostItem(props: PostType) {
   console.log(props);
   const [likesCount, setLikesCount] = useState(props.LikesCount);
   const [likeStatus, setLikeStatus] = useState(Boolean(props.LikeStatus));
-  console.log(likeStatus);
   const renderImages = ({item}: any) => {
     return (
       <View style={styles.imageContainer}>
