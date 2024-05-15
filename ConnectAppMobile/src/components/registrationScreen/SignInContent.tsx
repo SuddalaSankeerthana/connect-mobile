@@ -4,7 +4,7 @@ import {Text, View} from 'react-native';
 import SigIn from './SignIn';
 import styles from '../../styles/registration.style';
 
-const SigInContent = ({navigation}: any) => {
+const SignInContent = ({navigation}: any) => {
   return (
     <View style={styles.signIncontent}>
       <Text style={styles.alredyHaveAccount}> Already have an account? </Text>
@@ -12,4 +12,4 @@ const SigInContent = ({navigation}: any) => {
     </View>
   );
 };
-export default SigInContent;
+export default SignInContent;

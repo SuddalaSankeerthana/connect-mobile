@@ -1,10 +1,12 @@
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import React, {Dispatch, SetStateAction, useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
 import {faHeart as faSHeart} from '@fortawesome/free-solid-svg-icons';
-import {LikeContext, PostContext, CurrentUserContext} from './LikeContext';
+import {LikeContext} from './LikeContext';
 import {updateLikeStatus} from '../../handlers/handlerLike';
+import {PostContext} from './PostContext';
+import { CurrentUserContext } from '../CurrentContext';
 
 const LikeButton = () => {
   const likeContext = useContext(LikeContext);
@@ -20,7 +22,7 @@ const LikeButton = () => {
           likeContext.setLikeStatus,
           likeContext.likeStatus,
           postContext.PostId,
-          currentUser.UserId,
+          currentUser.user.userId,
         );
       }}>
       {likeContext.likeStatus ? (

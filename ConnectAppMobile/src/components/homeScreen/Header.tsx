@@ -1,18 +1,20 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useContext} from 'react';
 import {styles} from '../../styles/HomeScreenBodyStyles';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faPlusSquare} from '@fortawesome/free-regular-svg-icons';
 import {Profile} from './Profile';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
 import {useState} from 'react';
-import {Menu, MenuItem, MenuDivider} from 'react-native-material-menu';
+import {Menu, MenuItem} from 'react-native-material-menu';
+import {CurrentUserContext} from '../CurrentContext';
 
 export function Header({navigation}: any) {
   const [visible, setVisible] = useState(false);
   const hideMenu = () => setVisible(false);
 
   const showMenu = () => setVisible(true);
+  const currentUser = useContext(CurrentUserContext);
   return (
     <View style={styles.header}>
       <View style={styles.logoAndTitleContainer}>
@@ -21,13 +23,13 @@ export function Header({navigation}: any) {
           style={styles.logo}
           testID="logo"
         />
-        <Text style={styles.title} >CONNECT</Text>
+        <Text style={styles.title}>CONNECT</Text>
       </View>
       <View style={styles.iconsContainer}>
         <View>
           <Profile
-            profile_pic="https://i.pinimg.com/originals/d8/2b/ca/d82bca57dcaa9ceb4c827e3d6ab9fcfe.jpg"
-            name="Lavanya"
+            profile_pic={currentUser.user.profile}
+            name={currentUser.user.userName}
             containerStyle={styles.headerProfileContainer}
             imageStyle={styles.headerProfile}
             profileName={styles.profileName}
@@ -57,7 +59,7 @@ export function Header({navigation}: any) {
           onRequestClose={hideMenu}>
           <MenuItem onPress={hideMenu} style={styles.logOutContainer}>
             <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-              <Text testID='logout'>Log out</Text>
+              <Text testID="logout">Log out</Text>
             </TouchableOpacity>
           </MenuItem>
         </Menu>

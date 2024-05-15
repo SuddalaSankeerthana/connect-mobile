@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     top: '-2%',
   },
-  profile: {width: 80, height: 80, resizeMode: 'cover', marginTop: '3%'},
-  editIcon: {width: 20, height: 20, top: -15, marginStart: 'auto'},
+  profile: {width: 80, height: 80, resizeMode: 'cover', marginTop: '3%', borderRadius:50},
+  editIcon: {width: 30, height: 30, top: -25, marginStart: 'auto'},
   signInText: {color: '#43A5EB'},
   alredyHaveAccount: {color: '#000000'},
   tagLine: {
